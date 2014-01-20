@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:4db4b2873f7f27dc94ab52e8ec931b99:c2da4f68742ee6e8460ea1011af810c1:81f7e1aa7ac3dcb6dc608076b915117d$ -->
+<TextureAtlas imagePath="asset_sheet.png">
+    <SubTexture name="big_eradium_explosion_001" x="405" y="377" width="26" height="22" frameX="-29" frameY="-33" frameWidth="86" frameHeight="86"/>
+    <SubTexture name="big_eradium_explosion_002" x="354" y="219" width="82" height="74" frameX="-1" frameY="-6" frameWidth="86" frameHeight="86"/>
+    <SubTexture name="big_eradium_explosion_003" x="2" y="364" width="78" height="66" frameX="-2" frameY="-12" frameWidth="86" frameHeight="86"/>
+    <SubTexture name="big_eradium_explosion_004" x="232" y="517" width="66" height="56" frameX="-7" frameY="-17" frameWidth="86" frameHeight="86"/>
+    <SubTexture name="big_eradium_explosion_005" x="405" y="429" width="68" height="58" frameX="-5" frameY="-16" frameWidth="86" frameHeight="86"/>
+    <SubTexture name="big_eradium_explosion_006" x="80" y="500" width="70" height="58" frameX="-5" frameY="-15" frameWidth="86" frameHeight="86"/>
+    <SubTexture name="big_eradium_explosion_007" x="160" y="423" width="72" height="60" frameX="-3" frameY="-14" frameWidth="86" frameHeight="86"/>
+    <SubTexture name="big_eradium_explosion_008" x="438" y="289" width="72" height="64" frameX="-3" frameY="-13" frameWidth="86" frameHeight="86"/>
+    <SubTexture name="big_eradium_explosion_009" x="72" y="560" width="64" height="66" frameX="-9" frameY="-14" frameWidth="86" frameHeight="86"/>
+    <SubTexture name="big_eradium_explosion_010" x="438" y="219" width="72" height="68" frameX="-4" frameY="-10" frameWidth="86" frameHeight="86"/>
+    <SubTexture name="big_eradium_explosion_011" x="2" y="510" width="68" height="72" frameX="-9" frameY="-7" frameWidth="86" frameHeight="86"/>
+    <SubTexture name="big_eradium_explosion_012" x="306" y="449" width="66" height="70" frameX="-11" frameY="-10" frameWidth="86" frameHeight="86"/>
+    <SubTexture name="big_eradium_explosion_013" x="152" y="549" width="64" height="66" frameX="-14" frameY="-13" frameWidth="86" frameHeight="86"/>
+    <SubTexture name="big_eradium_explosion_014" x="234" y="445" width="70" height="70" frameX="-11" frameY="-10" frameWidth="86" frameHeight="86"/>
+    <SubTexture name="big_eradium_explosion_015" x="436" y="355" width="74" height="72" frameX="-8" frameY="-7" frameWidth="86" frameHeight="86"/>
+    <SubTexture name="big_eradium_explosion_016" x="364" y="547" width="60" height="64" frameX="-12" frameY="-13" frameWidth="86" frameHeight="86"/>
+    <SubTexture name="big_eradium_explosion_017" x="62" y="690" width="54" height="62" frameX="-16" frameY="-13" frameWidth="86" frameHeight="86"/>
+    <SubTexture name="blue_burst_001" x="258" y="645" width="48" height="48" frameX="-20" frameY="-17" frameWidth="86" frameHeight="86"/>
+    <SubTexture name="blue_burst_002" x="340" y="613" width="50" height="48" frameX="-19" frameY="-18" frameWidth="86" frameHeight="86"/>
+    <SubTexture name="blue_burst_003" x="300" y="521" width="62" height="62" frameX="-11" frameY="-12" frameWidth="86" frameHeight="86"/>
+    <SubTexture name="blue_burst_004" x="333" y="377" width="70" height="70" frameX="-7" frameY="-8" frameWidth="86" frameHeight="86"/>
+    <SubTexture name="blue_burst_005" x="97" y="274" width="74" height="76" frameX="-5" frameY="-4" frameWidth="86" frameHeight="86"/>
+    <SubTexture name="blue_burst_006" x="2" y="432" width="76" height="76" frameX="-4" frameY="-5" frameWidth="86" frameHeight="86"/>
+    <SubTexture name="blue_burst_007" x="354" y="295" width="80" height="80" frameX="-2" frameY="-3" frameWidth="86" frameHeight="86"/>
+    <SubTexture name="blue_hit_001" x="308" y="663" width="44" height="60" frameX="-21" frameY="-12" frameWidth="86" frameHeight="86"/>
+    <SubTexture name="blue_hit_002" x="198" y="639" width="58" height="54" frameX="-13" frameY="-15" frameWidth="86" frameHeight="86"/>
+    <SubTexture name="blue_hit_003" x="226" y="695" width="38" height="32" frameX="-24" frameY="-26" frameWidth="86" frameHeight="86"/>
+    <SubTexture name="blue_hit_004" x="186" y="695" width="38" height="38" frameX="-24" frameY="-23" frameWidth="86" frameHeight="86"/>
+    <SubTexture name="blue_hit_005" x="280" y="585" width="58" height="58" frameX="-14" frameY="-13" frameWidth="86" frameHeight="86"/>
+    <SubTexture name="blue_hit_006" x="82" y="422" width="76" height="76" frameX="-5" frameY="-4" frameWidth="86" frameHeight="86"/>
+    <SubTexture name="blue_hit_007" x="426" y="611" width="50" height="50" frameX="-18" frameY="-19" frameWidth="86" frameHeight="86"/>
+    <SubTexture name="blue_hit_008" x="426" y="555" width="52" height="54" frameX="-18" frameY="-17" frameWidth="86" frameHeight="86"/>
+    <SubTexture name="blue_hit_009" x="2" y="708" width="54" height="56" frameX="-17" frameY="-17" frameWidth="86" frameHeight="86"/>
+    <SubTexture name="blue_hit_010" x="128" y="681" width="56" height="58" frameX="-16" frameY="-16" frameWidth="86" frameHeight="86"/>
+    <SubTexture name="blue_hit_011" x="2" y="646" width="58" height="60" frameX="-15" frameY="-16" frameWidth="86" frameHeight="86"/>
+    <SubTexture name="blue_hit_012" x="68" y="628" width="58" height="60" frameX="-16" frameY="-17" frameWidth="86" frameHeight="86"/>
+    <SubTexture name="blue_hit_013" x="138" y="617" width="58" height="62" frameX="-16" frameY="-16" frameWidth="86" frameHeight="86"/>
+    <SubTexture name="blue_hit_014" x="218" y="575" width="60" height="62" frameX="-15" frameY="-17" frameWidth="86" frameHeight="86"/>
+    <SubTexture name="blue_hit_015" x="440" y="489" width="62" height="64" frameX="-14" frameY="-16" frameWidth="86" frameHeight="86"/>
+    <SubTexture name="damageup" x="2" y="90" width="170" height="182" frameX="-23" frameY="-17" frameWidth="220" frameHeight="220"/>
+    <SubTexture name="enemy_hatchery" x="174" y="219" width="94" height="128" frameX="-13" frameY="0" frameWidth="128" frameHeight="128"/>
+    <SubTexture name="plasma_explosion_001" x="2" y="584" width="64" height="60" frameX="-8" frameY="-11" frameWidth="86" frameHeight="86"/>
+    <SubTexture name="plasma_explosion_002" x="374" y="489" width="64" height="56" frameX="-7" frameY="-12" frameWidth="86" frameHeight="86"/>
+    <SubTexture name="plasma_explosion_003" x="160" y="485" width="70" height="62" frameX="-4" frameY="-9" frameWidth="86" frameHeight="86"/>
+    <SubTexture name="plasma_explosion_004" x="97" y="352" width="74" height="68" frameX="-2" frameY="-6" frameWidth="86" frameHeight="86"/>
+    <SubTexture name="plasma_explosion_005" x="255" y="373" width="76" height="70" frameX="-2" frameY="-5" frameWidth="86" frameHeight="86"/>
+    <SubTexture name="plasma_explosion_006" x="173" y="349" width="80" height="72" frameX="0" frameY="-5" frameWidth="86" frameHeight="86"/>
+    <SubTexture name="plasma_explosion_007" x="270" y="297" width="80" height="74" frameX="0" frameY="-4" frameWidth="86" frameHeight="86"/>
+    <SubTexture name="plasma_explosion_008" x="270" y="219" width="82" height="76" frameX="0" frameY="-3" frameWidth="86" frameHeight="86"/>
+    <SubTexture name="platform" x="2" y="2" width="500" height="86" frameX="-9" frameY="0" frameWidth="516" frameHeight="86"/>
+    <SubTexture name="player_ship" x="2" y="274" width="93" height="88" frameX="-2" frameY="0" frameWidth="99" frameHeight="88"/>
+    <SubTexture name="replay_down_button" x="343" y="176" width="167" height="41" frameX="-2" frameY="-4" frameWidth="175" frameHeight="47"/>
+    <SubTexture name="replay_idle_button" x="174" y="176" width="167" height="41" frameX="-2" frameY="-4" frameWidth="175" frameHeight="47"/>
+    <SubTexture name="replay_over_button" x="343" y="133" width="167" height="41" frameX="-2" frameY="-4" frameWidth="175" frameHeight="47"/>
+    <SubTexture name="start_game_down_button" x="174" y="133" width="167" height="41" frameX="-2" frameY="-4" frameWidth="175" frameHeight="47"/>
+    <SubTexture name="start_game_idle_button" x="343" y="90" width="167" height="41" frameX="-2" frameY="-4" frameWidth="175" frameHeight="47"/>
+    <SubTexture name="start_game_over_button" x="174" y="90" width="167" height="41" frameX="-2" frameY="-4" frameWidth="175" frameHeight="47"/>
+</TextureAtlas>
