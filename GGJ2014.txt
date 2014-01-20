@@ -1,0 +1,74 @@
+===[ TODO ]==============================
+
+If we don't do this, we're screwed...
+
+- DONE: Modular input via config files. [Tronster]
+- Skeleton with shell button on the front [Tronster]
+- DONE: Learn how to use Box2D for collision detection (via simplecollision sample) [Tronster,Shawn]
+	- Use Box2DUtils.CollisionGetOther(sensor,b2PolygonContact)
+- DONE: Animations at 30 fps while engine at 60 fps.
+	// VER 1: use timeScale multiplier
+	// VER 2: Example using Spritesheet, animation, frame rate...
+	var ta:TextureAtlas = new TextureAtlas(Texture.fromBitmap(new mySpriteSheetBitmap()), XML(new myXML()));
+	var se:AnimationSequence = new AnimationSequence(ta, ["walk","idle","hurt"], "idle", fps);
+- DONE: Animate using SWF [tronster]
+	- One .SWF file per entity (hero)
+	- Instance name is how it will be referenced (idle, walk)...
+	- view:"../sprites/hero.swf"
+
+- Use GIT!
+
+- DONE: Starlingize BlittingGameState [Shawn]
+- Fonts? [Shawn]
+- Make feathers menu sample [Shawn]
+- Learn how the particle system works [Shawn]
+- Dissect  view; paramter [tronster]
+- How to use a hitbox, per-frame [tronster]
+- How to turn off physics on hero and/or bring in animation not tied to physics [tronster]
+
+		
+
+
+===[ MISC TODO ]==============================
+(Not necessary but good to have under the belt)
+- DONE: Inventory class
+	- Implemented via AGameData (property bag with signals)
+- DONE: How to make levels
+	- Watch: http://www.youtube.com/watch?v=h3gb5B0Fy3U
+- DONE: How to do parallax background?
+	camera.parallaxMode = ACitrusCamera.PARALLAX_MODE_TOPLEFT;
+	and set sprites params with: parallaxX: float, parallaxY: float
+- Loading screen for dynamic content waiting [Tronster]
+- Test out level switching with power-up section between
+- AI with push stack
+- 2d flat grid layout system
+- 2d iso layout system
+- 2d hex layout system
+
+
+- Misc:
+	- StartlingArt.setLoopAnimations("idle"); // will loop a play anim on hero
+	- Dragon Bones (free bone tool)
+		[Embed(source="../foo/myPieces.png", mimeType="application/octet-stream")]
+		private var heroDragon:Class;
+		// ...
+		factory = new StarlingFactor();
+		factory.addEventListener(Event.COMPLETE, onParsed);
+		factory.parseData( new heroDragon() );
+		// ...in onParsed()...
+		var arm:Armature = factory.buildArmature("hero");
+		arm.animation.timeScale = 0.75;
+		// ...in init, to center properly use offset...
+		hero = new Hero("hero", {x:140, y:293, width:66, height:92, offsetX:33, offsetY:46, view:arm});
+		
+
+===[ GIT ]======================================
+Source Tree
+
+GIT Source Tree tutorial video:
+http://www.youtube.com/watch?v=1lBdlh3AGSc
+
+
+
+720x480
+480x320 ( 960x640 vs 1136x640 )
