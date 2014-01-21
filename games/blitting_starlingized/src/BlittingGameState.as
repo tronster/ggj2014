@@ -38,19 +38,21 @@ package  {
 		[Embed(source = '../lib/bg_hills.png')]
 		private var _hillsClass:Class;
 		
+		//import spritesheet
 		[Embed(source = '../lib/asset_sheet.png')]
 		private var assetSheet:Class;
 		[Embed(source="../lib/asset_sheet_data.xml", mimeType="application/octet-stream")]
 		private var assetSheetData:Class;
 		
-		[Embed(source="../lib/particles/particle.pex", mimeType="application/octet-stream")]
+		//import particle resources
+		[Embed(source="../lib/particles/particle.pex", mimeType="application/octet-stream")]		//particle informatiion in XML formate
 		private var particlePEX:Class;
-		[Embed(source="../lib/particles/texture.png")]
+		[Embed(source="../lib/particles/texture.png")]			
 		private var particleTexture:Class;
 		
 		private var hero:MyHero;
 		private var heroParticle:PDParticleSystem;
-		private var flame:CitrusSprite;
+		private var testParticleEffect:CitrusSprite;
 		
 		public function BlittingGameState() {
 			super();
@@ -84,8 +86,8 @@ package  {
 			
 			heroParticle = new PDParticleSystem(XML(new particlePEX()), Texture.fromBitmap(new particleTexture()));
 			heroParticle.start();
-			flame = new CitrusSprite("flame", { view:heroParticle } );
-			add(flame);
+			testParticleEffect = new CitrusSprite("pEffect", { view:heroParticle } );
+			add(testParticleEffect);
 			
 			// Set up your game object's animations like this;
 			var heroArt:AnimationSequence = new AnimationSequence(assetAtlas, ["big_eradium_explosion_", "blue_hit_", "plasma_explosion_", "blue_burst_"], "big_eradium_explosion_", 30, true);
@@ -101,7 +103,7 @@ package  {
 			StarlingArt.setLoopAnimations(["big_eradium_explosion_", "blue_hit_", "plasma_explosion_", "blue_burst_"]);
 			for each(var obj:Object in StarlingArt.loopAnimation)
 			{
-				trace("StarlingArt Loops:" + obj);
+				trace("StarlingArt Loops: " + obj);
 			}
 			
 			hero = new MyHero("Hero", {x:320, y:150, view:heroArt});
@@ -147,7 +149,7 @@ package  {
 			}
 			
 			
-			if(hero != null) moveEmitter(flame, hero.x, hero.y);
+			if(hero != null) moveEmitter(testParticleEffect, hero.x, hero.y);
 		}
 		
 		private function moveEmitter(sprite:CitrusSprite, x:int, y:int):void

@@ -33,7 +33,8 @@ package
 		
 		override public function handleStarlingReady():void
 		{
-			this.state = new BlittingGameState();
+			//this.state = new BlittingGameState();
+			this.state = new MenuState();
 		}
 		
 		private function deactivate(e:Event):void 
