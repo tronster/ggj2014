@@ -12,7 +12,6 @@ package  {
 	import citrus.view.ACitrusView;
 	import citrus.view.starlingview.AnimationSequence;
 	import citrus.view.starlingview.StarlingArt;
-	import drg.Keyboard;
 	import flash.display.Bitmap;
 	import starling.display.Image;
 	import starling.extensions.particles.PDParticleSystem;
@@ -26,30 +25,8 @@ package  {
 	 * @author Shawn Freeman
 	 */
 	
-	public class BlittingGameState extends StarlingState {
-
-		// embed your graphics
-		[Embed(source = '../lib/hero_idle.png')]
-		private var _heroIdleClass:Class;
-		[Embed(source = '../lib/hero_walk.png')]
-		private var _heroWalkClass:Class;
-		[Embed(source = '../lib/hero_jump.png')]
-		private var _heroJumpClass:Class;
-		[Embed(source = '../lib/bg_hills.png')]
-		private var _hillsClass:Class;
-		
-		//import spritesheet
-		[Embed(source = '../lib/asset_sheet.png')]
-		private var assetSheet:Class;
-		[Embed(source="../lib/asset_sheet_data.xml", mimeType="application/octet-stream")]
-		private var assetSheetData:Class;
-		
-		//import particle resources
-		[Embed(source="../lib/particles/particle.pex", mimeType="application/octet-stream")]		//particle informatiion in XML formate
-		private var particlePEX:Class;
-		[Embed(source="../lib/particles/texture.png")]			
-		private var particleTexture:Class;
-		
+	public class BlittingGameState extends StarlingState 
+	{		
 		private var hero:MyHero;
 		private var heroParticle:PDParticleSystem;
 		private var testParticleEffect:CitrusSprite;
@@ -63,18 +40,11 @@ package  {
 			super.initialize();
 			
 			var box2D:Box2D = new Box2D("box2D");
-			//box2D.visible = true;
+			box2D.visible = true;
 			add(box2D);
 			
-			_ce.input.keyboard.destroy();
-			_ce.input.keyboard = new Keyboard("keyboard");
-			//load texture atlas
-			var assetTexture:Texture = Texture.fromBitmap(new assetSheet());
-			var assetData:XML = XML(new assetSheetData());
-			var assetAtlas:TextureAtlas = new TextureAtlas(assetTexture, assetData);
-			
 			var platform:Platform = new Platform("P1");
-			platform.view = assetAtlas.getTexture("platform");
+			platform.view = Resources.assetAtlas.getTexture("platform");
 			platform.width = platform.view.width;
 			platform.height = platform.view.height;
 			platform.x = stage.stageWidth * .5;
@@ -82,15 +52,15 @@ package  {
 			add(platform);
 			
 			// You can quickly create a graphic by passing the embedded class into a new blitting art object.
-			add(new CitrusSprite("Hills", { parallaxX:0.4, parallaxY:0.4, view:new _hillsClass() } ));
+			add(new CitrusSprite("Hills", { parallaxX:0.4, parallaxY:0.4, view:new Resources._hillsClass() } ));
 			
-			heroParticle = new PDParticleSystem(XML(new particlePEX()), Texture.fromBitmap(new particleTexture()));
+			heroParticle = new PDParticleSystem(XML(new Resources.particlePEX()), Texture.fromBitmap(new Resources.particleTexture()));
 			heroParticle.start();
 			testParticleEffect = new CitrusSprite("pEffect", { view:heroParticle } );
 			add(testParticleEffect);
 			
 			// Set up your game object's animations like this;
-			var heroArt:AnimationSequence = new AnimationSequence(assetAtlas, ["big_eradium_explosion_", "blue_hit_", "plasma_explosion_", "blue_burst_"], "big_eradium_explosion_", 30, true);
+			var heroArt:AnimationSequence = new AnimationSequence(Resources.assetAtlas, ["big_eradium_explosion_", "blue_hit_", "plasma_explosion_", "blue_burst_"], "big_eradium_explosion_", 30, true);
 			
 			//output all the animation names hero art contains
 			var names:Vector.<String> = heroArt.getAnimationNames();
@@ -110,7 +80,7 @@ package  {
 			add(hero);
 			
 			//'Image' is used here instead of a Starling Texture because Textures have no writeable scale properties or functions
-			var tempImg:Image = new Image(assetAtlas.getTexture("damageup"));		
+			var tempImg:Image = new Image(Resources.assetAtlas.getTexture("damageup"));		
 			var coin:Coin = new Coin("coin");
 			coin.view = tempImg;
 			Image(coin.view).scaleX = .25;
@@ -147,7 +117,6 @@ package  {
 				hero.y = 10;
 				hero.x = stage.stageWidth * .5;
 			}
-			
 			
 			if(hero != null) moveEmitter(testParticleEffect, hero.x, hero.y);
 		}

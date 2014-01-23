@@ -20,6 +20,7 @@
     <class path="..\..\engine\Citrus-Engine-master\src" />
     <class path="..\..\engine\Citrus-Engine-master\lib" />
     <class path="..\..\engine\Citrus-Engine-master\srclib" />
+    <class path="..\..\engine\DoodleInc Raizen GeekHouseGames" />
   </classpaths>
   <!-- Build options -->
   <build>
@@ -60,6 +61,7 @@
     <element path="..\citrus_engine\CEV3-1-8-ALL.swc" />
     <element path="..\..\engine\Citrus-Engine-master\lib\starling.swc" />
     <element path="..\..\engine\Citrus-Engine-master\lib\signals.swc" />
+    <element path="..\..\engine\Citrus-Engine-master\lib\feathers.swc" />
     <element path="..\..\engine\Citrus-Engine-master\lib\EazeTween.swc" />
   </libraryPaths>
   <!-- External Libraries -->

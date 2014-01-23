@@ -1,6 +1,7 @@
 package 
 {
 	import citrus.core.starling.StarlingCitrusEngine;
+	import drg.Keyboard;
 	import flash.desktop.NativeApplication;
 	import flash.events.Event;
 	import flash.display.Sprite;
@@ -27,14 +28,21 @@ package
 			
 			setUpStarling(true)
 			// entry point
-			
-			// new to AIR? please read *carefully* the readme.txt files!
 		}
-		
 		override public function handleStarlingReady():void
 		{
+			Resources.init();
+			_input.keyboard.destroy();
+			_input.keyboard = new Keyboard("drgKeyboard");
+			
+			this.addEventListener(GameStateEvent.STATE_CHANGE, onStateChange);
 			//this.state = new BlittingGameState();
 			this.state = new MenuState();
+		}
+		
+		private function onStateChange(e:GameStateEvent):void 
+		{
+			trace("Main State Change");
 		}
 		
 		private function deactivate(e:Event):void 

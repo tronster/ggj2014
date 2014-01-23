@@ -1,76 +1,70 @@
 package  
 {
+	import citrus.core.CitrusEngine;
 	import citrus.core.starling.StarlingState;
+	import feathers.controls.Button;
+	import feathers.text.BitmapFontTextFormat;
 	import starling.display.Image;
 	import starling.display.Sprite;
-	import starling.events.EnterFrameEvent;
+	import starling.events.Event;
 	import starling.text.BitmapFont;
 	import starling.text.TextField;
 	import starling.textures.Texture;
+	import starling.textures.TextureAtlas;
 	/**
 	 * ...
 	 * @author Shawn Freeman
 	 */
 	public class MenuState extends StarlingState
-	{
-		//import font resources
-		[Embed(source="../lib/myGlyphs.fnt", mimeType="application/octet-stream")]		//particle informatiion in XML formate
-		private var fontData:Class;
-		[Embed(source="../lib/myGlyphs.png")]			
-		private var fontSheet:Class;
-		
-		[Embed(source="../lib/fonts/image_font.fnt", mimeType="application/octet-stream")]		//particle informatiion in XML formate
-		private var customFontData:Class;
-		[Embed(source="../lib/fonts/image_font.png")]			
-		private var customFontSheet:Class;
-		
-		[Embed(source = "../lib/fonts/OCRAEXT.ttf", fontName='MainFont', advancedAntiAliasing="true", mimeType="application/x-font", embedAsCFF="false")]
-		private var genericFont:Class;
-		
-		private var countVal:int = 0;
-		private var imgFont:BitmapFont;
+	{		
 		private var someText:TextField;
-		private var genericText:TextField;
-		
 		
 		public function MenuState() 
-		{
-			imgFont = new BitmapFont(Texture.fromBitmap(new fontSheet()), XML(new fontData()));
-			TextField.registerBitmapFont(imgFont);
-			trace("Main Font: " + imgFont.name);
-			
-			/* Creates a Starling Image of the character specified 
-			 * var img:Image = imgFont.getChar(81).createImage();
+		{			
+			var img:Image = Resources.imgFont.getChar(81).createImage();
 			img.x = 300;
 			img.y = 300;
-			img.smoothing = true;
-			addChild(img);*/
+			//img.smoothing = true;
+			//addChild(img);
 			
-			/* Creates a Straling Sprite that contains seperate bitmaps for each character passed in the constructor
-			 * var s:Sprite = imgFont.createSprite(100, 25, "QWOMX6", 24);
+			var s:Sprite = Resources.imgFont.createSprite(100, 25, "QWOMX6", 24);
 			s.x = 200;
 			s.y = 200;
-			addChild(s);*/
+			//addChild(s);
 			
-			someText = new TextField(300, 100, "QWOMX", imgFont.name,  24, 0xffffff);	//color must be '0xffffff' to use the BitmapFont's colors
+			someText = new TextField(100, 25, "QWOMX", "mycustomfont", 24);
+			someText.color = 0x00ffff;
 			someText.x = 400;
 			someText.y = 300;
-			//someText.border = true;
 			addChild(someText);
 			
-			genericText = new TextField(200, 100, "Shawn's Embedded Custom Font", "MainFont", 24, 0x00ffff, true);
-			genericText.x = 200;
-			genericText.y = 200;
-			//genericText.border = true;
-			addChild(genericText);
+			var font:BitmapFontTextFormat = new BitmapFontTextFormat(Resources.imgFont);
+			var startBtn:Button = new Button();
+			startBtn.defaultLabelProperties.textFormat = font;
+			startBtn.label = "QWOMX";
+			startBtn.x = 100;
+			startBtn.y = 100;
+			startBtn.defaultSkin = new Image(Resources.assetAtlas.getTexture("start_game_idle_button"));
+			startBtn.hoverSkin = new Image(Resources.assetAtlas.getTexture("start_game_over_button"));
+			startBtn.downSkin = new Image(Resources.assetAtlas.getTexture("start_game_down_button"));
+			//startBtn.defaultIcon =  new Image(assetAtlas.getTexture("damageup"));
+			//startBtn.iconPosition = Button.ICON_POSITION_RIGHT_BASELINE;
+			addChild(startBtn);
+			startBtn.addEventListener(Event.TRIGGERED, onButtonTriggered);
 			
-			addEventListener(EnterFrameEvent.ENTER_FRAME, onFrame);
+			this.addEventListener(GameStateEvent.STATE_CHANGE, onStateChange);
 		}
 		
-		private function onFrame(e:EnterFrameEvent):void 
+		private function onButtonTriggered(e:Event):void
 		{
-			countVal++;
-			someText.text = countVal.toString();
+			trace("Button Clicked!");
+			_ce.state = new BlittingGameState();
+			//dispatchEvent(new GameStateEvent(GameStateEvent.STATE_CHANGE, {id:"play"}, false));
+		}
+		
+		private function onStateChange(e:GameStateEvent):void 
+		{
+			trace("MenuState Change");
 		}
 	}
 
