@@ -51,7 +51,7 @@ package
 		/**
 		 * package name of the example you want to try
 		 */
-		public static const packageName:String = "advancedSounds";	// ok
+		//public static const packageName:String = "advancedSounds";	// ok
 		//public static const packageName:String = "away3dbox2d";		// ok
 		//public static const packageName:String = "awayphysics.car";	// ok
 		//public static const packageName:String = "blitting";			// ok
@@ -61,13 +61,26 @@ package
 		//public static const packageName:String = "dragonbones";		// ok
 		//public static const packageName:String = "entity";			// ok
 		//public static const packageName:String = "games.braid";		// ok
-		//public static const packageName:String = "games.hungryhero";	// ok
+		public static const packageName:String = "games.hungryhero";	// ok
 		//public static const packageName:String = "games.live4sales";
 		//public static const packageName:String = "games.osmos";
 		//public static const packageName:String = "games.superhexagon";
 		//public static const packageName:String = "games.tinywings";
+		//public static const packageName:String = "groupobjects";
+		//public static const packageName:String = "mobilenapestarling";
+		//public static const packageName:String = "multiplayer";
+		//public static const packageName:String = "multiresolutions";
+		//public static const packageName:String = "objectpooling";
+		//public static const packageName:String = "simplecollision";
+		//public static const packageName:String = "soundpatchdemo";
+		//public static const packageName:String = "stage3dinteroperation";
+		//public static const packageName:String = "starlingdemo";
+		//public static const packageName:String = "starlingtiles";
+		//public static const packageName:String = "statetransitions";
+		//public static const packageName:String = "tiledmap.displaylist";
 		//public static const packageName:String = "tiledmap.starling";
-		
+		//public static const packageName:String = "ui";
+		//public static const packageName:String = "vehicle";
 		
 		
 		//-----------------------------------------------------------------------------------

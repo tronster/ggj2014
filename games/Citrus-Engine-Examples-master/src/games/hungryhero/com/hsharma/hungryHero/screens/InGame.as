@@ -261,7 +261,8 @@ package games.hungryhero.com.hsharma.hungryHero.screens {
 			
 			drawGame();
 			drawHUD();
-			//drawGameOverScreen();
+			drawGameOverScreen();
+			gameOverContainer.visible = false;
 			
 			// Play screen background music.
 			if (!Sounds.muted) Sounds.sndBgGame.play(0, 999);
