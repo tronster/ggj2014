@@ -19,6 +19,11 @@ package
 		[Embed(source="../lib/myGlyphs.png")]			
 		private var fontSheet:Class;
 		
+		[Embed(source="../lib/fonts/image_font.fnt", mimeType="application/octet-stream")]		//particle informatiion in XML formate
+		private var customFontData:Class;
+		[Embed(source="../lib/fonts/image_font.png")]			
+		private var customFontSheet:Class;
+		
 		[Embed(source = "../lib/fonts/OCRAEXT.ttf", fontName='MainFont', advancedAntiAliasing="true", mimeType="application/x-font", embedAsCFF="false")]
 		private var genericFont:Class;
 		
@@ -50,13 +55,13 @@ package
 			someText = new TextField(300, 100, "QWOMX", imgFont.name,  24, 0xffffff);	//color must be '0xffffff' to use the BitmapFont's colors
 			someText.x = 400;
 			someText.y = 300;
-			someText.border = true;
+			//someText.border = true;
 			addChild(someText);
 			
 			genericText = new TextField(200, 100, "Shawn's Embedded Custom Font", "MainFont", 24, 0x00ffff, true);
 			genericText.x = 200;
 			genericText.y = 200;
-			genericText.border = true;
+			//genericText.border = true;
 			addChild(genericText);
 			
 			addEventListener(EnterFrameEvent.ENTER_FRAME, onFrame);
