@@ -61,7 +61,7 @@ package
 		//public static const packageName:String = "dragonbones";		// ok
 		//public static const packageName:String = "entity";			// ok
 		//public static const packageName:String = "games.braid";		// ok
-		public static const packageName:String = "games.hungryhero";	// ok
+		//public static const packageName:String = "games.hungryhero";	// ok
 		//public static const packageName:String = "games.live4sales";
 		//public static const packageName:String = "games.osmos";
 		//public static const packageName:String = "games.superhexagon";
@@ -78,7 +78,7 @@ package
 		//public static const packageName:String = "starlingtiles";
 		//public static const packageName:String = "statetransitions";
 		//public static const packageName:String = "tiledmap.displaylist";
-		//public static const packageName:String = "tiledmap.starling";
+		public static const packageName:String = "tiledmap.starling";
 		//public static const packageName:String = "ui";
 		//public static const packageName:String = "vehicle";
 		

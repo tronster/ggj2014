@@ -2,21 +2,27 @@
 Global Game Jam 2014
 Doodle Inc., Raizen, Geek House Games
 
+SITES:
+http://citrusengine.com/api/
+
+Greg:
+862-763-2616
 
 =========[ TODO ]==============================================================
 
-- Skeleton with shell button on the front [Tronster]
-
-- Fonts? [Shawn]
-- Make feathers menu sample [Shawn]
-- Learn how the particle system works [Shawn]
-- Dissect  view; paramter [tronster]
 - How to use a hitbox, per-frame [tronster]
 - How to turn off physics on hero and/or bring in animation not tied to physics [tronster]
+- How to scale images
+	- asset manager with scaleFactor and/or creating textures with scaleFactor as the scale argument to Texture.fromBitmap)
 
 
 ---- DONE: ----
+- Fonts? [Shawn]
+- Skeleton with shell button on the front [Tronster]
+- Make feathers menu sample [Shawn]
+- Learn how the particle system works [Shawn]
 - Modular input via config files. [Tronster]
+- Dissect view; paramter [tronster]
 - Learn how to use Box2D for collision detection (via simplecollision sample) [Tronster,Shawn]
 	- Use Box2DUtils.CollisionGetOther(sensor,b2PolygonContact)
 - Animations at 30 fps while engine at 60 fps.

@@ -10,6 +10,8 @@ package citrus.objects.platformer.box2d
 	import citrus.physics.box2d.Box2DUtils;
 	import citrus.physics.box2d.IBox2DPhysicsObject;
 	import citrus.physics.PhysicsCollisionCategories;
+	import citrus.view.ICitrusArt;
+	import citrus.view.starlingview.StarlingArt;
 	import flash.utils.clearTimeout;
 	import flash.utils.getDefinitionByName;
 	import flash.utils.setTimeout;
@@ -486,5 +488,13 @@ package citrus.objects.platformer.box2d
 			if (prevAnimation != _animation)
 				onAnimationChange.dispatch();
 		}
+		
+		/* ??TRON
+		override public function handleArtReady( citrusArt:ICitrusArt ):void {	
+			trace("This art is ready!: " + citrusArt );
+			var imgArt:StarlingArt = citrusArt as StarlingArt;
+			imgArt.scaleX = imgArt.scaleY = 0.5;
+		}
+		*/
 	}
 }

@@ -8,6 +8,27 @@ package
 	//
 	public class Config 
 	{	
+		// ----- Game values --------------------
+		
+		public static const MAX_HP_CAT_1	:int	= 100;
+		public static const MAX_HP_CAT_2	:int	= 100;
+		public static const MAX_HP_CAT_3	:int	= 100;
+		public static const MAX_HP_DOG_1	:int	= 100;
+		public static const MAX_HP_DOG_2	:int	= 100;
+		public static const MAX_HP_DOG_3	:int	= 100;
+		
+		public static const DAMAGE_1_TO_2	:Number = 10;
+		public static const DAMAGE_2_TO_3	:Number = 10;
+		public static const DAMAGE_3_TO_1	:Number = 10;
+		
+		public static const DAMAGE_2_TO_1	:Number = 3;
+		public static const DAMAGE_3_TO_2	:Number = 3;
+		public static const DAMAGE_1_TO_3	:Number = 3;
+
+		public static const DAMAGE_SAME		:Number = 5;
+
+		
+		
 		// ----- INPUT --------------------
 
 		public static const DEFAULT_P1_MOVE_LEFT	:uint	= Keyboard.LEFT;
@@ -22,7 +43,7 @@ package
 		public static var P1MoveDown	:uint = DEFAULT_P1_MOVE_DOWN;
 		public static var P1Jump		:uint = DEFAULT_P1_JUMP;
 		
-	
+		
 		
 		// ----- ACTIONS --------------------
 		
@@ -30,7 +51,6 @@ package
 		public static const ACTION_LEFT		:String = "left";
 		public static const ACTION_RIGHT	:String = "right";
 		public static const ACTION_DUCK		:String = "duck";
-		
 		
 	}
 

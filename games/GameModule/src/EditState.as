@@ -10,7 +10,7 @@ package
 		
 		public function EditState() 
 		{
-			
+			super();
 		}
 		
 	}

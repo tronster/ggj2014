@@ -10,10 +10,8 @@ package
 	import flash.ui.Multitouch;
 	import flash.ui.MultitouchInputMode;
 	
-	/**
-	 * ...
-	 * @author Shawn
-	 */
+    
+	[SWF(frameRate="60")]
 	public class Main extends StarlingCitrusEngine 
 	{
 		
@@ -29,7 +27,6 @@ package
 			//Multitouch.inputMode = MultitouchInputMode.TOUCH_POINT;
 			
 			// entry point
-			
 			// new to AIR? please read *carefully* the readme.txt files!
 		}
 		
@@ -46,7 +43,7 @@ package
 			_input.keyboard.destroy();
 			_input.keyboard = new Keyboard("drgKeyboard");
 			
-			state = new Shell();
+			state = new ShellState();
 		}
 		
 		private function deactivate(e:Event):void 
