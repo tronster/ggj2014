@@ -13,19 +13,14 @@ package
 		public function BattleState() 
 		{
 			super();
-			addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 			trace("Battle State Constructed");
 		}
 		
-		private function onAddedToStage(e:Event):void 
-		{
-			trace("BattleState added to stage");
-			removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
-			this.initialize();
-		}
 		
 		override public function initialize():void
 		{
+			super.initialize();
+			
 			//levelInfo = LevelData(_ce.gameData).clone();
 			levelInfo = new LevelData();
 			
