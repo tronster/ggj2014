@@ -4,14 +4,11 @@ package
 
 	
 	public class GameData extends AGameData
-	{
-		
-		public var levels:Vector.<LevelData>;
-		
+	{		
 		
 		public function GameData() 
 		{
-			
+			this[Config.GAMEDATA_LEVELS] = new Vector.<LevelData>();	
 		}
 		
 	}

@@ -10,6 +10,8 @@ package
 	{	
 		// ----- Game values --------------------
 		
+		public static const GAMEDATA_LEVELS	:String = "levels";
+		
 		public static const MAX_HP_CAT_1	:int	= 100;
 		public static const MAX_HP_CAT_2	:int	= 100;
 		public static const MAX_HP_CAT_3	:int	= 100;
