@@ -46,11 +46,11 @@ package
 		}
 		
 		
-		
-		public function getCurrentLevelData()
+		/// Shawn you may want this.
+		public function getCurrentLevelData():void
 		{
 			var levelNum:int = _ce.gameData[Config.CURRENT_LEVEL_NUM];
-			if ( levelNum == 1 )
+			if ( levelNum < 1 )
 			{
 				error("Invalid level number, using 1 instead of " + levelNum);
 				levelNum = 1;
