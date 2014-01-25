@@ -22,7 +22,7 @@ package
 		public function clone():LevelData
 		{
 			var ld:LevelData = new LevelData();
-
+			
 			for each( var node:Node in path )
 				ld.path.push( path );
 				

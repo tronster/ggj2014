@@ -13,6 +13,11 @@ package
 		[Embed(source="/../embed/DefaultSpritesheet.xml", mimeType="application/octet-stream")]
 		public static const AtlasXmlDefault:Class;
 		
+		[Embed(source="/../embed/asset_sheet.png")]
+		public static const AtlasTextureTemp:Class;
+		[Embed(source="/../embed/asset_data.xml", mimeType="application/octet-stream")]
+		public static const AtlasXmlTemp:Class;
+		
 		[Embed(source="/../embed/main_font.png")]
 		public static const MainFontTexture:Class;
 		[Embed(source="/../embed/main_font.fnt", mimeType="application/octet-stream")]

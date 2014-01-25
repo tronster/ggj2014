@@ -24,8 +24,6 @@ package
 		public var previousNode	:Point;
 		public var targetNode	:Point;
 		
-		
-		
 		public function Dog() 
 		{
 			

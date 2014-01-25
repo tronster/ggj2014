@@ -43,7 +43,7 @@ package
 			_input.keyboard.destroy();
 			_input.keyboard = new Keyboard("drgKeyboard");
 			
-			state = new ShellState();
+			this.state = new BattleState();
 		}
 		
 		private function deactivate(e:Event):void 
