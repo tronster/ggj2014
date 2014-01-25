@@ -1,8 +1,9 @@
 package 
 {
+	import citrus.core.Console;
 	import citrus.core.starling.StarlingCitrusEngine;
 	import drg.Keyboard;
-	import flash.desktop.NativeApplication;
+//	import flash.desktop.NativeApplication;
 	import flash.events.Event;
 	import flash.display.Sprite;
 	import flash.display.StageAlign;
@@ -20,8 +21,11 @@ package
 			super();
 			
 			stage.scaleMode = StageScaleMode.NO_SCALE;
-			stage.align = StageAlign.TOP_LEFT;
+			stage.align 	= StageAlign.TOP_LEFT;
 			stage.addEventListener(Event.DEACTIVATE, deactivate);
+			
+			var ourConsole:Console = this.console;
+			ourConsole.addCommand( "level", onFastSwitchLevel );
 			
 			// touch or gesture?
 			//Multitouch.inputMode = MultitouchInputMode.TOUCH_POINT;
@@ -52,6 +56,12 @@ package
 			//NativeApplication.nativeApplication.exit();
 		}
 		
+		
+		// Switch levels
+		private function onFastSwitchLevel( levelNum:int ):void
+		{
+			trace("Request to switch level to: " + levelNum );
+		}
 	}
 	
 }

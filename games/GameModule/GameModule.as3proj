@@ -8,9 +8,9 @@
     <movie fps="60" />
     <movie width="960" />
     <movie height="640" />
-    <movie version="3" />
+    <movie version="11" />
     <movie minorVersion="9" />
-    <movie platform="AIR Mobile" />
+    <movie platform="Flash Player" />
     <movie background="#FFFFFF" />
   </output>
   <!-- Other classes to be compiled into your SWF -->
@@ -92,7 +92,7 @@
   <!-- Other project options -->
   <options>
     <option showHiddenPaths="False" />
-    <option testMovie="Custom" />
+    <option testMovie="Default" />
     <option testMovieCommand="Run.bat" />
   </options>
   <!-- Plugin storage -->

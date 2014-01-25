@@ -8,6 +8,15 @@ http://citrusengine.com/api/
 Greg:
 862-763-2616
 
+
+
+
+Credits:
+Mute Icon
+Icon made by Elegant Themes from www.flaticon.com.
+
+
+
 =========[ TODO ]==============================================================
 
 - How to use a hitbox, per-frame [tronster]

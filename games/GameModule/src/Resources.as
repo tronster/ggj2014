@@ -34,9 +34,9 @@ package
 			atlases["_default"]			= new TextureAtlas(texture, xml);
 			
 			//generate font atlas
-			texture 							= makeTexture("MainFontTexture");
-			xml 								=	XML(new MainFontData());
-			atlases["_mainfont"]			= new TextureAtlas(texture, xml);
+			texture 					= makeTexture("MainFontTexture");
+			xml 						= XML( new MainFontData() );
+			atlases["_mainfont"]		= new TextureAtlas(texture, xml);
 		}
 		
 		
