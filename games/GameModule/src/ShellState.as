@@ -39,17 +39,19 @@ package
 			startBtn.x = (stage.stageWidth * .5) - (startBtn.width * .5);
 			startBtn.y = (stage.stageHeight * .75 );
 			startBtn.addEventListener(Event.TRIGGERED, onButtonTriggered);
-			addChild(startBtn);
+			addChild( startBtn );
 		}
 		
 		public function onButtonTriggered(e:Event):void 
 		{
+			resetGame();
 			_ce.state = new EditState();
 		}
 		
 		public function resetGame():void
 		{
-			
+			_ce.gameData[Config.CURRENT_LEVEL_NUM] 	= 1;
+			_ce.gameData[Config.CURRENT_LEVEL] 		= null;
 		}
 	}
 

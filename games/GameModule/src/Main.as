@@ -37,6 +37,13 @@ package
 		override public function initialize():void
 		{
 			setUpStarling(true);
+
+			gameData = new GameData();
+			
+			var levels:Vector.<LevelData> = new Vector.<LevelData>();
+			levels.push( new LevelData() );
+			levels.push( new LevelData() );
+			gameData[ Config.GAMEDATA_LEVELS ] = levels;	
 		}
 		
 		override public  function handleStarlingReady():void
