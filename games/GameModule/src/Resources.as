@@ -8,14 +8,14 @@ package
 	public class Resources
 	{	
 		
-		[Embed(source="/../bin/assets/DefaultSpritesheet.png")]
+		[Embed(source="/../embed/DefaultSpritesheet.png")]
 		public static const AtlasTextureDefault:Class;
-		[Embed(source="/../bin/assets/DefaultSpritesheet.xml", mimeType="application/octet-stream")]
+		[Embed(source="/../embed/DefaultSpritesheet.xml", mimeType="application/octet-stream")]
 		public static const AtlasXmlDefault:Class;
 		
-		[Embed(source="/../bin/assets/main_font.png")]
+		[Embed(source="/../embed/main_font.png")]
 		public static const MainFontTexture:Class;
-		[Embed(source="/../bin/assets/main_font.fnt", mimeType="application/octet-stream")]
+		[Embed(source="/../embed/main_font.fnt", mimeType="application/octet-stream")]
 		public static const MainFontData:Class;
 		
 		private static var atlases:Dictionary;
