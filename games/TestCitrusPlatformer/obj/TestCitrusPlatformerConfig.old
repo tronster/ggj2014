@@ -32,21 +32,21 @@
     </define>
     <verbose-stacktraces>true</verbose-stacktraces>
     <source-path append="true">
-      <path-element>C:\SourceTree_Repositories\ggj2014\games\TestCitrusPlatformer\src</path-element>
-      <path-element>C:\SourceTree_Repositories\ggj2014\engine\Citrus-Engine-master\src</path-element>
-      <path-element>C:\SourceTree_Repositories\ggj2014\engine\Citrus-Engine-master\srclib</path-element>
-      <path-element>C:\SourceTree_Repositories\ggj2014\engine\Citrus-Engine-master\lib</path-element>
-      <path-element>C:\SourceTree_Repositories\ggj2014\engine\DoodleInc Raizen GeekHouseGames</path-element>
+      <path-element>Z:\Source\github\ggj2014\games\TestCitrusPlatformer\src</path-element>
+      <path-element>Z:\Source\github\ggj2014\engine\Citrus-Engine-master\src</path-element>
+      <path-element>Z:\Source\github\ggj2014\engine\Citrus-Engine-master\srclib</path-element>
+      <path-element>Z:\Source\github\ggj2014\engine\Citrus-Engine-master\lib</path-element>
+      <path-element>Z:\Source\github\ggj2014\engine\DoodleInc Raizen GeekHouseGames</path-element>
       <path-element>C:\Program Files (x86)\FlashDevelop\Library\AS3\classes</path-element>
     </source-path>
     <library-path append="true">
-      <path-element>C:\SourceTree_Repositories\ggj2014\engine\Citrus-Engine-master\lib\starling.swc</path-element>
-      <path-element>C:\SourceTree_Repositories\ggj2014\engine\Citrus-Engine-master\lib\signals.swc</path-element>
-      <path-element>C:\SourceTree_Repositories\ggj2014\engine\Citrus-Engine-master\lib\EazeTween.swc</path-element>
+      <path-element>Z:\Source\github\ggj2014\engine\Citrus-Engine-master\lib\starling.swc</path-element>
+      <path-element>Z:\Source\github\ggj2014\engine\Citrus-Engine-master\lib\signals.swc</path-element>
+      <path-element>Z:\Source\github\ggj2014\engine\Citrus-Engine-master\lib\EazeTween.swc</path-element>
     </library-path>
   </compiler>
   <file-specs>
-    <path-element>C:\SourceTree_Repositories\ggj2014\games\TestCitrusPlatformer\src\Main.as</path-element>
+    <path-element>Z:\Source\github\ggj2014\games\TestCitrusPlatformer\src\Main.as</path-element>
   </file-specs>
   <default-background-color>#407040</default-background-color>
   <default-frame-rate>60</default-frame-rate>
