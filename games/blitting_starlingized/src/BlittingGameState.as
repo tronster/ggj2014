@@ -83,10 +83,11 @@ package  {
 			var tempImg:Image = new Image(Resources.assetAtlas.getTexture("damageup"));		
 			var coin:Coin = new Coin("coin");
 			coin.view = tempImg;
-			Image(coin.view).scaleX = .25;
-			Image(coin.view).scaleY = .25;
-			coin.width = coin.view.width;
-			coin.height = coin.view.height;
+			coin.view.scaleX = .25;
+			coin.view.scaleY = .25;
+			//coin.width = coin.view.width;
+			//coin.height = coin.view.height;
+			//coin.width
 			coin.x = stage.stageWidth * .5;
 			coin.y = 400;
 			coin.onBeginContact.add(function(contact:b2Contact):void {

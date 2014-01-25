@@ -24,13 +24,12 @@ package
 			var img:Image = Resources.imgFont.getChar(81).createImage();
 			img.x = 300;
 			img.y = 300;
-			//img.smoothing = true;
-			//addChild(img);
+			addChild(img);
 			
 			var s:Sprite = Resources.imgFont.createSprite(100, 25, "QWOMX6", 24);
 			s.x = 200;
 			s.y = 200;
-			//addChild(s);
+			addChild(s);
 			
 			someText = new TextField(100, 25, "QWOMX", "mycustomfont", 24);
 			someText.color = 0x00ffff;
@@ -51,15 +50,15 @@ package
 			//startBtn.iconPosition = Button.ICON_POSITION_RIGHT_BASELINE;
 			addChild(startBtn);
 			startBtn.addEventListener(Event.TRIGGERED, onButtonTriggered);
-			
+			trace(startBtn.hasEventListener(Event.TRIGGERED));
 			this.addEventListener(GameStateEvent.STATE_CHANGE, onStateChange);
 		}
 		
 		private function onButtonTriggered(e:Event):void
 		{
 			trace("Button Clicked!");
-			_ce.state = new BlittingGameState();
-			//dispatchEvent(new GameStateEvent(GameStateEvent.STATE_CHANGE, {id:"play"}, false));
+			//_ce.state = new BlittingGameState();
+			dispatchEvent(new GameStateEvent(GameStateEvent.STATE_CHANGE, {id:"play"}, false));
 		}
 		
 		private function onStateChange(e:GameStateEvent):void 

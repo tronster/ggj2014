@@ -24,7 +24,7 @@ package
 			stage.addEventListener(Event.DEACTIVATE, deactivate);
 			
 			// touch or gesture?
-			Multitouch.inputMode = MultitouchInputMode.TOUCH_POINT;
+			//Multitouch.inputMode = MultitouchInputMode.TOUCH_POINT;
 			
 			setUpStarling(true)
 			// entry point
