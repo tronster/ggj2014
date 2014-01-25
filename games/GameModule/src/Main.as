@@ -56,7 +56,6 @@ package
 			//NativeApplication.nativeApplication.exit();
 		}
 		
-		
 		// Switch levels
 		private function onFastSwitchLevel( levelNum:int ):void
 		{
