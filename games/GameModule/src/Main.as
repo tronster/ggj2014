@@ -49,7 +49,7 @@ package
 			var spawns	:Array = [];
 			
 			spawns		= LevelMaker.addSpawns( spawns, 1, 1, 1, 2, 1, 3 );
-			levelData 	= LevelMaker.create( 3, 2, 1, tiles, spawns );
+			levelData 	= LevelMaker.create( 1, 0, 0, tiles, spawns );
 			
 			var levels:Vector.<LevelData> = new Vector.<LevelData>();
 			levels.push( levelData );
