@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:3e6d16734c1fde7aeb35fc47e254bdca:085fd776088a031677f9513aabb1d099:931b013fedee6bf93f996e654307bd62$ -->
+<TextureAtlas imagePath="Dog2Left.png">
+    <SubTexture name="Dog2Left01" x="2" y="2" width="120" height="138" frameX="-2" frameY="0" frameWidth="122" frameHeight="138"/>
+    <SubTexture name="Dog2Left02" x="124" y="2" width="116" height="138" frameX="-1" frameY="0" frameWidth="122" frameHeight="138"/>
+    <SubTexture name="Dog2Left03" x="2" y="418" width="100" height="134" frameX="-11" frameY="-4" frameWidth="122" frameHeight="138"/>
+    <SubTexture name="Dog2Left04" x="2" y="554" width="98" height="134" frameX="-11" frameY="-4" frameWidth="122" frameHeight="138"/>
+    <SubTexture name="Dog2Left05" x="96" y="828" width="90" height="134" frameX="-10" frameY="-4" frameWidth="122" frameHeight="138"/>
+    <SubTexture name="Dog2Left06" x="2" y="828" width="92" height="136" frameX="-10" frameY="-2" frameWidth="122" frameHeight="138"/>
+    <SubTexture name="Dog2Left07" x="2" y="690" width="96" height="136" frameX="-10" frameY="-2" frameWidth="122" frameHeight="138"/>
+    <SubTexture name="Dog2Left08" x="2" y="280" width="108" height="136" frameX="0" frameY="0" frameWidth="122" frameHeight="138"/>
+    <SubTexture name="Dog2Left09" x="118" y="278" width="108" height="136" frameX="0" frameY="0" frameWidth="122" frameHeight="138"/>
+    <SubTexture name="Dog2Left10" x="2" y="142" width="114" height="136" frameX="0" frameY="0" frameWidth="122" frameHeight="138"/>
+    <SubTexture name="Dog2Left11" x="118" y="142" width="114" height="134" frameX="-8" frameY="-4" frameWidth="122" frameHeight="138"/>
+    <SubTexture name="Dog2Left12" x="112" y="416" width="108" height="134" frameX="-9" frameY="-4" frameWidth="122" frameHeight="138"/>
+    <SubTexture name="Dog2Left13" x="104" y="552" width="100" height="132" frameX="-11" frameY="-3" frameWidth="122" frameHeight="138"/>
+    <SubTexture name="Dog2Left14" x="102" y="686" width="98" height="132" frameX="-11" frameY="-3" frameWidth="122" frameHeight="138"/>
+</TextureAtlas>

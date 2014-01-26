@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:3edac7a1e59cac34d052a8f3cf038d5b:3f35785e6e156cb6c3478ae15f3691d8:da405eb88361b0f1ef55b37afa8d1f0d$ -->
+<TextureAtlas imagePath="Dog3Left.png">
+    <SubTexture name="Dog3Left01" x="2" y="745" width="440" height="149" frameX="-80" frameY="-33" frameWidth="570" frameHeight="219"/>
+    <SubTexture name="Dog3Left02" x="2" y="896" width="422" height="149" frameX="-98" frameY="-33" frameWidth="570" frameHeight="219"/>
+    <SubTexture name="Dog3Left03" x="444" y="890" width="438" height="145" frameX="-78" frameY="-37" frameWidth="570" frameHeight="219"/>
+    <SubTexture name="Dog3Left04" x="484" y="743" width="472" height="145" frameX="-44" frameY="-37" frameWidth="570" frameHeight="219"/>
+    <SubTexture name="Dog3Left05" x="484" y="596" width="480" height="145" frameX="-35" frameY="-37" frameWidth="570" frameHeight="219"/>
+    <SubTexture name="Dog3Left06" x="2" y="445" width="482" height="145" frameX="-33" frameY="-37" frameWidth="570" frameHeight="219"/>
+    <SubTexture name="Dog3Left07" x="2" y="592" width="480" height="151" frameX="-31" frameY="-31" frameWidth="570" frameHeight="219"/>
+    <SubTexture name="Dog3Left08" x="490" y="441" width="484" height="153" frameX="-27" frameY="-27" frameWidth="570" frameHeight="219"/>
+    <SubTexture name="Dog3Left09" x="504" y="2" width="494" height="147" frameX="-24" frameY="-33" frameWidth="570" frameHeight="219"/>
+    <SubTexture name="Dog3Left10" x="2" y="2" width="500" height="151" frameX="-18" frameY="-33" frameWidth="570" frameHeight="219"/>
+    <SubTexture name="Dog3Left11" x="2" y="155" width="488" height="145" frameX="-33" frameY="-38" frameWidth="570" frameHeight="219"/>
+    <SubTexture name="Dog3Left12" x="504" y="151" width="490" height="145" frameX="-31" frameY="-38" frameWidth="570" frameHeight="219"/>
+    <SubTexture name="Dog3Left13" x="2" y="302" width="486" height="141" frameX="-30" frameY="-38" frameWidth="570" frameHeight="219"/>
+    <SubTexture name="Dog3Left14" x="492" y="298" width="488" height="141" frameX="-28" frameY="-38" frameWidth="570" frameHeight="219"/>
+</TextureAtlas>

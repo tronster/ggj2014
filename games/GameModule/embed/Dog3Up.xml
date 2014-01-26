@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:2bb7bcfe9f762a1be46ab075c5d34ba2:693a401886ecbc04dfb747f6ede6a081:fdae8f58992462c3aba60e7a5ed27b9a$ -->
+<TextureAtlas imagePath="Dog3Up.png">
+    <SubTexture name="Dog3Up01" x="577" y="2" width="187" height="380" frameX="-13" frameY="-13" frameWidth="223" frameHeight="410"/>
+    <SubTexture name="Dog3Up02" x="388" y="2" width="187" height="380" frameX="-13" frameY="-13" frameWidth="223" frameHeight="410"/>
+    <SubTexture name="Dog3Up03" x="380" y="384" width="187" height="376" frameX="-13" frameY="-16" frameWidth="223" frameHeight="410"/>
+    <SubTexture name="Dog3Up04" x="191" y="384" width="187" height="376" frameX="-13" frameY="-16" frameWidth="223" frameHeight="410"/>
+    <SubTexture name="Dog3Up05" x="766" y="382" width="187" height="376" frameX="-13" frameY="-16" frameWidth="223" frameHeight="410"/>
+    <SubTexture name="Dog3Up06" x="569" y="384" width="187" height="374" frameX="-13" frameY="-16" frameWidth="223" frameHeight="410"/>
+    <SubTexture name="Dog3Up07" x="758" y="760" width="187" height="372" frameX="-13" frameY="-15" frameWidth="223" frameHeight="410"/>
+    <SubTexture name="Dog3Up08" x="569" y="760" width="187" height="372" frameX="-13" frameY="-14" frameWidth="223" frameHeight="410"/>
+    <SubTexture name="Dog3Up09" x="766" y="2" width="187" height="378" frameX="-13" frameY="-15" frameWidth="223" frameHeight="410"/>
+    <SubTexture name="Dog3Up10" x="2" y="2" width="195" height="378" frameX="-12" frameY="-15" frameWidth="223" frameHeight="410"/>
+    <SubTexture name="Dog3Up11" x="2" y="382" width="187" height="380" frameX="-13" frameY="-17" frameWidth="223" frameHeight="410"/>
+    <SubTexture name="Dog3Up12" x="199" y="2" width="187" height="380" frameX="-13" frameY="-17" frameWidth="223" frameHeight="410"/>
+</TextureAtlas>
