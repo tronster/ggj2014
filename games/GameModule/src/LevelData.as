@@ -66,7 +66,7 @@ package
 				cat = new Cat(1);
 				cat.x = xplacementConsts[ total % GRIDX];
 				cat.y =  STARTY + ( int(total / GRIDX) * GRIDSPACE );
-				cat.init();
+				cat.initForEdit();
 				v.push( cat );
 				total++;
 			}
@@ -76,7 +76,7 @@ package
 				cat = new Cat(2);
 				cat.x = xplacementConsts[ total % GRIDX];
 				cat.y =  STARTY + ( int(total / GRIDX) * GRIDSPACE );
-				cat.init();
+				cat.initForEdit();
 				v.push( cat );
 				total++;
 			}
@@ -86,7 +86,7 @@ package
 				cat = new Cat(3);
 				cat.x = xplacementConsts[ total % GRIDX];
 				cat.y =  STARTY + ( int(total / GRIDX) * GRIDSPACE );
-				cat.init();
+				cat.initForEdit();
 				v.push( cat );
 				total++;
 			}

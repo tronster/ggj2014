@@ -87,7 +87,7 @@ package
 			for each( var cat:Cat in cats )
 			{
 				add( cat.editArt );
-				add( cat.sensor );
+				//add( cat.sensor );
 				
 				//cat.editArt.addEventListener( MouseEvent.MOUSE_DOWN, onMouseDown);
 			}
@@ -162,6 +162,11 @@ package
 			// TRON: This crashes after a few state returns, looks like added physics objects aren't being cleaned up.
 			//	_ce.futureState = new BattleState();
 			//	eaze(this).to( 1.5, {alpha:0});
+			
+			/*for each( var cat:Cat in cats )
+			{
+				remove(cat.sensor);
+			}*/
 			
 			_ce.gameData[Config.ACTIVE_CATS] 	= cats;
 			_ce.gameData[Config.CURRENT_LEVEL]	= levelData;

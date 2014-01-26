@@ -12,7 +12,9 @@ package
 		[Embed(source = "/../embed/BackgroundArtPlayState.png")]									public static const bg			:Class;
 		[Embed(source = "/../embed/titlebg.png")]													public static const titlebg		:Class;
 		[Embed(source = "/../embed/title.png")]														public static const title		:Class;		
-		[Embed(source = "/../embed/sidescroll.png")]												public static const sidescroll	:Class;		
+		[Embed(source = "/../embed/sidescroll.png")]												public static const sidescroll	:Class;
+		[Embed(source = "/../embed/defeat.png")]													public static const defeat		:Class;
+		[Embed(source = "/../embed/victory.png")]													public static const victory		:Class;
 	
 	
 		// Sheets
