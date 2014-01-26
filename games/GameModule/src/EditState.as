@@ -23,6 +23,7 @@ package
 	import starling.events.Touch;
 	import starling.events.TouchEvent;
 	import starling.events.TouchPhase;
+	import starling.text.TextField;
 	import starling.textures.Texture;
 	import starling.textures.TextureAtlas;
 	
@@ -92,10 +93,13 @@ package
 			for each( var cat:Cat in cats )
 			{
 				add( cat.editArt );
-				//add( cat.sensor );
-				
-				//cat.editArt.addEventListener( MouseEvent.MOUSE_DOWN, onMouseDown);
 			}
+			
+			
+			var tf:TextField = new TextField(300, 200, levelData.objectiveText, "Verdana", 14, 0xffffffff );
+			tf.x = 0;
+			tf.y = 315;
+			addChild( tf );
 			
 			_ce.sound.playSound("editMusic");
 			
