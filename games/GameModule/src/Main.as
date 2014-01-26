@@ -53,6 +53,10 @@ package
 			
 			sound.addSound("editMusic", 		{ sound:"assets/editMusic.mp3",		permanent:true, volume:0.8 , loops:int.MAX_VALUE , group:CitrusSoundGroup.BGM } );	
 			sound.addSound("battleMusic", 		{ sound:"assets/battleMusic.mp3",	permanent:true, volume:0.8 , loops:int.MAX_VALUE , group:CitrusSoundGroup.BGM } );	
+
+			//sound.addSound("buttonSfx", { sound:"assets/beep1.mp3" , group:CitrusSoundGroup.SFX } );
+			//sound.addSound("beep2", { sound:"sounds/beep2.mp3" , group:CitrusSoundGroup.SFX } );
+				
 			gameData = new GameData();
 		}
 		
