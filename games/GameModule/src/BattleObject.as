@@ -2,6 +2,7 @@ package
 {
 	import citrus.core.IState;
 	import citrus.objects.CitrusSprite;
+	import citrus.view.starlingview.AnimationSequence;
 	import starling.textures.Texture;
 	/**
 	 * BattleObject is used to display a battle between a cat and dog.
@@ -12,30 +13,36 @@ package
 		public var catHealth:CitrusSprite;
 		public var dogHealth:CitrusSprite;
 		
+		private var numHealthBarFrames:int;
 		private var cat:Cat;
 		private var dog:Dog;
 		
 		public function BattleObject(name:String, cat:Cat, dog:Dog, params:Object = null)
 		{
+			//force the view in params to be battle cloud incase something else gets passed in
+			params.view = Resources.getView("Battlecloud");
+			super(name, params);
+			
+			this.x = cat.x - (view.width * .5);
+			this.y = cat.y - (view.height * .5);
+			
 			this.cat = cat;
 			cat.inBattle = true;
-			catHealth = new CitrusSprite("cat_battle_health", {view:Resources.getAtlas("temp_sheet").getTexture("start_game_idle_button") });
+			
 			
 			this.dog = dog;
 			dog.inBattle = true;
-			dogHealth = new CitrusSprite("cat_battle_health", {view:Resources.getAtlas("temp_sheet").getTexture("start_game_over_button") });
 			
-			this.x = cat.x;
-			this.y = cat.y;
+			catHealth = new CitrusSprite("cat_battle_health", {view:Resources.getView("hpbar")});
+			catHealth.x = (this.x + view.width * .5) - catHealth.view.width * .5;
+			catHealth.y = (this.y + view.height * .5) - (catHealth.view.height * .5) - 20;
 			
-			catHealth.x = this.x - Texture(catHealth.view).width * .5;
-			catHealth.y = this.y - (Texture(catHealth.view).width * .5) - 20;
+			dogHealth = new CitrusSprite("cat_battle_health", { view:Resources.getView("hpbar") } );
+			dogHealth.x = (this.x + view.width * .5) - catHealth.view.width * .5;
+			dogHealth.y = (this.y + view.height * .5) + 20;
 			
-			dogHealth.x = this.x - Texture(catHealth.view).width * .5;
-			dogHealth.y = this.y + 20;
-			//force the view in params to be battle cloud incase something else gets passed in
-			params.view = "assets/battle_animation.swf";
-			super(name, params);
+			numHealthBarFrames = AnimationSequence(catHealth.view).mcSequences["hpbar"].numFrames;
+			
 		}
 		
 		/**
@@ -67,6 +74,9 @@ package
 				cat.hp -= Config.DAMAGE_HIGH;
 			}			
 			
+			//set both healthbars to a frame number that coresponds to a percentage of health
+			AnimationSequence(catHealth.view).mcSequences["hpbar"].currentFrame = Math.ceil((cat.hp / cat.maxHp) * (numHealthBarFrames - 1));
+			AnimationSequence(dogHealth.view).mcSequences["hpbar"].currentFrame = Math.ceil((dog.hp / dog.maxHp) * (numHealthBarFrames - 1));
 			checkBattleEnded();
 			
 			trace("There is a battle going on", cat.hp, cat.type, dog.hp, dog.type);

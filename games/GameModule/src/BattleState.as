@@ -80,7 +80,7 @@ package
 			dogs = new Vector.<Dog>();
 			battles = new Vector.<BattleObject>();
 			
-			tempCat = new Cat(1);
+			tempCat = new Cat(3);
 			tempCat.x = Main.STAGE_WIDTH * .5;
 			tempCat.y = Main.STAGE_HEIGHT * .5;
 			tempCat.init();

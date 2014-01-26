@@ -48,11 +48,11 @@ package
 		
 		
 		
-		[Embed(source = "/../embed/Battlecloud.png")]												public static const BattleCloudTexture	:Class;		
-		[Embed(source = "/../embed/Battlecloud.xml", mimeType="application/octet-stream")]			public static const BattleCloudXml		:Class;		
+		[Embed(source = "/../embed/Battlecloud.png")]												public static const BattlecloudTexture	:Class;		
+		[Embed(source = "/../embed/Battlecloud.xml", mimeType="application/octet-stream")]			public static const BattlecloudXml		:Class;		
 
-		[Embed(source = "/../embed/hpbar.png")]														public static const HPBarTexture		:Class;		
-		[Embed(source = "/../embed/hpbar.xml", 		mimeType="application/octet-stream")]			public static const HPBar				:Class;		
+		[Embed(source = "/../embed/hpbar.png")]														public static const hpbarTexture		:Class;		
+		[Embed(source = "/../embed/hpbar.xml", 		mimeType="application/octet-stream")]			public static const hpbar				:Class;		
 		
 		
 		
@@ -107,8 +107,8 @@ package
 			makeAtlas( "Dog1Up", 	 	Dog1Up );
 			makeAtlas( "Dog1Victory",  	Dog1Victory );
 			
-			makeAtlas( "BattleCloud", 	BattleCloudXml );
-			makeAtlas( "HPBar", 		HPBar );
+			makeAtlas( "Battlecloud", 	BattlecloudXml );
+			makeAtlas( "hpbar", 		hpbar );
 			
 		}
 	
