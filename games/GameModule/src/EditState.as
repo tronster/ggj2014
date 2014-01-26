@@ -53,7 +53,7 @@ package
 			bg = new CitrusSprite("bg", { view:Image.fromBitmap(new Resources.bg()) } );
 			add( bg );
 
-			bgGrass = new CitrusSprite("bgGrass", { x:192, view:Image.fromBitmap(new Resources.bgGrass()) } );
+			bgGrass = new CitrusSprite("bgGrass", { x:192, view:Image.fromBitmap(new Resources.bg()) } );
 			add( bgGrass );
 		
 			

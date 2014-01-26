@@ -41,7 +41,12 @@ package
 			
 			playArt = new DogPhysicsObject(this, "dogs_playart", { x:x, y:y, width:128, height:128} );
 			//playArt.view = "../embed/Dog1.swf";
-			playArt.view = Resources.getView("Dog" + type + "Left");
+			
+			var tempAnima:AnimationSequence =  Resources.getViewWithMultipleAtlas(["Dog" + type + "Left", 
+																					"Dog" + type + "Right", 
+																					"Dog" + type + "Up", 
+																					"Dog" + type + "Down"]);
+			playArt.view = tempAnima;
 		}
 		
 		public function destroy():void
@@ -70,26 +75,30 @@ package
 				if (distX > movementSpeed) 
 				{
 					distX = movementSpeed;
+					AnimationSequence(playArt.view).changeAnimation("Dog" + type + "Right", true);
 					//CitrusEngine.getInstance().state.remove(playArt);
-					playArt.view = Resources.getView("Dog" + this.type + "Right");
+					//playArt.view = Resources.getView("Dog" + this.type + "Right");
 				}else if (distX < -movementSpeed) 
 				{
 					distX = -movementSpeed;
+					AnimationSequence(playArt.view).changeAnimation("Dog" + type + "Left", true);
 					//CitrusEngine.getInstance().state.remove(playArt);
-					playArt.view = Resources.getView("Dog" + this.type + "Left");
+					//playArt.view = Resources.getView("Dog" + this.type + "Left");
 				}
 					
 				//handle verticial movement
 				if (distY > movementSpeed) 
 				{
 					distY = movementSpeed;
+					AnimationSequence(playArt.view).changeAnimation("Dog" + type + "Down", true);
 					//CitrusEngine.getInstance().state.remove(playArt);
-					playArt.view = Resources.getView("Dog" + this.type + "Down");
+					//playArt.view = Resources.getView("Dog" + this.type + "Down");
 				}else if (distY < -movementSpeed) 
 				{
 					distY = -movementSpeed;
+					AnimationSequence(playArt.view).changeAnimation("Dog" + type + "Up", true);
 					//CitrusEngine.getInstance().state.remove(playArt);
-					playArt.view = Resources.getView("Dog" + this.type + "Up");
+					//playArt.view = Resources.getView("Dog" + this.type + "Up");
 				}
 				
 				this.x += distX;
@@ -100,6 +109,7 @@ package
 				playArt.visible = true;
 			}
 			
+			//AnimationSequence(playArt.view).changeAnimation("Dog" + type + "Left");
 			var name:Vector.<String> = AnimationSequence(playArt.view).getAnimationNames();
 			trace(name[0], name.length, AnimationSequence(playArt.view).mcSequences[name[0]].currentFrame);
 				

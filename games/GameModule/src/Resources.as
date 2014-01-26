@@ -2,6 +2,7 @@ package
 {
 	import citrus.datastructures.PoolObject;
 	import citrus.view.starlingview.AnimationSequence;
+	import dragonBones.animation.Animation;
 	import flash.display.Bitmap;
 	import flash.utils.Dictionary;
 	import starling.textures.Texture;
@@ -129,6 +130,26 @@ package
 		{
 			var sa:AnimationSequence = new AnimationSequence( Resources.getAtlas( name ), [name], name, 30, loop );
 			return sa;
+		}
+		
+		static public function getViewWithMultipleAtlas(args:Array):AnimationSequence
+		{
+			var sa:AnimationSequence;
+			
+			if (args is Array)
+			{
+				sa = new AnimationSequence(getAtlas(args[0]), [args[0]], args[0], 30, true);
+				
+				for (var i:int = 1; i < args.length; i++)
+				{
+					sa.addTextureAtlasWithAnimations(getAtlas(args[i]), [args[i]]);
+				}
+			}else {
+				error("Invalid argument type in getViewWithMultipleAtlas");
+			}
+			
+			return sa;
+			
 		}
 		
 		//--------------------------------------------------------------------
