@@ -27,8 +27,8 @@ package
 		private var win:Boolean = false;
 		
 		private var retryBtn:Button;
-		private var defeatImage:CitrusSprite;
-		private var victoryImage:CitrusSprite;
+		private var defeatImage:Image;
+		private var victoryImage:Image;
 		
 		public function BattleState() 
 		{
@@ -36,50 +36,35 @@ package
 			trace("Battle State Constructed");
 		}
 		
-		
 		override public function initialize():void
 		{
 			super.initialize();
 			
-			var bg:CitrusSprite = new CitrusSprite("bg");
-			bg.view = Texture.fromBitmap(new Resources.bg());
-			add(bg);
+			levelData = _ce.gameData[ Config.CURRENT_LEVEL ].clone();
 			
-			var bgGrass:CitrusSprite = new CitrusSprite("bgGrass", { x:192, view:Image.fromBitmap(new Resources.bg()) } );
-			add( bgGrass );
+			var bg:CitrusSprite = new CitrusSprite("bg", { view:Image.fromBitmap(new Resources.level_straight()) } );
+			add(bg);
 			
 			var box2D:Box2D = new Box2D("box2D");
 			box2D.visible = true;
 			box2D.gravity = new b2Vec2(0, 0);
 			add(box2D);
 			
-<<<<<<< HEAD
 			retryBtn = new Button(Resources.getAtlas("temp_sheet").getTexture("replay_idle_button"));
 			retryBtn.x = 480;
 			retryBtn.y = 500;
 			addEventListener(Event.TRIGGERED, onRetryClicked);
 			
-			defeatImage = new CitrusSprite("title", { view:Image.fromBitmap(new Resources.defeat()) } );
-			defeatImage.x = 150; 
+			//defeatImage = new CitrusSprite("title", { view:Image.fromBitmap(new Resources.defeat()) } );
+			defeatImage = Image.fromBitmap(new Resources.defeat());
+			defeatImage.x = 150;
+			defeatImage.y = -defeatImage.height ;
+			addChild(defeatImage);
 			
-			victoryImage = new CitrusSprite("title", { view:Image.fromBitmap(new Resources.defeat()) } );
+			victoryImage = Image.fromBitmap(new Resources.victory());
+			victoryImage.y = -victoryImage.height ;
 			victoryImage.x = 150;
-			
-=======
-			/* ??TRON remove:
-			//levelInfo = LevelData(_ce.gameData).clone();
->>>>>>> 9b61a21ec6d6c495e53bc996c0b4aec96e61bbaf
-			levelData = new LevelData();
-			
-			//hard code spawns
-			var tempSpawn:Spawn;
-			for (var i:int = 0; i < 1; i++)
-			{
-				tempSpawn = new Spawn(1, (i + 1));	//time to spawn is 1 second intervals
-				levelData.spawns.push(tempSpawn);
-<<<<<<< HEAD
-			}
-			//levelData = _ce.gameData[ Config.CURRENT_LEVEL ].clone();
+			addChild(victoryImage);
 			
 			cats = _ce.gameData[Config.ACTIVE_CATS];
 			//cats = new Vector.<Cat>();
@@ -94,51 +79,7 @@ package
 				add(cat.sensor);
 			}
 			
-=======
-			}*/
-			levelData = _ce.gameData[ Config.CURRENT_LEVEL ].clone();
->>>>>>> 9b61a21ec6d6c495e53bc996c0b4aec96e61bbaf
-			
-			/*
-			//hard code nodes
-			var tempNode:Node = new Node();
-			tempNode.x = 192;
-			tempNode.y = stage.stageHeight * .5;
-			tempNode.gfxType = 1;
-			levelData.path.push(tempNode);
-			
-			tempNode = new Node();
-			tempNode.x = 250;
-			tempNode.y = stage.stageHeight * .5;
-			tempNode.gfxType = 1;
-			levelData.path.push(tempNode);
-			
-			tempNode = new Node();
-			tempNode.x = 250;
-			tempNode.y = stage.stageHeight * .1;
-			tempNode.gfxType = 1;
-			levelData.path.push(tempNode);
-			
-			tempNode = new Node();
-			tempNode.x = stage.stageWidth * .75;
-			tempNode.y = stage.stageHeight * .1;
-			tempNode.gfxType = 1;
-			levelData.path.push(tempNode);
-			
-			tempNode = new Node();
-			tempNode.x = stage.stageWidth * .75;
-			tempNode.y = stage.stageHeight * .5;
-			tempNode.gfxType = 1;
-			levelData.path.push(tempNode);
-			
-			//start node
-			tempNode = new Node();
-			tempNode.x = stage.stageWidth;
-			tempNode.y = stage.stageHeight * .5;
-			tempNode.gfxType = 1;
-			levelData.path.push(tempNode);
-			*/
-			
+			levelData = _ce.gameData[ Config.CURRENT_LEVEL ].clone();			
 			
 			//get how many total nodes are in the path
 			numNodes = levelData.path.length;
@@ -206,10 +147,18 @@ package
 						battles.splice(i, 1);
 					}
 				}
+				
+				if (levelData.spawns.length == 0 && dogs.length == 0) win = true;
 			}else {
 				if (gameover) handleGameover();
 				
 				if (win) handleWin();
+				
+				for (i = battles.length - 1; i >= 0; i--)
+				{
+					var battle:BattleObject = battles[i];
+					battle.stopAnimation();
+				}
 			}
 			
 			//tempCat.update(timeDelta);
@@ -219,7 +168,7 @@ package
 		
 		private function handleWin():void 
 		{
-			eaze(victoryImage).to( 1.1, { y:100 } );
+			eaze(victoryImage).to( .5, { y:100 } );
 			
 			addChild(retryBtn);
 			trace("You Lose");

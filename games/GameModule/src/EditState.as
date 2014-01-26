@@ -47,6 +47,12 @@ package
 			super();
 		}
 		
+		override public function destroy():void
+		{
+			super.destroy();
+			remove(levelData.citrus);
+		}
+		
 		override public function initialize():void
 		{
 			super.initialize();
