@@ -29,6 +29,7 @@ package
 	
 	public class EditState extends StarlingState
 	{
+		public var levelbg		:CitrusSprite;
 		public var bg			:CitrusSprite;
 		public var bgGrass		:CitrusSprite;
 		public var sidescroll	:CitrusSprite;
@@ -62,7 +63,8 @@ package
 			
 			getCurrentLevelData();
 			
-			add( levelData.citrus );
+			levelbg = levelData.getCitrusObject()
+			add( levelbg );
 
 			/*
 			bgGrass = new CitrusSprite("bgGrass", { x:192, view:Image.fromBitmap(new Resources.bg()) } );
@@ -192,7 +194,7 @@ package
 
 		override public function destroy():void
 		{
-			remove(levelData.citrus);			
+			remove(levelbg);
 			
 			//_ce.sound.crossFade();
 			_ce.sound.stopAllPlayingSounds();

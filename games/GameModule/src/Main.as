@@ -82,52 +82,63 @@ package
 			var path	:Vector.<Node>;
 
 			// Level 1
-			spawns		= LevelMaker.makeSpawns( [], 1, 1, 1, 2, 1, 3 );
+			spawns		= LevelMaker.makeSpawns( [], 1, 1 );
 			path		= LevelMaker.makePath([ [0,2,1], [1,2,1], [2,2,1], [3,2,1], [4,2,1], [5,2,1], [6,2,1] ]);
-			levelData 	= LevelMaker.create( 5, 2, 0, path, spawns, "Our neighbor's dogs smell our sushi!" );			
-			levelData.citrus = new CitrusSprite("bg", { x:192, view:Image.fromBitmap(new Resources.level_straight()) } );
+			levelData 	= LevelMaker.create( 1, 0, 0, path, spawns, "Our neighbor's dogs smell our sushi!" );			
+			//levelData.citrus = new CitrusSprite("bg", { x:192, view:Image.fromBitmap(new Resources.level_straight()) } );
+			levelData.citrusSpriteNum = 0;
 			levels.push( levelData );
 
 			// Level 2
-			spawns		= LevelMaker.makeSpawns( [], 1, 1, 1, 2, 1, 3 );
+			spawns		= LevelMaker.makeSpawns( [], 1, 1, 1, 3, 1, 7 );
 			path		= LevelMaker.makePath([ [0,2,1], [1,2,1], [2,2,1], [3,2,1], [4,2,1], [5,2,1], [6,2,1] ]);
-			levelData 	= LevelMaker.create( 5, 2, 0, path, spawns, "Oh no, they're back with more!" );			
-			levelData.citrus = new CitrusSprite("bg", { x:192, view:Image.fromBitmap(new Resources.level_straight()) } );
+			levelData 	= LevelMaker.create( 1, 2, 0, path, spawns, "Oh no, they're back with more!" );			
+			//levelData.citrus = new CitrusSprite("bg", { x:192, view:Image.fromBitmap(new Resources.level_straight()) } );
+			levelData.citrusSpriteNum = 0;
 			levels.push( levelData );
 
 			// Level 3
-			spawns		= LevelMaker.makeSpawns( [], 1, 1, 1, 2, 1, 3 );
+			spawns		= LevelMaker.makeSpawns( [], 1, 1, 2, 5, 3, 7 );
 			path		= LevelMaker.makePath([ [0,2,1], [1,2,1], [2,2,1], [3,2,1], [3,3,1], [3,4,1], [4,4,1], [5,4,1], [6,4,1] ]);
-			levelData 	= LevelMaker.create( 5, 2, 0, path, spawns, "Even in puffy's yard the dogs have found us." );			
-			levelData.citrus = new CitrusSprite("bg", { x:192, view:Image.fromBitmap(new Resources.level_low_curve()) } );
+			levelData 	= LevelMaker.create( 1, 1, 1, path, spawns, "Even in puffy's yard the dogs have found us." );			
+			//levelData.citrus = new CitrusSprite("bg", { x:192, view:Image.fromBitmap(new Resources.level_low_curve()) } );
+			levelData.citrusSpriteNum = 1;
 			levels.push( levelData );
 
 			// Level 4
-			spawns		= LevelMaker.makeSpawns( [], 1, 1, 1, 2, 1, 3 );
+			spawns		= LevelMaker.makeSpawns( [], 3, 1, 2, 4, 1, 9 );
 			path		= LevelMaker.makePath([ [0,2,1], [1,2,1], [2,2,1], [3,2,1], [3,3,1], [3,4,1], [4,4,1], [5,4,1], [6,4,1] ]);
-			levelData 	= LevelMaker.create( 5, 2, 0, path, spawns, "Who let these dogs out?" );			
-			levelData.citrus = new CitrusSprite("bg", { x:192, view:Image.fromBitmap(new Resources.level_low_curve()) } );
+			levelData 	= LevelMaker.create( 1, 1, 1, path, spawns, "Who let these dogs out?" );			
+			//levelData.citrus = new CitrusSprite("bg", { x:192, view:Image.fromBitmap(new Resources.level_low_curve()) } );
+			levelData.citrusSpriteNum = 1;
 			levels.push( levelData );
 			
 			// Level 5
-			spawns		= LevelMaker.makeSpawns( [], 1, 1, 1, 2, 1, 3 );
+			spawns		= LevelMaker.makeSpawns( []		, 1, 1, 1, 5, 2, 9 );
+			spawns		= LevelMaker.makeSpawns( spawns , 2, 15, 3, 18, 1, 22 );
 			path		= LevelMaker.makePath([ [0,1,1], [1,1,1], [2,1,1], [2,2,1], [2,3,1], [3,3,1], [4,3,1], [4,2,1], [5,2,1], [6,2,1] ]);
-			levelData 	= LevelMaker.create( 5, 2, 0, path, spawns, "No matter where we go, the dogs follow." );			
-			levelData.citrus = new CitrusSprite("bg", { x:192, view:Image.fromBitmap(new Resources.level_two_bend()) } );
+			levelData 	= LevelMaker.create( 2, 2, 2, path, spawns, "No matter where we go, the dogs follow." );			
+			//levelData.citrus = new CitrusSprite("bg", { x:192, view:Image.fromBitmap(new Resources.level_two_bend()) } );
+			levelData.citrusSpriteNum = 2;
 			levels.push( levelData );
 
 			// Level 6
-			spawns		= LevelMaker.makeSpawns( [], 1, 1, 1, 2, 1, 3 );
+			spawns		= LevelMaker.makeSpawns( []	  , 3, 1,  3, 5, 2, 10 );
+			spawns		= LevelMaker.makeSpawns( spawns, 1, 15, 3, 20, 2, 5 );
 			path		= LevelMaker.makePath([ [0,3,1], [1,3,1], [1,4,1], [2,4,1], [3,4,1], [3,3,1], [4,3,1], [4,2,1], [5,2,1], [6,2,1] ]);
-			levelData 	= LevelMaker.create( 5, 2, 0, path, spawns, "Keep fighting warrior cats!" );			
-			levelData.citrus = new CitrusSprite("bg", { x:192, view:Image.fromBitmap(new Resources.level_backtrack()) } );
+			levelData 	= LevelMaker.create( 2, 2, 2, path, spawns, "Keep fighting warrior cats!" );			
+			//levelData.citrus = new CitrusSprite("bg", { x:192, view:Image.fromBitmap(new Resources.level_backtrack()) } );
+			levelData.citrusSpriteNum = 2;
 			levels.push( levelData );
 
 			// Level 7
-			spawns		= LevelMaker.makeSpawns( [], 1, 1, 1, 2, 1, 3 );
+			spawns		= LevelMaker.makeSpawns( [], 1, 1, 1, 3, 1, 8 );
+			spawns		= LevelMaker.makeSpawns( spawns, 2, 12, 2, 15, 3, 20 );
+			spawns		= LevelMaker.makeSpawns( spawns, 3, 24, 3, 28, 3, 32 );
 			path		= LevelMaker.makePath([ [0,2,1], [1,2,1], [2,2,1], [3,2,1], [4,2,1], [4,3,1], [4,2,1], [3,2,1], [2,2,1], [2,1,1], [2,0,1], [3,0,1], [4,0,1], [5,0,1], [6,0,1] ]);
-			levelData 	= LevelMaker.create( 5, 2, 0, path, spawns, "Our last stand, Katseye!!!!!!" );			
-			levelData.citrus = new CitrusSprite("bg", { x:192, view:Image.fromBitmap(new Resources.level_backtrack()) } );
+			levelData 	= LevelMaker.create( 3, 3, 3, path, spawns, "Our last stand, Katseye!!!!!!" );			
+			//levelData.citrus = new CitrusSprite("bg", { x:192, view:Image.fromBitmap(new Resources.level_backtrack()) } );
+			levelData.citrusSpriteNum = 3;
 			levels.push( levelData );
 			
 			gameData[ Config.GAMEDATA_LEVELS ] = levels;			
@@ -135,7 +146,7 @@ package
 			// Remove default keyboard key actions and hook up our custom keyboard.
 			_input.keyboard.destroy();
 			_input.keyboard = new Keyboard("drgKeyboard");
-		
+			
 			this.state = new ShellState();
 			//this.state = new EditState();
 		}

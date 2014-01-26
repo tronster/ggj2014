@@ -1,10 +1,13 @@
 package  
 {
+	import citrus.core.CitrusEngine;
 	import citrus.objects.CitrusSprite;
+	import starling.display.Image;
 	public class LevelData 
 	{
-		public var citrus	:CitrusSprite;
-
+		//private var citrus	:CitrusSprite;
+		public var citrusSpriteNum:int = 0;
+		
 		public var path		:Vector.<Node>;
 		public var spawns	:Vector.<Spawn>; 
 		public var tiles	:Vector.<uint>;
@@ -22,9 +25,35 @@ package
 		{	
 			path 	= new Vector.<Node>();
 			spawns 	= new Vector.<Spawn>();
-			tiles	= new Vector.<uint>();			
+			tiles	= new Vector.<uint>();
 		}
 		
+		
+		public function getCitrusObject():CitrusSprite
+		{
+			var c:CitrusSprite;
+			
+			switch(citrusSpriteNum)
+			{
+				case 0: 
+					c = new CitrusSprite("bg", { x:192, view:Image.fromBitmap(new Resources.level_straight()) } );
+					break;
+
+				case 1: 
+					c = new CitrusSprite("bg", { x:192, view:Image.fromBitmap(new Resources.level_low_curve()) } );
+					break;
+					
+				case 2: 
+					c = new CitrusSprite("bg", { x:192, view:Image.fromBitmap(new Resources.level_two_bend()) } );
+					break;
+					
+				case 3: 
+					c = new CitrusSprite("bg", { x:192, view:Image.fromBitmap(new Resources.level_backtrack()) } );
+					break;
+			}
+			
+			return c;
+		}
 		
 		public function clone():LevelData
 		{
@@ -38,6 +67,8 @@ package
 				
 			for each( var tile:uint in tiles)
 				ld.tiles.push( tile );
+			
+			ld.citrusSpriteNum = this.citrusSpriteNum;
 				
 			ld.objectiveText= this.objectiveText;
 			ld.cloneCount 	= this.cloneCount + 1;

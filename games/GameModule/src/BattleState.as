@@ -18,6 +18,8 @@ package
 	{
 		public var startTime:uint;
 		
+		public var levelbg		:CitrusSprite;
+
 		private var lifeTime:Number;
 		private var levelData:LevelData;
 		private var dogs:Vector.<Dog>;
@@ -41,28 +43,30 @@ package
 		{
 			super.initialize();
 			
-			levelData = _ce.gameData[ Config.CURRENT_LEVEL ].clone();
-			
-			var bg:CitrusSprite = new CitrusSprite("bg", { view:Image.fromBitmap(new Resources.bg()) } );
-			add(bg);
-			
-			var bgPath:CitrusSprite = new CitrusSprite("bg", { view:Image.fromBitmap(new Resources.level_straight()) } );
-			bgPath.x = Main.STAGE_WIDTH - Image(bgPath.view).width;
-			add(bgPath);
-			
-			var sushi:CitrusSprite = new CitrusSprite("bg", { view:Resources.getView("Sushi") } );
-			sushi.x = levelData.path[0].x - AnimationSequence(sushi.view).width * .5;
-			sushi.y = levelData.path[0].y - AnimationSequence(sushi.view).height * .5;
-			add(sushi);
-			
 			var box2D:Box2D = new Box2D("box2D");
 			//box2D.visible = true;
 			box2D.gravity = new b2Vec2(0, 0);
 			add(box2D);
 			
+			levelData = _ce.gameData[ Config.CURRENT_LEVEL ].clone();
+			
+			var bg:CitrusSprite = new CitrusSprite("bg", { view:Image.fromBitmap(new Resources.bg()) } );
+			add(bg);
+			
+			//var bgPath:CitrusSprite = new CitrusSprite("bg", { view:Image.fromBitmap(new Resources.level_straight()) } );
+			//bgPath.x = Main.STAGE_WIDTH - Image(bgPath.view).width;
+			//add(bgPath);
+			levelbg = levelData.getCitrusObject()
+			add( levelbg );
+			
+			var sushi:CitrusSprite = new CitrusSprite("bg", { view:Resources.getView("Sushi") } );
+			sushi.x = levelData.path[0].x - AnimationSequence(sushi.view).width * .5;
+			sushi.y = levelData.path[0].y - AnimationSequence(sushi.view).height * .5;
+			add(sushi);
+						
 			retryBtn = new Button(Resources.getAtlas("temp_sheet").getTexture("replay_idle_button"));
-			retryBtn.x = 480;
-			retryBtn.y = 500;
+			retryBtn.x = 600;
+			retryBtn.y = 550;
 			addEventListener(Event.TRIGGERED, onRetryClicked);
 			
 			//defeatImage = new CitrusSprite("title", { view:Image.fromBitmap(new Resources.defeat()) } );
@@ -89,20 +93,14 @@ package
 				add(cat.sensor);
 			}
 			
-			levelData = _ce.gameData[ Config.CURRENT_LEVEL ].clone();			
+			//levelData = _ce.gameData[ Config.CURRENT_LEVEL ].clone();			
 			
 			//get how many total nodes are in the path
 			numNodes = levelData.path.length;
 			
 			dogs = new Vector.<Dog>();
 			battles = new Vector.<BattleObject>();
-			
-			/*tempCat = new Cat(1);
-			tempCat.x = Main.STAGE_WIDTH * .5;
-			tempCat.y = Main.STAGE_HEIGHT * .5;
-			tempCat.init();
-			add(tempCat.playArt);
-			add(tempCat.sensor);*/
+
 			
 			lifeTime = 0;
 			
@@ -201,6 +199,13 @@ package
 		
 		private function onRetryClicked(e:Event):void 
 		{
+			if ( win )
+			{
+				var levelNum:int = _ce.gameData[Config.CURRENT_LEVEL_NUM];
+				levelNum++;
+				_ce.gameData[Config.CURRENT_LEVEL_NUM] = levelNum;
+			}
+			
 			_ce.state = new EditState();
 		}
 		
@@ -229,6 +234,7 @@ package
 		
 		override public function destroy():void
 		{
+			remove(levelbg);			
 			_ce.sound.stopAllPlayingSounds();
 			_ce.sound.removeEventListeners();
 		}

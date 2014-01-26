@@ -75,6 +75,8 @@ package
 				var state:IState = CitrusEngine.getInstance().state;
 				if ((state is BattleState)) 
 				{
+					CitrusEngine.getInstance().sound.playSound("fightingSfx");
+					
 					state.add(battle);
 					state.add(battle.catHealth);
 					state.add(battle.dogHealth);
