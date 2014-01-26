@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:bd44e85849eb1c95f434a6921e073ecf:370c4d73ebd9571c52c418a3a5fb024b:6099e8dc2b0ccccf14d49040ef99dd20$ -->
+<TextureAtlas imagePath="Cat1Idle.png">
+    <SubTexture name="Cat1Idle01" x="2" y="2" width="42" height="47"/>
+    <SubTexture name="Cat1Idle02" x="46" y="2" width="42" height="47"/>
+    <SubTexture name="Cat1Idle03" x="90" y="2" width="42" height="47"/>
+    <SubTexture name="Cat1Idle04" x="134" y="2" width="42" height="47"/>
+    <SubTexture name="Cat1Idle05" x="178" y="2" width="42" height="47"/>
+    <SubTexture name="Cat1Idle06" x="2" y="51" width="42" height="47"/>
+    <SubTexture name="Cat1Idle07" x="46" y="51" width="42" height="47"/>
+    <SubTexture name="Cat1Idle08" x="90" y="51" width="42" height="47"/>
+    <SubTexture name="Cat1Idle09" x="134" y="51" width="42" height="47"/>
+    <SubTexture name="Cat1Idle10" x="178" y="51" width="42" height="47"/>
+    <SubTexture name="Cat1Idle11" x="2" y="100" width="42" height="47"/>
+    <SubTexture name="Cat1Idle12" x="46" y="100" width="42" height="47"/>
+    <SubTexture name="Cat1Idle13" x="90" y="100" width="42" height="47"/>
+    <SubTexture name="Cat1Idle14" x="134" y="100" width="42" height="47"/>
+    <SubTexture name="Cat1Idle15" x="178" y="100" width="42" height="47"/>
+    <SubTexture name="Cat1Idle16" x="2" y="149" width="42" height="47"/>
+    <SubTexture name="Cat1Idle17" x="46" y="149" width="42" height="47"/>
+    <SubTexture name="Cat1Idle18" x="90" y="149" width="42" height="47"/>
+    <SubTexture name="Cat1Idle19" x="134" y="149" width="42" height="47"/>
+    <SubTexture name="Cat1Idle20" x="178" y="149" width="42" height="47"/>
+    <SubTexture name="Cat1Idle21" x="2" y="198" width="42" height="47"/>
+    <SubTexture name="Cat1Idle22" x="46" y="198" width="42" height="47"/>
+    <SubTexture name="Cat1Idle23" x="90" y="198" width="42" height="47"/>
+    <SubTexture name="Cat1Idle24" x="134" y="198" width="42" height="47"/>
+    <SubTexture name="Cat1Idle25" x="178" y="198" width="42" height="47"/>
+    <SubTexture name="Cat1Idle26" x="2" y="247" width="42" height="47"/>
+    <SubTexture name="Cat1Idle27" x="46" y="247" width="42" height="47"/>
+    <SubTexture name="Cat1Idle28" x="90" y="247" width="42" height="47"/>
+    <SubTexture name="Cat1Idle29" x="134" y="247" width="42" height="47"/>
+    <SubTexture name="Cat1Idle30" x="178" y="247" width="42" height="47"/>
+</TextureAtlas>

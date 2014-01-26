@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:d8f4dd13613e8c542524a038699b6f9a:03d5ee8e51163131bdd84e07078288dd:849a081c2fe6262ee925e0983807a084$ -->
+<TextureAtlas imagePath="Cat1Victory.png">
+    <SubTexture name="Cat1Victory01" x="2" y="2" width="71" height="145"/>
+    <SubTexture name="Cat1Victory02" x="2" y="2" width="71" height="145"/>
+    <SubTexture name="Cat1Victory03" x="75" y="2" width="71" height="145"/>
+    <SubTexture name="Cat1Victory04" x="75" y="2" width="71" height="145"/>
+    <SubTexture name="Cat1Victory05" x="148" y="2" width="71" height="145"/>
+    <SubTexture name="Cat1Victory06" x="148" y="2" width="71" height="145"/>
+    <SubTexture name="Cat1Victory07" x="221" y="2" width="71" height="145"/>
+    <SubTexture name="Cat1Victory08" x="294" y="2" width="71" height="145"/>
+    <SubTexture name="Cat1Victory09" x="367" y="2" width="71" height="145"/>
+    <SubTexture name="Cat1Victory10" x="2" y="149" width="71" height="145"/>
+    <SubTexture name="Cat1Victory11" x="75" y="149" width="71" height="145"/>
+    <SubTexture name="Cat1Victory12" x="148" y="149" width="71" height="145"/>
+    <SubTexture name="Cat1Victory13" x="221" y="149" width="71" height="145"/>
+    <SubTexture name="Cat1Victory14" x="294" y="149" width="71" height="145"/>
+    <SubTexture name="Cat1Victory15" x="367" y="149" width="71" height="145"/>
+    <SubTexture name="Cat1Victory16" x="2" y="296" width="71" height="145"/>
+</TextureAtlas>

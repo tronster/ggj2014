@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:58202eff8ef7251e77313aa62b225b94:78311929af17c37d744a2f35c9472651:63e7db7b0ca562cdcbd36efa581e694f$ -->
+<TextureAtlas imagePath="Cat1Ready.png">
+    <SubTexture name="Cat1Ready01" x="2" y="2" width="82" height="128"/>
+    <SubTexture name="Cat1Ready02" x="86" y="2" width="82" height="128"/>
+    <SubTexture name="Cat1Ready03" x="170" y="2" width="82" height="128"/>
+    <SubTexture name="Cat1Ready04" x="254" y="2" width="82" height="128"/>
+    <SubTexture name="Cat1Ready05" x="338" y="2" width="82" height="128"/>
+    <SubTexture name="Cat1Ready06" x="422" y="2" width="82" height="128"/>
+    <SubTexture name="Cat1Ready07" x="2" y="132" width="82" height="128"/>
+    <SubTexture name="Cat1Ready08" x="86" y="132" width="82" height="128"/>
+    <SubTexture name="Cat1Ready09" x="170" y="132" width="82" height="128"/>
+    <SubTexture name="Cat1Ready10" x="254" y="132" width="82" height="128"/>
+    <SubTexture name="Cat1Ready11" x="338" y="132" width="82" height="128"/>
+    <SubTexture name="Cat1Ready12" x="422" y="132" width="82" height="128"/>
+    <SubTexture name="Cat1Ready13" x="2" y="262" width="82" height="128"/>
+    <SubTexture name="Cat1Ready14" x="86" y="262" width="82" height="128"/>
+    <SubTexture name="Cat1Ready15" x="170" y="262" width="82" height="128"/>
+    <SubTexture name="Cat1Ready16" x="254" y="262" width="82" height="128"/>
+    <SubTexture name="Cat1Ready17" x="338" y="262" width="82" height="128"/>
+    <SubTexture name="Cat1Ready18" x="422" y="262" width="82" height="128"/>
+    <SubTexture name="Cat1Ready19" x="2" y="392" width="82" height="128"/>
+    <SubTexture name="Cat1Ready20" x="86" y="392" width="82" height="128"/>
+    <SubTexture name="Cat1Ready21" x="170" y="392" width="82" height="128"/>
+    <SubTexture name="Cat1Ready22" x="254" y="392" width="82" height="128"/>
+    <SubTexture name="Cat1Ready23" x="338" y="392" width="82" height="128"/>
+    <SubTexture name="Cat1Ready24" x="422" y="392" width="82" height="128"/>
+    <SubTexture name="Cat1Ready25" x="2" y="522" width="82" height="128"/>
+    <SubTexture name="Cat1Ready26" x="86" y="522" width="82" height="128"/>
+    <SubTexture name="Cat1Ready27" x="170" y="522" width="82" height="128"/>
+    <SubTexture name="Cat1Ready28" x="254" y="522" width="82" height="128"/>
+    <SubTexture name="Cat1Ready29" x="338" y="522" width="82" height="128"/>
+    <SubTexture name="Cat1Ready30" x="422" y="522" width="82" height="128"/>
+    <SubTexture name="Cat1Ready31" x="2" y="652" width="82" height="128"/>
+    <SubTexture name="Cat1Ready32" x="86" y="652" width="82" height="128"/>
+    <SubTexture name="Cat1Ready33" x="170" y="652" width="82" height="128"/>
+    <SubTexture name="Cat1Ready34" x="254" y="652" width="82" height="128"/>
+    <SubTexture name="Cat1Ready35" x="338" y="652" width="82" height="128"/>
+    <SubTexture name="Cat1Ready36" x="422" y="652" width="82" height="128"/>
+    <SubTexture name="Cat1Ready37" x="2" y="782" width="82" height="128"/>
+    <SubTexture name="Cat1Ready38" x="86" y="782" width="82" height="128"/>
+    <SubTexture name="Cat1Ready39" x="170" y="782" width="82" height="128"/>
+    <SubTexture name="Cat1Ready40" x="254" y="782" width="82" height="128"/>
+</TextureAtlas>
