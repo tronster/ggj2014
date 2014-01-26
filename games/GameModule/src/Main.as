@@ -15,6 +15,8 @@ package
 	[SWF(frameRate="60")]
 	public class Main extends StarlingCitrusEngine 
 	{
+		public static var STAGE_WIDTH:Number;
+		public static var STAGE_HEIGHT:Number;
 		
 		public function Main():void 
 		{
@@ -26,7 +28,8 @@ package
 			
 			var ourConsole:Console = this.console;
 			ourConsole.addCommand( "level", onFastSwitchLevel );
-			
+			STAGE_WIDTH = stage.stageWidth;
+			STAGE_HEIGHT = stage.stageHeight;
 			// touch or gesture?
 			//Multitouch.inputMode = MultitouchInputMode.TOUCH_POINT;
 			
@@ -54,7 +57,7 @@ package
 			_input.keyboard.destroy();
 			_input.keyboard = new Keyboard("drgKeyboard");
 			
-			this.state = new ShellState();
+			this.state = new BattleState();
 		}
 		
 		private function deactivate(e:Event):void 

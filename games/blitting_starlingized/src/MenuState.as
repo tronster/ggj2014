@@ -57,8 +57,8 @@ package
 		private function onButtonTriggered(e:Event):void
 		{
 			trace("Button Clicked!");
-			//_ce.state = new BlittingGameState();
-			dispatchEvent(new GameStateEvent(GameStateEvent.STATE_CHANGE, {id:"play"}, false));
+			_ce.state = new BlittingGameState();
+			//dispatchEvent(new GameStateEvent(GameStateEvent.STATE_CHANGE, {id:"play"}, false));
 		}
 		
 		private function onStateChange(e:GameStateEvent):void 
