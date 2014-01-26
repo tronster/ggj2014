@@ -41,22 +41,20 @@ package
 			add(bg);
 			
 			var box2D:Box2D = new Box2D("box2D");
-			box2D.visible = true;
+			//box2D.visible = true;
 			box2D.gravity = new b2Vec2(0, 0);
 			add(box2D);
 			
-			/* ??TRON remove:
-			//levelInfo = LevelData(_ce.gameData).clone();
 			levelData = new LevelData();
 			
 			//hard code spawns
 			var tempSpawn:Spawn;
 			for (var i:int = 0; i < 1; i++)
 			{
-				tempSpawn = new Spawn(1, (i + 1));	//time to spawn is 1 second intervals
+				tempSpawn = new Spawn(2, (i + 1));	//time to spawn is 1 second intervals
 				levelData.spawns.push(tempSpawn);
-			}*/
-			levelData = _ce.gameData[ Config.CURRENT_LEVEL ].clone();
+			}
+			//levelData = _ce.gameData[ Config.CURRENT_LEVEL ].clone();
 			
 			/*
 			//hard code nodes
@@ -66,7 +64,7 @@ package
 			tempNode.gfxType = 1;
 			levelData.path.push(tempNode);
 			
-			tempNode = new Node();
+			/*tempNode = new Node();
 			tempNode.x = 250;
 			tempNode.y = stage.stageHeight * .5;
 			tempNode.gfxType = 1;
@@ -82,7 +80,7 @@ package
 			tempNode.x = stage.stageWidth * .75;
 			tempNode.y = stage.stageHeight * .1;
 			tempNode.gfxType = 1;
-			levelData.path.push(tempNode);
+			levelData.path.push(tempNode);*/
 			
 			tempNode = new Node();
 			tempNode.x = stage.stageWidth * .75;
