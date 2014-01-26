@@ -90,7 +90,9 @@ package
 			for each( var cat:Cat in cats )
 			{
 				add( cat.editArt );
-				add( cat.sensor );
+				//add( cat.sensor );
+				
+				//cat.editArt.addEventListener( MouseEvent.MOUSE_DOWN, onMouseDown);
 			}
 			
 			_ce.sound.playSound("editMusic");
@@ -159,15 +161,14 @@ package
 			//	_ce.futureState = new BattleState();
 			//	eaze(this).to( 1.5, {alpha:0});
 			
+			/*for each( var cat:Cat in cats )
+			{
+				remove(cat.sensor);
+			}*/
+			
 			_ce.gameData[Config.ACTIVE_CATS] 	= cats;
 			_ce.gameData[Config.CURRENT_LEVEL]	= levelData;
 			
-			/* ??TRON Too big when it renders the animation!
-			var transition:Box2DPhysicsObject;
-			transition = new Box2DPhysicsObject("transition", { view:"assets/transition.swf" } );
-			add( transition );
-			_ce.sound.stopAllPlayingSounds();
-			*/
 			_ce.state = new BattleState();
 		}
 		

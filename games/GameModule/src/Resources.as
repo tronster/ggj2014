@@ -8,15 +8,18 @@ package
 	import starling.textures.TextureAtlas;
 
 	public class Resources
-	{	
-		[Embed(source = "/../embed/BackgroundArtPlayState.png")]									public static const bg				:Class;
-		[Embed(source = "/../embed/titlebg.png")]													public static const titlebg			:Class;
-		[Embed(source = "/../embed/title.png")]														public static const title			:Class;		
-		[Embed(source = "/../embed/sidescroll.png")]												public static const sidescroll		:Class;		
+	{
+		[Embed(source = "/../embed/BackgroundArtPlayState.png")]									public static const bg			:Class;
+		[Embed(source = "/../embed/titlebg.png")]													public static const titlebg		:Class;
+		[Embed(source = "/../embed/title.png")]														public static const title		:Class;		
+		[Embed(source = "/../embed/sidescroll.png")]												public static const sidescroll	:Class;
+		[Embed(source = "/../embed/defeat.png")]													public static const defeat		:Class;
+		[Embed(source = "/../embed/victory.png")]													public static const victory		:Class;
+	
 		[Embed(source = "/../embed/level_straight.png")]											public static const level_straight	:Class;		
 		[Embed(source = "/../embed/level_low_curve.png")]											public static const level_low_curve	:Class;		
 		[Embed(source = "/../embed/level_two_bend.png")]											public static const level_two_bend	:Class;		
-		[Embed(source = "/../embed/level_backtrack.png")]											public static const level_backtrack	:Class;		
+		[Embed(source = "/../embed/level_backtrack.png")]											public static const level_backtrack	:Class;
 	
 	
 		// Sheets

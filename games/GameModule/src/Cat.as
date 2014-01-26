@@ -50,14 +50,10 @@ package
 			maxHp = Config.MAX_HP_DOG_1;
 			hp = maxHp;
 			
-			playArt = new Box2DPhysicsObject("cat"+id, {x:x, y:y} );
-			//playArt.view = "assets/battle_cat.swf";
-			
 			frameDur = 0;
 			strType = "Cat" + type;
 			frameNum = 1;
 			state = Config.READY;
-			playArt.view = new Image(Resources.getAtlas(strType + state).getTexture(strType + state + "01"));		//easier to just put the '0' here
 			
 			sensor = new Sensor("cat_sensor", {x:x, y:y, width:128, height:128});
 			sensor.onBeginContact.add(onSensorCollide);
@@ -93,15 +89,22 @@ package
 			
 		}
 		
-		public function init():void
+		public function initForEdit():void
 		{
-			playArt.x = this.x;
-			playArt.y = this.y;
-			sensor.x = this.x;
-			sensor.x = this.y;
-
 			editArt.x = this.x;
 			editArt.y = this.y;
+		}
+		
+		public function initForBattle():void
+		{
+			this.x = editArt.x;
+			this.y = editArt.y;
+			
+			playArt = new Box2DPhysicsObject("cat" + id, { x:x, y:y } );
+			playArt.view = new Image(Resources.getAtlas(strType + state).getTexture(strType + state + "01"));		//easier to just put the '0' here
+			
+			sensor = new Sensor("cat_sensor", {x:x, y:y, width:75, height:90});
+			sensor.onBeginContact.add(onSensorCollide);
 		}
 		
 		public function update(timeDelta:Number):void

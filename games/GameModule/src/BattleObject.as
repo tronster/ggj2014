@@ -57,6 +57,12 @@ package
 			state.remove(dogHealth);
 		}
 		
+		public function stopAnimation():void
+		{
+			AnimationSequence(catHealth.view).mcSequences["hpbar"].stop();
+			AnimationSequence(dogHealth.view).mcSequences["hpbar"].stop();
+		}
+		
 		override public function update(timeDelta:Number):void 
 		{
 			//determine damage

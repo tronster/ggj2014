@@ -68,7 +68,9 @@ package
 		public function init():void
 		{
 			this.x = targetNode.x;
-			this.y = targetNode.y;			
+			this.y = targetNode.y;
+			playArt.x = this.x;
+			playArt.y = this.y;
 		}
 		
 		public function update(timeDelta:Number):void
