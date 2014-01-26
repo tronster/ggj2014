@@ -18,6 +18,7 @@ package
 		private var lifeTime:Number;
 		private var levelData:LevelData;
 		private var dogs:Vector.<Dog>;
+		private var battles:Vector.<BattleObject>;
 		private var numNodes:int;
 		private var gameover:Boolean = false;
 		
@@ -61,6 +62,12 @@ package
 			tempNode.gfxType = 1;
 			levelData.path.push(tempNode);
 			
+			/*tempNode = new Node();
+			tempNode.x = stage.stageWidth * .5;
+			tempNode.y = stage.stageHeight * .1;
+			tempNode.gfxType = 1;
+			levelData.path.push(tempNode);*/
+			
 			tempNode = new Node();
 			tempNode.x = stage.stageWidth;
 			tempNode.y = stage.stageHeight * .5;
@@ -71,8 +78,9 @@ package
 			numNodes = levelData.path.length;
 			
 			dogs = new Vector.<Dog>();
+			battles = new Vector.<BattleObject>();
 			
-			tempCat = new Cat();
+			tempCat = new Cat(1);
 			tempCat.x = Main.STAGE_WIDTH * .5;
 			tempCat.y = Main.STAGE_HEIGHT * .5;
 			tempCat.init();
@@ -84,6 +92,8 @@ package
 		
 		override public function update(timeDelta:Number):void
 		{
+			var i:int; 		//used for first degree loops
+			
 			if (!gameover)
 			{
 				super.update(timeDelta);
@@ -99,11 +109,30 @@ package
 					dogs.push(tempDog);
 				}
 				
-				for each(var dog:Dog in dogs)
+				for (i = dogs.length - 1; i >= 0; i--)
 				{
+					var dog:Dog = dogs[i];
 					dog.update(timeDelta);
 					
 					if (dog.reachedNode) setNextNode(dog);
+					
+					if (!dog.isActive) 
+					{
+						dog.destroy();
+						dogs.splice(i, 1);
+					}
+				}
+				
+				for (i = battles.length - 1; i >= 0; i--)
+				{
+					var battle:BattleObject = battles[i];
+					battle.update(timeDelta);
+					
+					if (!battle.isBattling)
+					{
+						battle.dispose(this);
+						battles.splice(i, 1);
+					}
 				}
 			}else {
 				trace("You Lose");
@@ -113,6 +142,11 @@ package
 			tempCat.update(timeDelta);
 			
 			lifeTime += timeDelta;
+		}
+		
+		public function addBattleObject(battle:BattleObject):void 
+		{
+			battles.push(battle);
 		}
 		
 		private function setNextNode(dog:Dog):void 

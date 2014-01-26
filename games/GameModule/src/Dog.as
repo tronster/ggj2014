@@ -3,6 +3,7 @@ package
 	import Box2D.Collision.Shapes.b2MassData;
 	import Box2D.Common.Math.b2Vec2;
 	import Box2D.Dynamics.Contacts.b2Contact;
+	import citrus.core.CitrusEngine;
 	import citrus.objects.Box2DPhysicsObject;
 	import flash.geom.Point;
 	
@@ -23,6 +24,7 @@ package
 		public var playArt:DogPhysicsObject;
 		
 		public var inBattle:Boolean = false;
+		public var isActive:Boolean = true;
 		public var reachedNode:Boolean = false;
 		
 		public var previousNode	:Node;
@@ -30,6 +32,7 @@ package
 		
 		public function Dog(type:uint) 
 		{
+			this.type = type;
 			x = 0;
 			y = 0;
 			maxHp = Config.MAX_HP_DOG_1;
@@ -38,6 +41,13 @@ package
 			playArt = new DogPhysicsObject(this, "dogs_playart", { x:x, y:y, width:128, height:128} );
 			//playArt.view = "../embed/Dog1.swf";
 			playArt.view = "assets/battle_dog.swf";
+		}
+		
+		public function destroy():void
+		{
+			var state:BattleState = CitrusEngine.getInstance().state as BattleState;
+			
+			state.remove(playArt);
 		}
 		
 		public function init():void
@@ -54,7 +64,7 @@ package
 			if (inBattle)
 			{
 				playArt.visible = false;
-			}else {
+			}else if(isActive){
 				//calculate distance to move to next node
 				if (distX > movementSpeed) distX = movementSpeed;
 					else if (distX < -movementSpeed) distX = -movementSpeed;
@@ -74,7 +84,11 @@ package
 			playArt.y = this.y;
 		}
 		
+<<<<<<< Updated upstream
 		public function setNode(node:Node) :void
+=======
+		public function setNode(node:Node):void
+>>>>>>> Stashed changes
 		{
 			previousNode = targetNode;
 			targetNode = node;

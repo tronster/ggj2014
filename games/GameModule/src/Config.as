@@ -1,4 +1,4 @@
-package  
+ package  
 {
 	import citrus.input.controllers.Keyboard;
 	
@@ -30,6 +30,10 @@ package
 		public static const DAMAGE_1_TO_3	:Number = 3;
 
 		public static const DAMAGE_SAME		:Number = 5;
+		
+		public static const DAMAGE_HIGH		:Number = .3;
+		public static const DAMAGE_MED		:Number = .2;
+		public static const DAMAGE_LOW		:Number = .1;
 
 		
 		
