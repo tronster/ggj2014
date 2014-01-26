@@ -2,7 +2,6 @@ package
 {
 	import citrus.datastructures.PoolObject;
 	import citrus.view.starlingview.AnimationSequence;
-	import dragonBones.animation.Animation;
 	import flash.display.Bitmap;
 	import flash.utils.Dictionary;
 	import starling.textures.Texture;
