@@ -45,16 +45,18 @@ package
 
 			var levelData:LevelData;
 			
-			var tiles	:Array = [];
+			//var tiles	:Array = [];
 			var spawns	:Array = [];
+			var path	:Vector.<Node>;
 			
-			spawns		= LevelMaker.addSpawns( spawns, 1, 1, 1, 2, 1, 3 );
-			levelData 	= LevelMaker.create( 5, 2, 0, tiles, spawns );
+			spawns		= LevelMaker.makeSpawns( spawns, 1, 1, 1, 2, 1, 3 );
+			path		= LevelMaker.makePath([ [0,2,1], [1,2,1], [2,2,1], [3,2,1], [4,2,1], [5,2,1], [6,2,1], [7,2,1] ]);
+			levelData 	= LevelMaker.create( 5, 2, 0, path, spawns, "Our neighbor's dogs smell our sushi!" );
 			
 			var levels:Vector.<LevelData> = new Vector.<LevelData>();
 			levels.push( levelData );
 			
-			gameData[ Config.GAMEDATA_LEVELS ] = levels;	
+			gameData[ Config.GAMEDATA_LEVELS ] = levels;
 		}
 		
 		override public function handleStarlingReady():void
@@ -65,8 +67,8 @@ package
 			_input.keyboard.destroy();
 			_input.keyboard = new Keyboard("drgKeyboard");
 		
-			this.state = new ShellState();
-			//this.state = new EditState();
+			//this.state = new ShellState();
+			this.state = new EditState();
 		}
 		
 		private function deactivate(e:Event):void 

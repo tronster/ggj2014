@@ -58,7 +58,7 @@ package
 			}*/
 			levelData = _ce.gameData[ Config.CURRENT_LEVEL ].clone();
 			
-			
+			/*
 			//hard code nodes
 			var tempNode:Node = new Node();
 			tempNode.x = 192;
@@ -96,6 +96,8 @@ package
 			tempNode.y = stage.stageHeight * .5;
 			tempNode.gfxType = 1;
 			levelData.path.push(tempNode);
+			*/
+
 			
 			//get how many total nodes are in the path
 			numNodes = levelData.path.length;

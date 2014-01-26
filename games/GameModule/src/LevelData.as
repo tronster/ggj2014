@@ -28,7 +28,7 @@ package
 			var ld:LevelData = new LevelData();
 			
 			for each( var node:Node in path )
-				ld.path.push( path );
+				ld.path.push( node );
 				
 			for each( var spawn:Spawn in spawns)
 				ld.spawns.push( spawn );

@@ -13,16 +13,17 @@ package
 	{
 		
 
-		static public function create( cat1:uint, cat2:uint, cat3:uint, tiles:Array, spawns:Array ):LevelData
+		static public function create( cat1:uint, cat2:uint, cat3:uint, path:Vector.<Node>, spawns:Array, txt:String = "" ):LevelData
 		{
 			var ld:LevelData 	= new LevelData();
 			ld.catType1 		= cat1;
 			ld.catType2 		= cat2;
 			ld.catType3 		= cat3;
-			ld.objectiveText 	= "Stop our neighbor's dogs from taking our sushi!";
+			ld.objectiveText 	= (txt.length > 0) ? txt : "Stop our neighbor's dogs from taking our sushi!";
+			ld.path				= path;
 			
 			var i:int = 0;
-			for (i = 0; i < tiles.length; i++ )		ld.tiles.push( tiles[i] );
+			//for (i = 0; i < tiles.length; i++ )		ld.tiles.push( tiles[i] );
 			for (i = 0; i < spawns.length; i++ )	ld.spawns.push( spawns[i] );
 			
 			return ld;
@@ -30,7 +31,7 @@ package
 		
 		
 		/// Add up to 3 spawns at a time to an existing collection.
-		static public function addSpawns( spawns:Array, type1:int, time1:int, type2:int = -1, time2:int = -1, type3:int = -1, time3:int = -1 ):Array
+		static public function makeSpawns( spawns:Array, type1:int, time1:int, type2:int = -1, time2:int = -1, type3:int = -1, time3:int = -1 ):Array
 		{
 			if ( spawns == null ) spawns = [];
 			spawns.push( new Spawn( type1, time1 ));
@@ -43,6 +44,41 @@ package
 			
 			return spawns;
 		}
+		
+		/// array of triple arrays
+		/// first node is end point, work to end of screen
+		static public function makePath( arr:Array ) :Vector.<Node>
+		{
+			const START_X	:uint = 192;
+			const START_Y	:uint = 0;
+			const TILE_SIZE	:uint = 128;
+			
+			var path:Vector.<Node> = new Vector.<Node>();
+			var node:Node;
+			
+			for (var i:int = 0; i < arr.length; ++i)
+			{
+				if (arr[i].length != 3 )
+				{
+					error("makePath has an invalid path node, need 3 data go " + arr[i].lenght );
+					continue;
+				}
+				
+				var x:Number 	= arr[i][0];
+				var y:Number 	= arr[i][1];
+				var t:uint 		= arr[i][2];
+				
+				node = new Node();
+				node.x 		= START_X + (TILE_SIZE/2) + (x * TILE_SIZE);
+				node.y 		= START_Y + (TILE_SIZE/2) + (y * TILE_SIZE);
+				node.gfxType= t;
+				
+				path.push( node );
+			}
+			return path;
+		}
+		
+		
 		
 		
 		static public function getView( ld:LevelData ):DisplayObjectContainer
