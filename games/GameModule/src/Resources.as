@@ -10,14 +10,28 @@ package
 		[Embed(source = "/../embed/bg.png")]														public static const bg		:Class;
 		[Embed(source = "/../embed/titlebg.png")]													public static const titlebg	:Class;
 		[Embed(source = "/../embed/title.png")]														public static const title	:Class;		
-		[Embed(source = "/../embed/BattleCloud.swf")]												public static const elMovie	:Class;		
-
-
+	//	[Embed(source = "/../embed/BattleCloud.swf")]												public static const elMovie	:Class;		
+	
+		// Pair sheets...
+/*
+		[Embed(source = "/../embed/Cat1Idle.png")]													public static const Cat1IdleTexture		:Class;		
+		[Embed(source = "/../embed/Cat1Idle.xml", 		mimeType="application/octet-stream")]		public static const Cat1Idle			:Class;		
+*/
+		[Embed(source = "/../embed/Cat1Defeat.png")]												public static const Cat1DefeatTexture	:Class;		
+		[Embed(source = "/../embed/Cat1Defeat.xml", 	mimeType="application/octet-stream")]		public static const Cat1Defeat			:Class;		
+/*
+		[Embed(source = "/../embed/Cat1Victory.png")]												public static const Cat1VictoryTexture	:Class;		
+		[Embed(source = "/../embed/Cat1Victory.xml", 	mimeType="application/octet-stream")]		public static const Cat1Victory			:Class;		
+		[Embed(source = "/../embed/Cat1Ready.png")]													public static const Cat1ReadyTexture	:Class;		
+		[Embed(source = "/../embed/Cat1Ready.xml", 		mimeType="application/octet-stream")]		public static const Cat1Ready			:Class;		
+		[Embed(source = "/../embed/Cat1Lose.png")]													public static const Cat1LoseTexture		:Class;		
+		[Embed(source = "/../embed/Cat1Lose.xml", 		mimeType="application/octet-stream")]		public static const Cat1Lose			:Class;		
+*/		
+		
+		
 		[Embed(source = "/../embed/Battlecloud.png")]												public static const BattleCloudTexture	:Class;		
 		[Embed(source = "/../embed/Battlecloud.xml", mimeType="application/octet-stream")]			public static const BattleCloudXml		:Class;		
-	
-		
-		// Pair sheets...
+			
 		[Embed(source="/../embed/DefaultSpritesheet.png")]											public static const AtlasTextureDefault:Class;
 		[Embed(source="/../embed/DefaultSpritesheet.xml", mimeType="application/octet-stream")]		public static const AtlasXmlDefault:Class;
 		
@@ -45,11 +59,19 @@ package
 			texture 					= makeTexture("MainFontTexture");
 			xml 						= XML( new MainFontData() );
 			atlases["_mainfont"]		= new TextureAtlas(texture, xml);
-			
+
+			/*??TRON remove
 			texture						= makeTexture("BattleCloudTexture");
 			xml							= XML( new BattleCloudXml() );
 			atlases["battlecloud"]		= new TextureAtlas(texture, xml );
+			*/
+			
+			makeAtlas( "BattleCloud", BattleCloudXml );
+			makeAtlas( "Cat1Defeat", Cat1Defeat );
+			//makeAtlas( "Cat1Idle", new Cat1Idle() );
 		}
+		
+		
 		
 		
 		//--------------------------------------------------------------------
@@ -57,6 +79,17 @@ package
 		{
 			return atlases[ name ];
 		}
+		
+
+		//--------------------------------------------------------------------
+		// atlasName	name of the atlas is same as texture minus "Texture"
+		// xml			the resource class containing the XML
+		static private function makeAtlas( atlasName:String, cls:Class):void
+		{
+			var texture :Texture 	= Texture.fromBitmap( new Resources[atlasName+"Texture"]() );
+			var xml		:XML		= XML( new cls() );
+			atlases[ atlasName ]	= new TextureAtlas( texture, xml );
+		}	
 		
 		
 		//--------------------------------------------------------------------

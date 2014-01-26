@@ -26,6 +26,7 @@ package
 		public var goButton		:Button;
 		public var levelData	:LevelData;
 		
+		public var sa:AnimationSequence;
 		
 		public function EditState() 
 		{
@@ -37,7 +38,7 @@ package
 			super.initialize();
 			
 			var box2D:Box2D = new Box2D("box2D");
-			box2D.visible = true;
+			box2D.visible = false;
 			box2D.gravity = new b2Vec2(0, 0);
 			add( box2D );
 			
@@ -54,41 +55,11 @@ package
 			goButton.y = stage.stageHeight - 100;
 			goButton.addEventListener(Event.TRIGGERED, onGoButtonTriggered);
 			addChild( goButton );
-
 			
-			//var Tatlas:TextureAtlas = new TextureAtlas( Texture.fromMov  Texture.fromBitmap(new Assets.braid()), new XML(new Assets.braidXML()));
-			//var anim:AnimationSequence = new AnimationSequence(Tatlas, ["idle", "jump_prep_straight", "running", "fidget","falling_downward","looking_downward","looking_upward","dying","dying_loop"], "idle", 30, true);
-			//hero = new BraidHero("hero", { x:40, y:10, width:80, height:130, view: anim } );
-			//var el:Box2DPhysicsObject = new Box2DPhysicsObject("el", { x:400, y:200, width:400, height:400, view:AnimationSequence.fromMovieClip(new Resources.elMovie()) } ); 
-			//var el:CitrusObject = new CitrusObject("el", { x:400, y:200, width:400, height:400, view:AnimationSequence.fromMovieClip(new Resources.elMovie()) } ); 
-			//add( el );
-		
-			//var art:StarlingArt = new StarlingArt();
-			//art.view = 
-			//var el:Box2DPhysicsObject = new Box2DPhysicsObject("el", { x:400, y:200, width:400, height:400, view:AnimationSequence.fromMovieClip(new Resources.elMovie()) } ); 
-			//var el:Box2DPhysicsObject = new Box2DPhysicsObject("el", { x:400, y:200, width:400, height:400, view:new Resources.elMovie() } ); 
-			//var el:Box2DPhysicsObject = new Box2DPhysicsObject("el", { x:400, y:200, view:"../embed/BattleCloud.swf" } ); 
-			//add( el );
-			/*
-			el.handleArtReady = function( citrusArt:ICitrusArt ):void {	
-				trace("This art is ready!: " + citrusArt );
-				var imgArt:StarlingArt = citrusArt as StarlingArt;
-				imgArt.scaleX = imgArt.scaleY = 0.5;
-			}
-			*/
-			//ObjectMaker2D.FromMovieClip(new Resources.elMovie());	
-			//var a:* = getObjectByName("foo");
-
-			//var el:Box2DPhysicsObject = new Box2DPhysicsObject("el", { x:400, y:200, view:"../embed/BattleCloud.swf" } );
-			//var el:Box2DPhysicsObject = new Box2DPhysicsObject("el", { x:100, y:100, view:new Resources.elMovie() } ); 
-			//add( el );
-			//StarlingArt.setLoopAnimations(["idle"]);
-			
-			var sa:AnimationSequence = new AnimationSequence( Resources.getAtlas("battlecloud"), ["Battlesmoke"], "Battlesmoke", 30, true );
+			var sa:AnimationSequence = new AnimationSequence( Resources.getAtlas("Cat1Defeat"), ["Cat1Defeat"], "Cat1Defeat", 30, true );
 			var enemy:Box2DPhysicsObject = new Box2DPhysicsObject("enemy", {speed:39, x:500, y:500, width:100, height:90, view:sa } );
 			add(enemy);
-			StarlingArt.setLoopAnimations(["Battlesmoke"]);
-			
+						
 			getCurrentLevelData();
 		}
 		
