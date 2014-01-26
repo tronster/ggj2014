@@ -62,7 +62,7 @@ package
 			sensor = new Sensor("cat_sensor", {x:x, y:y, width:128, height:128});
 			sensor.onBeginContact.add(onSensorCollide);
 			
-			editArt = new Box2DPhysicsObject("editCat" + id, { x:x, y:y } );
+			editArt = new Box2DPhysicsObject("editCat" + id, { x:x, y:y, width:60, height:60 } );
 			editArt.view = Resources.getView("Cat" + type + "Idle");
 		}
 		

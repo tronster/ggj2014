@@ -48,13 +48,15 @@ package
 		/// Initial position is in a grid.
 		public function makeFreshCats() :Vector.<Cat>
 		{
-			const GRIDX		:int = 3;	// # in grid.
-			const GRIDSPACE	:int = 50;	 // spacing
+			const STARTX	:int = 60;
+			const STARTY	:int = 80;
+			const GRIDX		:int = 2;	// # in grid.
+			const GRIDSPACE	:int = 80;	 // spacing
 			
 			
 			var xplacementConsts:Array = [];
 			for (var i:int = 0; i < GRIDX; i++)
-				xplacementConsts.push( 5 + i * GRIDSPACE );
+				xplacementConsts.push( STARTX + (i * GRIDSPACE) );
 						
 			var v    :Vector.<Cat> = new Vector.<Cat>();
 			var total:int = 0;
@@ -63,7 +65,7 @@ package
 			{
 				cat = new Cat(1);
 				cat.x = xplacementConsts[ total % GRIDX];
-				cat.y =  (total / GRIDX) * GRIDSPACE;
+				cat.y =  STARTY + ( int(total / GRIDX) * GRIDSPACE );
 				cat.init();
 				v.push( cat );
 				total++;
@@ -73,7 +75,7 @@ package
 			{
 				cat = new Cat(2);
 				cat.x = xplacementConsts[ total % GRIDX];
-				cat.y =  (total/GRIDX) * GRIDSPACE;
+				cat.y =  STARTY + ( int(total / GRIDX) * GRIDSPACE );
 				cat.init();
 				v.push( cat );
 				total++;
@@ -83,7 +85,7 @@ package
 			{
 				cat = new Cat(3);
 				cat.x = xplacementConsts[ total % GRIDX];
-				cat.y =  (total/GRIDX) * GRIDSPACE;
+				cat.y =  STARTY + ( int(total / GRIDX) * GRIDSPACE );
 				cat.init();
 				v.push( cat );
 				total++;

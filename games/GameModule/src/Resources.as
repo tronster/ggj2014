@@ -2,7 +2,6 @@ package
 {
 	import citrus.datastructures.PoolObject;
 	import citrus.view.starlingview.AnimationSequence;
-	import dragonBones.animation.Animation;
 	import flash.display.Bitmap;
 	import flash.utils.Dictionary;
 	import starling.textures.Texture;
@@ -10,13 +9,18 @@ package
 
 	public class Resources
 	{	
-		[Embed(source = "/../embed/BackgroundArtPlayState.png")]									public static const bg		:Class;
-		[Embed(source = "/../embed/titlebg.png")]													public static const titlebg	:Class;
-		[Embed(source = "/../embed/title.png")]														public static const title	:Class;		
-	//	[Embed(source = "/../embed/BattleCloud.swf")]												public static const elMovie	:Class;		
+		[Embed(source = "/../embed/BackgroundArtPlayState.png")]									public static const bg			:Class;
+		[Embed(source = "/../embed/titlebg.png")]													public static const titlebg		:Class;
+		[Embed(source = "/../embed/title.png")]														public static const title		:Class;		
+		[Embed(source = "/../embed/sidescroll.png")]												public static const sidescroll	:Class;		
 	
 	
 		// Sheets
+
+		[Embed(source = "/../embed/CommanderCat.png")]												public static const CommanderCatTexture		:Class;		
+		[Embed(source = "/../embed/CommanderCat.xml", 		mimeType="application/octet-stream")]	public static const CommanderCat			:Class;		
+		[Embed(source = "/../embed/CommanderCatCute.png")]											public static const CommanderCatCuteTexture	:Class;		
+		[Embed(source = "/../embed/CommanderCatCute.xml", 	mimeType="application/octet-stream")]	public static const CommanderCatCute		:Class;				
 		
 		[Embed(source = "/../embed/Cat1Idle.png")]													public static const Cat1IdleTexture		:Class;		
 		[Embed(source = "/../embed/Cat1Idle.xml", 		mimeType="application/octet-stream")]		public static const Cat1Idle			:Class;		
@@ -129,16 +133,13 @@ package
 			xml 						= XML( new MainFontData() );
 			atlases["_mainfont"]		= new TextureAtlas(texture, xml);
 
-			/*??TRON remove
-			texture						= makeTexture("BattleCloudTexture");
-			xml							= XML( new BattleCloudXml() );
-			atlases["battlecloud"]		= new TextureAtlas(texture, xml );
-			*/
-			
 			texture						= makeTexture("AtlasTextureTemp");
 			xml							= XML( new AtlasXmlTemp() );
 			atlases["temp_sheet"]		= new TextureAtlas(texture, xml );			
 						
+			makeAtlas( "CommanderCat", 		CommanderCat );
+			makeAtlas( "CommanderCatCute",  CommanderCatCute );
+
 			makeAtlas( "Cat1Defeat", 	Cat1Defeat );
 			makeAtlas( "Cat1Idle",  	Cat1Idle );
 			makeAtlas( "Cat1Victory",  	Cat1Victory );

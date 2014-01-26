@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:ff801cc6f46bdd2c5a666fbc873c3a64:2e2f9db3dac485a44d0adbcc2553c182:8166a89062aff343ba95faf88b3a78ba$ -->
+<TextureAtlas imagePath="CommanderCatCute.png">
+    <SubTexture name="CommanderCatCute01" x="302" y="512" width="73" height="100"/>
+    <SubTexture name="CommanderCatCute02" x="227" y="512" width="73" height="100"/>
+    <SubTexture name="CommanderCatCute03" x="152" y="512" width="73" height="100"/>
+    <SubTexture name="CommanderCatCute04" x="77" y="512" width="73" height="100"/>
+    <SubTexture name="CommanderCatCute05" x="2" y="920" width="73" height="100"/>
+    <SubTexture name="CommanderCatCute06" x="2" y="818" width="73" height="100"/>
+    <SubTexture name="CommanderCatCute07" x="2" y="716" width="73" height="100"/>
+    <SubTexture name="CommanderCatCute08" x="2" y="614" width="73" height="100"/>
+    <SubTexture name="CommanderCatCute09" x="2" y="512" width="73" height="100"/>
+    <SubTexture name="CommanderCatCute10" x="377" y="410" width="73" height="100"/>
+    <SubTexture name="CommanderCatCute11" x="302" y="410" width="73" height="100"/>
+    <SubTexture name="CommanderCatCute12" x="227" y="410" width="73" height="100"/>
+    <SubTexture name="CommanderCatCute13" x="152" y="410" width="73" height="100"/>
+    <SubTexture name="CommanderCatCute14" x="77" y="410" width="73" height="100"/>
+    <SubTexture name="CommanderCatCute15" x="2" y="410" width="73" height="100"/>
+    <SubTexture name="CommanderCatCute16" x="377" y="308" width="73" height="100"/>
+    <SubTexture name="CommanderCatCute17" x="302" y="308" width="73" height="100"/>
+    <SubTexture name="CommanderCatCute18" x="227" y="308" width="73" height="100"/>
+    <SubTexture name="CommanderCatCute19" x="152" y="308" width="73" height="100"/>
+    <SubTexture name="CommanderCatCute20" x="77" y="308" width="73" height="100"/>
+    <SubTexture name="CommanderCatCute21" x="2" y="308" width="73" height="100"/>
+    <SubTexture name="CommanderCatCute22" x="377" y="206" width="73" height="100"/>
+    <SubTexture name="CommanderCatCute23" x="302" y="206" width="73" height="100"/>
+    <SubTexture name="CommanderCatCute24" x="227" y="206" width="73" height="100"/>
+    <SubTexture name="CommanderCatCute25" x="152" y="206" width="73" height="100"/>
+    <SubTexture name="CommanderCatCute26" x="77" y="206" width="73" height="100"/>
+    <SubTexture name="CommanderCatCute27" x="2" y="206" width="73" height="100"/>
+    <SubTexture name="CommanderCatCute28" x="377" y="104" width="73" height="100"/>
+    <SubTexture name="CommanderCatCute29" x="302" y="104" width="73" height="100"/>
+    <SubTexture name="CommanderCatCute30" x="227" y="104" width="73" height="100"/>
+    <SubTexture name="CommanderCatCute31" x="152" y="104" width="73" height="100"/>
+    <SubTexture name="CommanderCatCute32" x="77" y="104" width="73" height="100"/>
+    <SubTexture name="CommanderCatCute33" x="2" y="104" width="73" height="100"/>
+    <SubTexture name="CommanderCatCute34" x="377" y="2" width="73" height="100"/>
+    <SubTexture name="CommanderCatCute35" x="302" y="2" width="73" height="100"/>
+    <SubTexture name="CommanderCatCute36" x="227" y="2" width="73" height="100"/>
+    <SubTexture name="CommanderCatCute37" x="152" y="2" width="73" height="100"/>
+    <SubTexture name="CommanderCatCute38" x="77" y="2" width="73" height="100"/>
+    <SubTexture name="CommanderCatCute39" x="2" y="2" width="73" height="100"/>
+</TextureAtlas>

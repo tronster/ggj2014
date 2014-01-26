@@ -1,35 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
-<!-- $TexturePacker:SmartUpdate:2cda98aaf580988cbbffe454d6384892:af192706e509a483875944ebdd7b4895:0401cc113a8a9524c4efb7daacc3d64d$ -->
+<!-- $TexturePacker:SmartUpdate:0fc03c707dd0f5446a9765a3246c185a:ff690498c07da6bda7bcb1f2d51b2646:0401cc113a8a9524c4efb7daacc3d64d$ -->
 <TextureAtlas imagePath="Cat3Defeat.png">
-    <SubTexture name="Cat1Defeat01" x="106" y="219" width="50" height="29"/>
-    <SubTexture name="Cat1Defeat02" x="106" y="188" width="50" height="29"/>
-    <SubTexture name="Cat1Defeat03" x="106" y="157" width="50" height="29"/>
-    <SubTexture name="Cat1Defeat04" x="158" y="126" width="50" height="29"/>
-    <SubTexture name="Cat1Defeat05" x="106" y="126" width="50" height="29"/>
-    <SubTexture name="Cat1Defeat06" x="54" y="219" width="50" height="29"/>
-    <SubTexture name="Cat1Defeat07" x="54" y="188" width="50" height="29"/>
-    <SubTexture name="Cat1Defeat08" x="54" y="157" width="50" height="29"/>
-    <SubTexture name="Cat1Defeat09" x="54" y="126" width="50" height="29"/>
-    <SubTexture name="Cat1Defeat10" x="158" y="95" width="50" height="29"/>
-    <SubTexture name="Cat1Defeat11" x="106" y="95" width="50" height="29"/>
-    <SubTexture name="Cat1Defeat12" x="54" y="95" width="50" height="29"/>
-    <SubTexture name="Cat1Defeat13" x="158" y="64" width="50" height="29"/>
-    <SubTexture name="Cat1Defeat14" x="106" y="64" width="50" height="29"/>
-    <SubTexture name="Cat1Defeat15" x="54" y="64" width="50" height="29"/>
-    <SubTexture name="Cat1Defeat16" x="2" y="219" width="50" height="29"/>
-    <SubTexture name="Cat1Defeat17" x="2" y="188" width="50" height="29"/>
-    <SubTexture name="Cat1Defeat18" x="2" y="157" width="50" height="29"/>
-    <SubTexture name="Cat1Defeat19" x="2" y="126" width="50" height="29"/>
-    <SubTexture name="Cat1Defeat20" x="2" y="95" width="50" height="29"/>
-    <SubTexture name="Cat1Defeat21" x="2" y="64" width="50" height="29"/>
-    <SubTexture name="Cat1Defeat22" x="158" y="33" width="50" height="29"/>
-    <SubTexture name="Cat1Defeat23" x="106" y="33" width="50" height="29"/>
-    <SubTexture name="Cat1Defeat24" x="54" y="33" width="50" height="29"/>
-    <SubTexture name="Cat1Defeat25" x="2" y="33" width="50" height="29"/>
-    <SubTexture name="Cat1Defeat26" x="158" y="2" width="50" height="29"/>
-    <SubTexture name="Cat1Defeat27" x="106" y="2" width="50" height="29"/>
-    <SubTexture name="Cat1Defeat28" x="54" y="2" width="50" height="29"/>
-    <SubTexture name="Cat1Defeat29" x="2" y="2" width="50" height="29"/>
-    <SubTexture name="Cat1Defeat30" x="106" y="219" width="50" height="29"/>
+    <SubTexture name="Cat3Defeat01" x="752" y="252" width="123" height="123" frameX="-1" frameY="-6" frameWidth="129" frameHeight="129"/>
+    <SubTexture name="Cat3Defeat02" x="627" y="252" width="123" height="123" frameX="-1" frameY="-6" frameWidth="129" frameHeight="129"/>
+    <SubTexture name="Cat3Defeat03" x="502" y="252" width="123" height="123" frameX="-1" frameY="-6" frameWidth="129" frameHeight="129"/>
+    <SubTexture name="Cat3Defeat04" x="377" y="252" width="123" height="123" frameX="-1" frameY="-6" frameWidth="129" frameHeight="129"/>
+    <SubTexture name="Cat3Defeat05" x="252" y="877" width="123" height="123" frameX="-1" frameY="-6" frameWidth="129" frameHeight="129"/>
+    <SubTexture name="Cat3Defeat06" x="252" y="752" width="123" height="123" frameX="-1" frameY="-6" frameWidth="129" frameHeight="129"/>
+    <SubTexture name="Cat3Defeat07" x="877" y="375" width="123" height="121" frameX="-1" frameY="-7" frameWidth="129" frameHeight="129"/>
+    <SubTexture name="Cat3Defeat08" x="877" y="252" width="123" height="121" frameX="-1" frameY="-7" frameWidth="129" frameHeight="129"/>
+    <SubTexture name="Cat3Defeat09" x="252" y="627" width="123" height="123" frameX="-1" frameY="-6" frameWidth="129" frameHeight="129"/>
+    <SubTexture name="Cat3Defeat10" x="252" y="502" width="123" height="123" frameX="-1" frameY="-6" frameWidth="129" frameHeight="129"/>
+    <SubTexture name="Cat3Defeat11" x="252" y="377" width="123" height="123" frameX="-1" frameY="-6" frameWidth="129" frameHeight="129"/>
+    <SubTexture name="Cat3Defeat12" x="252" y="252" width="123" height="123" frameX="-1" frameY="-6" frameWidth="129" frameHeight="129"/>
+    <SubTexture name="Cat3Defeat13" x="877" y="127" width="123" height="123" frameX="-1" frameY="-6" frameWidth="129" frameHeight="129"/>
+    <SubTexture name="Cat3Defeat14" x="752" y="127" width="123" height="123" frameX="-1" frameY="-6" frameWidth="129" frameHeight="129"/>
+    <SubTexture name="Cat3Defeat15" x="627" y="127" width="123" height="123" frameX="-1" frameY="-6" frameWidth="129" frameHeight="129"/>
+    <SubTexture name="Cat3Defeat16" x="502" y="127" width="123" height="123" frameX="-1" frameY="-6" frameWidth="129" frameHeight="129"/>
+    <SubTexture name="Cat3Defeat17" x="377" y="127" width="123" height="123" frameX="-1" frameY="-6" frameWidth="129" frameHeight="129"/>
+    <SubTexture name="Cat3Defeat18" x="252" y="127" width="123" height="123" frameX="-1" frameY="-6" frameWidth="129" frameHeight="129"/>
+    <SubTexture name="Cat3Defeat19" x="127" y="877" width="123" height="123" frameX="-1" frameY="-6" frameWidth="129" frameHeight="129"/>
+    <SubTexture name="Cat3Defeat20" x="127" y="752" width="123" height="123" frameX="-1" frameY="-6" frameWidth="129" frameHeight="129"/>
+    <SubTexture name="Cat3Defeat21" x="127" y="627" width="123" height="123" frameX="-1" frameY="-6" frameWidth="129" frameHeight="129"/>
+    <SubTexture name="Cat3Defeat22" x="127" y="502" width="123" height="123" frameX="-1" frameY="-6" frameWidth="129" frameHeight="129"/>
+    <SubTexture name="Cat3Defeat23" x="127" y="377" width="123" height="123" frameX="-1" frameY="-6" frameWidth="129" frameHeight="129"/>
+    <SubTexture name="Cat3Defeat24" x="127" y="252" width="123" height="123" frameX="-1" frameY="-6" frameWidth="129" frameHeight="129"/>
+    <SubTexture name="Cat3Defeat25" x="127" y="127" width="123" height="123" frameX="-1" frameY="-6" frameWidth="129" frameHeight="129"/>
+    <SubTexture name="Cat3Defeat26" x="877" y="2" width="123" height="123" frameX="-1" frameY="-6" frameWidth="129" frameHeight="129"/>
+    <SubTexture name="Cat3Defeat27" x="752" y="2" width="123" height="123" frameX="-1" frameY="-6" frameWidth="129" frameHeight="129"/>
+    <SubTexture name="Cat3Defeat28" x="627" y="2" width="123" height="123" frameX="-1" frameY="-6" frameWidth="129" frameHeight="129"/>
+    <SubTexture name="Cat3Defeat29" x="502" y="2" width="123" height="123" frameX="-1" frameY="-6" frameWidth="129" frameHeight="129"/>
+    <SubTexture name="Cat3Defeat30" x="377" y="2" width="123" height="123" frameX="-1" frameY="-6" frameWidth="129" frameHeight="129"/>
+    <SubTexture name="Cat3Defeat31" x="252" y="2" width="123" height="123" frameX="-1" frameY="-6" frameWidth="129" frameHeight="129"/>
+    <SubTexture name="Cat3Defeat32" x="127" y="2" width="123" height="123" frameX="-1" frameY="-6" frameWidth="129" frameHeight="129"/>
+    <SubTexture name="Cat3Defeat33" x="2" y="877" width="123" height="123" frameX="-1" frameY="-6" frameWidth="129" frameHeight="129"/>
+    <SubTexture name="Cat3Defeat34" x="2" y="752" width="123" height="123" frameX="-1" frameY="-6" frameWidth="129" frameHeight="129"/>
+    <SubTexture name="Cat3Defeat35" x="2" y="627" width="123" height="123" frameX="-1" frameY="-6" frameWidth="129" frameHeight="129"/>
+    <SubTexture name="Cat3Defeat36" x="2" y="502" width="123" height="123" frameX="-1" frameY="-6" frameWidth="129" frameHeight="129"/>
+    <SubTexture name="Cat3Defeat37" x="2" y="377" width="123" height="123" frameX="-1" frameY="-6" frameWidth="129" frameHeight="129"/>
+    <SubTexture name="Cat3Defeat38" x="2" y="252" width="123" height="123" frameX="-1" frameY="-6" frameWidth="129" frameHeight="129"/>
+    <SubTexture name="Cat3Defeat39" x="2" y="127" width="123" height="123" frameX="-1" frameY="-6" frameWidth="129" frameHeight="129"/>
+    <SubTexture name="Cat3Defeat40" x="2" y="2" width="123" height="123" frameX="-1" frameY="-6" frameWidth="129" frameHeight="129"/>
 </TextureAtlas>

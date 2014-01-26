@@ -1,45 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
-<!-- $TexturePacker:SmartUpdate:bde6db49cb8ea75deb4cf72b394c4273:78311929af17c37d744a2f35c9472651:251ba0065c50599ca8186c83b26cbc3e$ -->
+<!-- $TexturePacker:SmartUpdate:b3adcf3a4a4974adfb2179ae80ec4b88:89d1895108cc13936634bf91b31eb817:251ba0065c50599ca8186c83b26cbc3e$ -->
 <TextureAtlas imagePath="Cat2Ready.png">
-    <SubTexture name="Cat1Ready01" x="2" y="776" width="76" height="128" frameX="-2" frameY="0" frameWidth="82" frameHeight="128"/>
-    <SubTexture name="Cat1Ready02" x="2" y="646" width="76" height="128" frameX="-2" frameY="0" frameWidth="82" frameHeight="128"/>
-    <SubTexture name="Cat1Ready03" x="326" y="260" width="78" height="128" frameX="-1" frameY="0" frameWidth="82" frameHeight="128"/>
-    <SubTexture name="Cat1Ready04" x="246" y="260" width="78" height="128" frameX="-1" frameY="0" frameWidth="82" frameHeight="128"/>
-    <SubTexture name="Cat1Ready05" x="84" y="260" width="80" height="126" frameX="-1" frameY="-2" frameWidth="82" frameHeight="128"/>
-    <SubTexture name="Cat1Ready06" x="2" y="260" width="80" height="126" frameX="-1" frameY="-2" frameWidth="82" frameHeight="128"/>
-    <SubTexture name="Cat1Ready07" x="254" y="2" width="82" height="126" frameX="0" frameY="-2" frameWidth="82" frameHeight="128"/>
-    <SubTexture name="Cat1Ready08" x="170" y="2" width="82" height="126" frameX="0" frameY="-2" frameWidth="82" frameHeight="128"/>
-    <SubTexture name="Cat1Ready09" x="412" y="132" width="80" height="126" frameX="0" frameY="-2" frameWidth="82" frameHeight="128"/>
-    <SubTexture name="Cat1Ready10" x="330" y="132" width="80" height="126" frameX="0" frameY="-2" frameWidth="82" frameHeight="128"/>
-    <SubTexture name="Cat1Ready11" x="322" y="390" width="78" height="126" frameX="0" frameY="-2" frameWidth="82" frameHeight="128"/>
-    <SubTexture name="Cat1Ready12" x="242" y="390" width="78" height="126" frameX="0" frameY="-2" frameWidth="82" frameHeight="128"/>
-    <SubTexture name="Cat1Ready13" x="308" y="648" width="74" height="126" frameX="0" frameY="-2" frameWidth="82" frameHeight="128"/>
-    <SubTexture name="Cat1Ready14" x="232" y="648" width="74" height="126" frameX="0" frameY="-2" frameWidth="82" frameHeight="128"/>
-    <SubTexture name="Cat1Ready15" x="156" y="648" width="74" height="126" frameX="0" frameY="-2" frameWidth="82" frameHeight="128"/>
-    <SubTexture name="Cat1Ready16" x="310" y="518" width="74" height="126" frameX="0" frameY="-2" frameWidth="82" frameHeight="128"/>
-    <SubTexture name="Cat1Ready17" x="80" y="518" width="76" height="126" frameX="-1" frameY="-2" frameWidth="82" frameHeight="128"/>
-    <SubTexture name="Cat1Ready18" x="2" y="518" width="76" height="126" frameX="-1" frameY="-2" frameWidth="82" frameHeight="128"/>
-    <SubTexture name="Cat1Ready19" x="86" y="2" width="82" height="126" frameX="0" frameY="-2" frameWidth="82" frameHeight="128"/>
-    <SubTexture name="Cat1Ready20" x="2" y="2" width="82" height="126" frameX="0" frameY="-2" frameWidth="82" frameHeight="128"/>
-    <SubTexture name="Cat1Ready21" x="162" y="390" width="78" height="126" frameX="0" frameY="-2" frameWidth="82" frameHeight="128"/>
-    <SubTexture name="Cat1Ready22" x="406" y="388" width="78" height="126" frameX="0" frameY="-2" frameWidth="82" frameHeight="128"/>
-    <SubTexture name="Cat1Ready23" x="406" y="260" width="78" height="126" frameX="-1" frameY="-2" frameWidth="82" frameHeight="128"/>
-    <SubTexture name="Cat1Ready24" x="82" y="388" width="78" height="128" frameX="-1" frameY="0" frameWidth="82" frameHeight="128"/>
-    <SubTexture name="Cat1Ready25" x="248" y="130" width="80" height="128" frameX="-1" frameY="0" frameWidth="82" frameHeight="128"/>
-    <SubTexture name="Cat1Ready26" x="166" y="130" width="80" height="128" frameX="-1" frameY="0" frameWidth="82" frameHeight="128"/>
-    <SubTexture name="Cat1Ready27" x="84" y="130" width="80" height="128" frameX="-2" frameY="0" frameWidth="82" frameHeight="128"/>
-    <SubTexture name="Cat1Ready28" x="2" y="130" width="80" height="128" frameX="-2" frameY="0" frameWidth="82" frameHeight="128"/>
-    <SubTexture name="Cat1Ready29" x="2" y="388" width="78" height="128" frameX="-2" frameY="0" frameWidth="82" frameHeight="128"/>
-    <SubTexture name="Cat1Ready30" x="166" y="260" width="78" height="128" frameX="-2" frameY="0" frameWidth="82" frameHeight="128"/>
-    <SubTexture name="Cat1Ready31" x="402" y="516" width="76" height="128" frameX="-1" frameY="0" frameWidth="82" frameHeight="128"/>
-    <SubTexture name="Cat1Ready32" x="234" y="518" width="74" height="128" frameX="-3" frameY="0" frameWidth="82" frameHeight="128"/>
-    <SubTexture name="Cat1Ready33" x="80" y="776" width="72" height="128" frameX="-1" frameY="0" frameWidth="82" frameHeight="128"/>
-    <SubTexture name="Cat1Ready34" x="298" y="776" width="70" height="128" frameX="-3" frameY="0" frameWidth="82" frameHeight="128"/>
-    <SubTexture name="Cat1Ready35" x="226" y="776" width="70" height="128" frameX="-3" frameY="0" frameWidth="82" frameHeight="128"/>
-    <SubTexture name="Cat1Ready36" x="154" y="776" width="70" height="128" frameX="-3" frameY="0" frameWidth="82" frameHeight="128"/>
-    <SubTexture name="Cat1Ready37" x="80" y="646" width="74" height="128" frameX="-3" frameY="0" frameWidth="82" frameHeight="128"/>
-    <SubTexture name="Cat1Ready38" x="158" y="518" width="74" height="128" frameX="-3" frameY="0" frameWidth="82" frameHeight="128"/>
-    <SubTexture name="Cat1Ready39" x="420" y="2" width="80" height="128" frameX="-2" frameY="0" frameWidth="82" frameHeight="128"/>
-    <SubTexture name="Cat1Ready40" x="338" y="2" width="80" height="128" frameX="-2" frameY="0" frameWidth="82" frameHeight="128"/>
+    <SubTexture name="Cat2Ready01" x="2" y="637" width="83" height="125"/>
+    <SubTexture name="Cat2Ready02" x="170" y="383" width="81" height="125" frameX="0" frameY="0" frameWidth="83" frameHeight="125"/>
+    <SubTexture name="Cat2Ready03" x="170" y="256" width="81" height="125" frameX="0" frameY="0" frameWidth="83" frameHeight="125"/>
+    <SubTexture name="Cat2Ready04" x="170" y="129" width="81" height="125" frameX="0" frameY="0" frameWidth="83" frameHeight="125"/>
+    <SubTexture name="Cat2Ready05" x="334" y="2" width="77" height="125" frameX="0" frameY="0" frameWidth="83" frameHeight="125"/>
+    <SubTexture name="Cat2Ready06" x="332" y="508" width="79" height="125" frameX="-1" frameY="0" frameWidth="83" frameHeight="125"/>
+    <SubTexture name="Cat2Ready07" x="170" y="2" width="81" height="125" frameX="0" frameY="0" frameWidth="83" frameHeight="125"/>
+    <SubTexture name="Cat2Ready08" x="168" y="891" width="81" height="125" frameX="-1" frameY="0" frameWidth="83" frameHeight="125"/>
+    <SubTexture name="Cat2Ready09" x="168" y="764" width="81" height="125" frameX="-2" frameY="0" frameWidth="83" frameHeight="125"/>
+    <SubTexture name="Cat2Ready10" x="336" y="381" width="79" height="123" frameX="-2" frameY="-2" frameWidth="83" frameHeight="125"/>
+    <SubTexture name="Cat2Ready11" x="253" y="383" width="81" height="123" frameX="-2" frameY="-2" frameWidth="83" frameHeight="125"/>
+    <SubTexture name="Cat2Ready12" x="413" y="2" width="79" height="123" frameX="-2" frameY="-2" frameWidth="83" frameHeight="125"/>
+    <SubTexture name="Cat2Ready13" x="413" y="506" width="77" height="123" frameX="-3" frameY="-2" frameWidth="83" frameHeight="125"/>
+    <SubTexture name="Cat2Ready14" x="411" y="129" width="79" height="123" frameX="-2" frameY="-2" frameWidth="83" frameHeight="125"/>
+    <SubTexture name="Cat2Ready15" x="417" y="379" width="75" height="123" frameX="-2" frameY="-2" frameWidth="83" frameHeight="125"/>
+    <SubTexture name="Cat2Ready16" x="415" y="254" width="77" height="123" frameX="-3" frameY="-2" frameWidth="83" frameHeight="125"/>
+    <SubTexture name="Cat2Ready17" x="334" y="256" width="79" height="123" frameX="-2" frameY="-2" frameWidth="83" frameHeight="125"/>
+    <SubTexture name="Cat2Ready18" x="251" y="887" width="81" height="123" frameX="-1" frameY="-2" frameWidth="83" frameHeight="125"/>
+    <SubTexture name="Cat2Ready19" x="251" y="762" width="81" height="123" frameX="-2" frameY="-2" frameWidth="83" frameHeight="125"/>
+    <SubTexture name="Cat2Ready20" x="334" y="887" width="79" height="123" frameX="-2" frameY="-2" frameWidth="83" frameHeight="125"/>
+    <SubTexture name="Cat2Ready21" x="170" y="510" width="81" height="123" frameX="-2" frameY="-2" frameWidth="83" frameHeight="125"/>
+    <SubTexture name="Cat2Ready22" x="332" y="635" width="79" height="123" frameX="-2" frameY="-2" frameWidth="83" frameHeight="125"/>
+    <SubTexture name="Cat2Ready23" x="253" y="256" width="79" height="125" frameX="-1" frameY="0" frameWidth="83" frameHeight="125"/>
+    <SubTexture name="Cat2Ready24" x="253" y="129" width="79" height="125" frameX="-2" frameY="0" frameWidth="83" frameHeight="125"/>
+    <SubTexture name="Cat2Ready25" x="334" y="129" width="75" height="125" frameX="-2" frameY="0" frameWidth="83" frameHeight="125"/>
+    <SubTexture name="Cat2Ready26" x="253" y="2" width="79" height="125" frameX="-1" frameY="0" frameWidth="83" frameHeight="125"/>
+    <SubTexture name="Cat2Ready27" x="168" y="637" width="81" height="125" frameX="0" frameY="0" frameWidth="83" frameHeight="125"/>
+    <SubTexture name="Cat2Ready28" x="87" y="510" width="81" height="125" frameX="-1" frameY="0" frameWidth="83" frameHeight="125"/>
+    <SubTexture name="Cat2Ready29" x="2" y="510" width="83" height="125"/>
+    <SubTexture name="Cat2Ready30" x="87" y="383" width="81" height="125" frameX="0" frameY="0" frameWidth="83" frameHeight="125"/>
+    <SubTexture name="Cat2Ready31" x="2" y="383" width="83" height="125"/>
+    <SubTexture name="Cat2Ready32" x="87" y="256" width="81" height="125" frameX="0" frameY="0" frameWidth="83" frameHeight="125"/>
+    <SubTexture name="Cat2Ready33" x="251" y="635" width="79" height="125" frameX="-1" frameY="0" frameWidth="83" frameHeight="125"/>
+    <SubTexture name="Cat2Ready34" x="87" y="129" width="81" height="125" frameX="0" frameY="0" frameWidth="83" frameHeight="125"/>
+    <SubTexture name="Cat2Ready35" x="334" y="760" width="77" height="125" frameX="0" frameY="0" frameWidth="83" frameHeight="125"/>
+    <SubTexture name="Cat2Ready36" x="87" y="637" width="79" height="125" frameX="-1" frameY="0" frameWidth="83" frameHeight="125"/>
+    <SubTexture name="Cat2Ready37" x="87" y="2" width="81" height="125" frameX="0" frameY="0" frameWidth="83" frameHeight="125"/>
+    <SubTexture name="Cat2Ready38" x="2" y="256" width="83" height="125"/>
+    <SubTexture name="Cat2Ready39" x="2" y="129" width="83" height="125"/>
+    <SubTexture name="Cat2Ready40" x="85" y="891" width="81" height="125" frameX="0" frameY="0" frameWidth="83" frameHeight="125"/>
+    <SubTexture name="Cat2Ready41" x="2" y="2" width="83" height="125"/>
+    <SubTexture name="Cat2Ready42" x="2" y="891" width="81" height="125" frameX="0" frameY="0" frameWidth="83" frameHeight="125"/>
+    <SubTexture name="Cat2Ready43" x="85" y="764" width="81" height="125" frameX="0" frameY="0" frameWidth="83" frameHeight="125"/>
+    <SubTexture name="Cat2Ready44" x="2" y="764" width="81" height="125" frameX="0" frameY="0" frameWidth="83" frameHeight="125"/>
+    <SubTexture name="Cat2Ready45" x="253" y="508" width="77" height="125" frameX="0" frameY="0" frameWidth="83" frameHeight="125"/>
 </TextureAtlas>
