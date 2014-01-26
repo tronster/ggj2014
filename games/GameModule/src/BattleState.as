@@ -37,6 +37,7 @@ package
 			
 			var bg:CitrusSprite = new CitrusSprite("bg");
 			bg.view = Texture.fromBitmap(new Resources.bg());
+			bg.x = Main.STAGE_WIDTH - bg.view.width;
 			add(bg);
 			
 			var box2D:Box2D = new Box2D("box2D");
@@ -62,12 +63,31 @@ package
 			tempNode.gfxType = 1;
 			levelData.path.push(tempNode);
 			
-			/*tempNode = new Node();
-			tempNode.x = stage.stageWidth * .5;
+			tempNode = new Node();
+			tempNode.x = 250;
+			tempNode.y = stage.stageHeight * .5;
+			tempNode.gfxType = 1;
+			levelData.path.push(tempNode);
+			
+			tempNode = new Node();
+			tempNode.x = 250;
 			tempNode.y = stage.stageHeight * .1;
 			tempNode.gfxType = 1;
-			levelData.path.push(tempNode);*/
+			levelData.path.push(tempNode);
 			
+			tempNode = new Node();
+			tempNode.x = stage.stageWidth * .75;
+			tempNode.y = stage.stageHeight * .1;
+			tempNode.gfxType = 1;
+			levelData.path.push(tempNode);
+			
+			tempNode = new Node();
+			tempNode.x = stage.stageWidth * .75;
+			tempNode.y = stage.stageHeight * .5;
+			tempNode.gfxType = 1;
+			levelData.path.push(tempNode);
+			
+			//start node
 			tempNode = new Node();
 			tempNode.x = stage.stageWidth;
 			tempNode.y = stage.stageHeight * .5;

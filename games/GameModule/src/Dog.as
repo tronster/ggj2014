@@ -5,6 +5,7 @@ package
 	import Box2D.Dynamics.Contacts.b2Contact;
 	import citrus.core.CitrusEngine;
 	import citrus.objects.Box2DPhysicsObject;
+	import citrus.view.starlingview.AnimationSequence;
 	import flash.geom.Point;
 	
 	/**
@@ -40,7 +41,7 @@ package
 			
 			playArt = new DogPhysicsObject(this, "dogs_playart", { x:x, y:y, width:128, height:128} );
 			//playArt.view = "../embed/Dog1.swf";
-			playArt.view = "assets/battle_dog.swf";
+			playArt.view = Resources.getView("Dog" + type + "Left");
 		}
 		
 		public function destroy():void
@@ -66,11 +67,30 @@ package
 				playArt.visible = false;
 			}else if(isActive){
 				//calculate distance to move to next node
-				if (distX > movementSpeed) distX = movementSpeed;
-					else if (distX < -movementSpeed) distX = -movementSpeed;
+				if (distX > movementSpeed) 
+				{
+					distX = movementSpeed;
+					//CitrusEngine.getInstance().state.remove(playArt);
+					playArt.view = Resources.getView("Dog" + this.type + "Right");
+				}else if (distX < -movementSpeed) 
+				{
+					distX = -movementSpeed;
+					//CitrusEngine.getInstance().state.remove(playArt);
+					playArt.view = Resources.getView("Dog" + this.type + "Left");
+				}
 					
-				if (distY > movementSpeed) distY = movementSpeed;
-					else if (distY < -movementSpeed) distY = -movementSpeed;
+				//handle verticial movement
+				if (distY > movementSpeed) 
+				{
+					distY = movementSpeed;
+					//CitrusEngine.getInstance().state.remove(playArt);
+					playArt.view = Resources.getView("Dog" + this.type + "Down");
+				}else if (distY < -movementSpeed) 
+				{
+					distY = -movementSpeed;
+					//CitrusEngine.getInstance().state.remove(playArt);
+					playArt.view = Resources.getView("Dog" + this.type + "Up");
+				}
 				
 				this.x += distX;
 				this.y += distY;
@@ -78,7 +98,10 @@ package
 				if (distX == 0 && distY == 0) reachedNode = true;
 				
 				playArt.visible = true;
-			}				
+			}
+			
+			var name:Vector.<String> = AnimationSequence(playArt.view).getAnimationNames();
+			trace(name[0], name.length, AnimationSequence(playArt.view).mcSequences[name[0]].currentFrame);
 				
 			playArt.x = this.x;
 			playArt.y = this.y;

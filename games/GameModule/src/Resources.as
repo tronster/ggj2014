@@ -9,7 +9,7 @@ package
 
 	public class Resources
 	{	
-		[Embed(source = "/../embed/bg.png")]														public static const bg		:Class;
+		[Embed(source = "/../embed/BackgroundArtPlayState.png")]									public static const bg		:Class;
 		[Embed(source = "/../embed/titlebg.png")]													public static const titlebg	:Class;
 		[Embed(source = "/../embed/title.png")]														public static const title	:Class;		
 	//	[Embed(source = "/../embed/BattleCloud.swf")]												public static const elMovie	:Class;		
