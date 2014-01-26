@@ -52,17 +52,22 @@ package
 			super.initialize();
 			
 			var box2D:Box2D = new Box2D("box2D");
-			box2D.visible = true;
+			box2D.visible = false;
 			box2D.gravity = new b2Vec2(0, 0);
 			add( box2D );
 			
 			
 			bg = new CitrusSprite("bg", { view:Image.fromBitmap(new Resources.bg()) } );
 			add( bg );
+			
+			getCurrentLevelData();
+			
+			add( levelData.citrus );
 
+			/*
 			bgGrass = new CitrusSprite("bgGrass", { x:192, view:Image.fromBitmap(new Resources.bg()) } );
 			add( bgGrass );
-
+			*/
 			sidescroll = new CitrusSprite("sidescroll", { x:0, y:0, view:Image.fromBitmap(new Resources.sidescroll()) } );
 			add( sidescroll );
 		
@@ -80,8 +85,6 @@ package
 			var commander:Box2DPhysicsObject = new Box2DPhysicsObject("CommanderCatCute", { x:170, y:490, view:Resources.getView("CommanderCatCute") } );
 			add(commander);
 			
-			
-			getCurrentLevelData();
 			
 			// Place on the stage
 			for each( var cat:Cat in cats )

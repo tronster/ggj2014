@@ -1,7 +1,10 @@
 package  
 {
+	import citrus.objects.CitrusSprite;
 	public class LevelData 
 	{
+		public var citrus	:CitrusSprite;
+
 		public var path		:Vector.<Node>;
 		public var spawns	:Vector.<Spawn>; 
 		public var tiles	:Vector.<uint>;

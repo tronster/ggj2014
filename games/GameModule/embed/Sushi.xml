@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:af2856fa5f37929a7249bd8a807f38d5:8cff104276407bc00908b4526a93cf27:51b116a8709ed36d2e6262ecb5e798a7$ -->
+<TextureAtlas imagePath="Sushi.png">
+    <SubTexture name="Sushi01" x="168" y="401" width="81" height="39" frameX="-12" frameY="-68" frameWidth="109" frameHeight="109"/>
+    <SubTexture name="Sushi02" x="168" y="401" width="81" height="39" frameX="-12" frameY="-68" frameWidth="109" frameHeight="109"/>
+    <SubTexture name="Sushi03" x="168" y="401" width="81" height="39" frameX="-12" frameY="-68" frameWidth="109" frameHeight="109"/>
+    <SubTexture name="Sushi04" x="168" y="354" width="81" height="45" frameX="-12" frameY="-62" frameWidth="109" frameHeight="109"/>
+    <SubTexture name="Sushi05" x="85" y="354" width="81" height="47" frameX="-12" frameY="-60" frameWidth="109" frameHeight="109"/>
+    <SubTexture name="Sushi06" x="2" y="456" width="81" height="47" frameX="-12" frameY="-60" frameWidth="109" frameHeight="109"/>
+    <SubTexture name="Sushi07" x="2" y="405" width="81" height="49" frameX="-12" frameY="-58" frameWidth="109" frameHeight="109"/>
+    <SubTexture name="Sushi08" x="2" y="354" width="81" height="49" frameX="-12" frameY="-58" frameWidth="109" frameHeight="109"/>
+    <SubTexture name="Sushi09" x="85" y="301" width="81" height="51" frameX="-12" frameY="-56" frameWidth="109" frameHeight="109"/>
+    <SubTexture name="Sushi10" x="2" y="301" width="81" height="51" frameX="-12" frameY="-56" frameWidth="109" frameHeight="109"/>
+    <SubTexture name="Sushi11" x="168" y="299" width="81" height="53" frameX="-12" frameY="-54" frameWidth="109" frameHeight="109"/>
+    <SubTexture name="Sushi12" x="168" y="244" width="81" height="53" frameX="-12" frameY="-54" frameWidth="109" frameHeight="109"/>
+    <SubTexture name="Sushi13" x="85" y="244" width="81" height="55" frameX="-12" frameY="-52" frameWidth="109" frameHeight="109"/>
+    <SubTexture name="Sushi14" x="2" y="244" width="81" height="55" frameX="-12" frameY="-52" frameWidth="109" frameHeight="109"/>
+    <SubTexture name="Sushi15" x="168" y="185" width="81" height="57" frameX="-12" frameY="-50" frameWidth="109" frameHeight="109"/>
+    <SubTexture name="Sushi16" x="85" y="185" width="81" height="57" frameX="-13" frameY="-50" frameWidth="109" frameHeight="109"/>
+    <SubTexture name="Sushi17" x="172" y="124" width="81" height="59" frameX="-13" frameY="-48" frameWidth="109" frameHeight="109"/>
+    <SubTexture name="Sushi18" x="87" y="65" width="83" height="59" frameX="-12" frameY="-48" frameWidth="109" frameHeight="109"/>
+    <SubTexture name="Sushi19" x="2" y="65" width="83" height="59" frameX="-12" frameY="-48" frameWidth="109" frameHeight="109"/>
+    <SubTexture name="Sushi20" x="87" y="2" width="83" height="61" frameX="-12" frameY="-46" frameWidth="109" frameHeight="109"/>
+    <SubTexture name="Sushi21" x="2" y="2" width="83" height="61" frameX="-13" frameY="-46" frameWidth="109" frameHeight="109"/>
+    <SubTexture name="Sushi22" x="2" y="185" width="81" height="57" frameX="-12" frameY="-50" frameWidth="109" frameHeight="109"/>
+    <SubTexture name="Sushi23" x="85" y="126" width="81" height="57" frameX="-12" frameY="-50" frameWidth="109" frameHeight="109"/>
+    <SubTexture name="Sushi24" x="2" y="126" width="81" height="57" frameX="-12" frameY="-50" frameWidth="109" frameHeight="109"/>
+    <SubTexture name="Sushi25" x="172" y="63" width="81" height="59" frameX="-12" frameY="-48" frameWidth="109" frameHeight="109"/>
+    <SubTexture name="Sushi26" x="172" y="2" width="81" height="59" frameX="-12" frameY="-48" frameWidth="109" frameHeight="109"/>
+</TextureAtlas>
