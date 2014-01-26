@@ -26,7 +26,6 @@ package
 		public var goButton		:Button;
 		public var levelData	:LevelData;
 		
-		
 		public function EditState() 
 		{
 			super();
@@ -41,7 +40,6 @@ package
 			box2D.gravity = new b2Vec2(0, 0);
 			add( box2D );
 			
-			
 			//bg = new CitrusSprite("bg", { view:Image.fromBitmap(new Resources.bg()) } );
 			//add(bg);
 
@@ -55,10 +53,11 @@ package
 			goButton.addEventListener(Event.TRIGGERED, onGoButtonTriggered);
 			addChild( goButton );
 
-			
+			var heroArt:AnimationSequence = new AnimationSequence(Resources.getAtlas("temp_sheet"), ["big_eradium_explosion_", "blue_hit_", "plasma_explosion_", "blue_burst_"], "big_eradium_explosion_", 30, true);
 			//var Tatlas:TextureAtlas = new TextureAtlas( Texture.fromMov  Texture.fromBitmap(new Assets.braid()), new XML(new Assets.braidXML()));
 			//var anim:AnimationSequence = new AnimationSequence(Tatlas, ["idle", "jump_prep_straight", "running", "fidget","falling_downward","looking_downward","looking_upward","dying","dying_loop"], "idle", 30, true);
-			//hero = new BraidHero("hero", { x:40, y:10, width:80, height:130, view: anim } );
+			var hero:Box2DPhysicsObject = new Box2DPhysicsObject("hero", { x:40, y:10, width:80, height:130, view:heroArt } );
+			add(hero);
 			//var el:Box2DPhysicsObject = new Box2DPhysicsObject("el", { x:400, y:200, width:400, height:400, view:AnimationSequence.fromMovieClip(new Resources.elMovie()) } ); 
 			//var el:CitrusObject = new CitrusObject("el", { x:400, y:200, width:400, height:400, view:AnimationSequence.fromMovieClip(new Resources.elMovie()) } ); 
 			//add( el );
@@ -84,14 +83,13 @@ package
 			//add( el );
 			//StarlingArt.setLoopAnimations(["idle"]);
 			
-			var sa:AnimationSequence = new AnimationSequence( Resources.getAtlas("battlecloud"), ["Battlesmoke"], "Battlesmoke", 30, true );
+			/*var sa:AnimationSequence = new AnimationSequence( Resources.getAtlas("battlecloud"), ["Battlesmoke"], "Battlesmoke", 30, true );
 			var enemy:Box2DPhysicsObject = new Box2DPhysicsObject("enemy", {speed:39, x:500, y:500, width:100, height:90, view:sa } );
 			add(enemy);
-			StarlingArt.setLoopAnimations(["Battlesmoke"]);
+			StarlingArt.setLoopAnimations(["Battlesmoke"]);*/
 			
 			getCurrentLevelData();
-		}
-		
+		}		
 		
 		private function onGoButtonTriggered( e:Event ):void
 		{

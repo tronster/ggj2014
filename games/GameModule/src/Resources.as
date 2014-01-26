@@ -49,6 +49,10 @@ package
 			texture						= makeTexture("BattleCloudTexture");
 			xml							= XML( new BattleCloudXml() );
 			atlases["battlecloud"]		= new TextureAtlas(texture, xml );
+			
+			texture						= makeTexture("AtlasTextureTemp");
+			xml							= XML( new AtlasXmlTemp() );
+			atlases["temp_sheet"]		= new TextureAtlas(texture, xml );
 		}
 		
 		

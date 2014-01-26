@@ -1,7 +1,11 @@
 package  
 {
+	import Box2D.Dynamics.Contacts.b2Contact;
 	import citrus.core.CitrusObject;
 	import citrus.objects.Box2DPhysicsObject;
+	import citrus.objects.platformer.box2d.Sensor;
+	import citrus.physics.box2d.Box2DUtils;
+	import citrus.physics.box2d.IBox2DPhysicsObject;
 	
 	/**
 	 * ...
@@ -20,13 +24,57 @@ package
 		
 		public var inBattle:Boolean = false;
 		public var isPlaced:Boolean = false;
-		
+		public var sensor:Sensor;
 		
 		public function Cat() 
+		{
+			x = 0;
+			y = 0;
+			maxHp = Config.MAX_HP_DOG_1;
+			hp = maxHp;
+			
+			playArt = new Box2DPhysicsObject("dog", { x:x, y:y} );
+			playArt.view = "assets/battle_cat.swf";
+			sensor = new Sensor("cat_sensor", {x:x, y:y, width:128, height:128});
+			sensor.onBeginContact.add(onSensorCollide);
+		}
+		
+		private function onSensorCollide(contact:b2Contact):void 
+		{
+			var other:IBox2DPhysicsObject = Box2DUtils.CollisionGetOther(sensor, contact);
+			
+			//check if the collision was with a dog's physics object
+			if (other is DogPhysicsObject && !inBattle)
+			{
+				//inBattle = true;
+				//DogPhysicsObject(other).parent.inBattle = true;
+			}
+			trace("Cat's Sensor has Collided with " + Box2DUtils.CollisionGetOther(sensor, contact));
+		}
+		
+		private function goInBattle(dog:Dog):void 
 		{
 			
 		}
 		
+		public function init():void
+		{
+			playArt.x = this.x;
+			playArt.y = this.y;
+			sensor.x = this.x;
+			sensor.x = this.y;
+		}
+		
+		public function update(timeDelta:Number):void
+		{
+			if (inBattle) playArt.visible = false;
+				else playArt.visible = true;
+				
+			playArt.x = this.x;
+			playArt.y = this.y;
+			sensor.x = this.x;
+			sensor.y = this.y;
+		}
 	}
 
 }
