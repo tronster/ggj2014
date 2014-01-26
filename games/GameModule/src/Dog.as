@@ -74,7 +74,7 @@ package
 			playArt.y = this.y;
 		}
 		
-		public function setNode(node:Node)
+		public function setNode(node:Node) :void
 		{
 			previousNode = targetNode;
 			targetNode = node;
