@@ -29,7 +29,6 @@ package
 			this.cat = cat;
 			cat.inBattle = true;
 			
-			
 			this.dog = dog;
 			dog.inBattle = true;
 			
@@ -37,7 +36,7 @@ package
 			catHealth.x = (this.x + view.width * .5) - catHealth.view.width * .5;
 			catHealth.y = (this.y + view.height * .5) - (catHealth.view.height * .5) - 20;
 			
-			dogHealth = new CitrusSprite("cat_battle_health", { view:Resources.getView("hpbar") } );
+			dogHealth = new CitrusSprite("dog_battle_health", { view:Resources.getView("hpbar") } );
 			dogHealth.x = (this.x + view.width * .5) - catHealth.view.width * .5;
 			dogHealth.y = (this.y + view.height * .5) + 20;
 			
