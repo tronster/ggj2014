@@ -56,8 +56,8 @@ package
 			goButton.addEventListener(Event.TRIGGERED, onGoButtonTriggered);
 			addChild( goButton );
 			
-			var sa:AnimationSequence = new AnimationSequence( Resources.getAtlas("Cat1Ready"), ["Cat1Ready"], "Cat1Ready", 30, true );
-			var enemy:Box2DPhysicsObject = new Box2DPhysicsObject("enemy", {speed:39, x:500, y:500, width:100, height:90, view:sa } );
+			//var sa:AnimationSequence = new AnimationSequence( Resources.getAtlas("Cat1Victory"), ["Cat1Victory"], "Cat1Victory", 30, true );
+			var enemy:Box2DPhysicsObject = new Box2DPhysicsObject("enemy", { x:500, y:500, view:Resources.getView("Cat1Victory") } );
 			add(enemy);
 						
 			getCurrentLevelData();

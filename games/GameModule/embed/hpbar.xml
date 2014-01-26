@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:6a8a49cd872f61b756a0d0a18f35c9db:94233dbca81e2edec2602318a0a6845e:ba0ddb3b46836746950d37a239d765e1$ -->
+<TextureAtlas imagePath="hpbar.png">
+    <SubTexture name="hpbar01" x="2" y="110" width="100" height="10"/>
+    <SubTexture name="hpbar02" x="2" y="98" width="100" height="10"/>
+    <SubTexture name="hpbar03" x="2" y="86" width="100" height="10"/>
+    <SubTexture name="hpbar04" x="2" y="74" width="100" height="10"/>
+    <SubTexture name="hpbar05" x="2" y="62" width="100" height="10"/>
+    <SubTexture name="hpbar06" x="2" y="50" width="100" height="10"/>
+    <SubTexture name="hpbar07" x="2" y="38" width="100" height="10"/>
+    <SubTexture name="hpbar08" x="2" y="26" width="100" height="10"/>
+    <SubTexture name="hpbar09" x="2" y="14" width="100" height="10"/>
+    <SubTexture name="hpbar10" x="2" y="2" width="100" height="10"/>
+</TextureAtlas>

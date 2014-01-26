@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:40cd81d189cff3d610f706977436090b:438074459aec449e5b84c450ed718a45:714121881200cfae919f127276913242$ -->
+<TextureAtlas imagePath="Dog1Defeat.png">
+    <SubTexture name="Dog1Defeat01" x="145" y="1155" width="121" height="117" frameX="-48" frameY="-88" frameWidth="237" frameHeight="213"/>
+    <SubTexture name="Dog1Defeat02" x="907" y="857" width="115" height="117" frameX="-49" frameY="-88" frameWidth="237" frameHeight="213"/>
+    <SubTexture name="Dog1Defeat03" x="308" y="1145" width="125" height="81" frameX="-60" frameY="-130" frameWidth="237" frameHeight="213"/>
+    <SubTexture name="Dog1Defeat04" x="2" y="1173" width="121" height="81" frameX="-60" frameY="-130" frameWidth="237" frameHeight="213"/>
+    <SubTexture name="Dog1Defeat05" x="907" y="976" width="115" height="81" frameX="-59" frameY="-130" frameWidth="237" frameHeight="213"/>
+    <SubTexture name="Dog1Defeat06" x="632" y="1268" width="113" height="81" frameX="-59" frameY="-130" frameWidth="237" frameHeight="213"/>
+    <SubTexture name="Dog1Defeat07" x="807" y="1363" width="93" height="77" frameX="-75" frameY="-131" frameWidth="237" frameHeight="213"/>
+    <SubTexture name="Dog1Defeat08" x="712" y="1351" width="93" height="77" frameX="-75" frameY="-131" frameWidth="237" frameHeight="213"/>
+    <SubTexture name="Dog1Defeat09" x="381" y="1228" width="111" height="165" frameX="-68" frameY="-44" frameWidth="237" frameHeight="213"/>
+    <SubTexture name="Dog1Defeat10" x="268" y="1228" width="111" height="165" frameX="-68" frameY="-44" frameWidth="237" frameHeight="213"/>
+    <SubTexture name="Dog1Defeat11" x="2" y="1413" width="107" height="159" frameX="-67" frameY="-49" frameWidth="237" frameHeight="213"/>
+    <SubTexture name="Dog1Defeat12" x="123" y="1274" width="107" height="159" frameX="-67" frameY="-49" frameWidth="237" frameHeight="213"/>
+    <SubTexture name="Dog1Defeat13" x="605" y="1351" width="105" height="159" frameX="-68" frameY="-50" frameWidth="237" frameHeight="213"/>
+    <SubTexture name="Dog1Defeat14" x="494" y="1280" width="109" height="159" frameX="-67" frameY="-50" frameWidth="237" frameHeight="213"/>
+    <SubTexture name="Dog1Defeat15" x="825" y="1206" width="113" height="155" frameX="-67" frameY="-53" frameWidth="237" frameHeight="213"/>
+    <SubTexture name="Dog1Defeat16" x="2" y="1256" width="119" height="155" frameX="-64" frameY="-53" frameWidth="237" frameHeight="213"/>
+    <SubTexture name="Dog1Defeat17" x="897" y="1059" width="125" height="145" frameX="-61" frameY="-63" frameWidth="237" frameHeight="213"/>
+    <SubTexture name="Dog1Defeat18" x="499" y="1133" width="131" height="145" frameX="-58" frameY="-63" frameWidth="237" frameHeight="213"/>
+    <SubTexture name="Dog1Defeat19" x="686" y="1127" width="137" height="139" frameX="-55" frameY="-69" frameWidth="237" frameHeight="213"/>
+    <SubTexture name="Dog1Defeat20" x="2" y="1032" width="141" height="139" frameX="-53" frameY="-69" frameWidth="237" frameHeight="213"/>
+    <SubTexture name="Dog1Defeat21" x="161" y="1022" width="145" height="131" frameX="-51" frameY="-79" frameWidth="237" frameHeight="213"/>
+    <SubTexture name="Dog1Defeat22" x="348" y="1012" width="149" height="131" frameX="-49" frameY="-79" frameWidth="237" frameHeight="213"/>
+    <SubTexture name="Dog1Defeat23" x="531" y="1010" width="153" height="121" frameX="-47" frameY="-88" frameWidth="237" frameHeight="213"/>
+    <SubTexture name="Dog1Defeat24" x="2" y="909" width="157" height="121" frameX="-44" frameY="-88" frameWidth="237" frameHeight="213"/>
+    <SubTexture name="Dog1Defeat25" x="187" y="893" width="159" height="127" frameX="-44" frameY="-82" frameWidth="237" frameHeight="213"/>
+    <SubTexture name="Dog1Defeat26" x="366" y="883" width="163" height="127" frameX="-41" frameY="-82" frameWidth="237" frameHeight="213"/>
+    <SubTexture name="Dog1Defeat27" x="730" y="998" width="165" height="127" frameX="-41" frameY="-82" frameWidth="237" frameHeight="213"/>
+    <SubTexture name="Dog1Defeat28" x="559" y="873" width="169" height="135" frameX="-38" frameY="-74" frameWidth="237" frameHeight="213"/>
+    <SubTexture name="Dog1Defeat29" x="734" y="857" width="171" height="139" frameX="-37" frameY="-70" frameWidth="237" frameHeight="213"/>
+    <SubTexture name="Dog1Defeat30" x="559" y="728" width="173" height="143" frameX="-36" frameY="-66" frameWidth="237" frameHeight="213"/>
+    <SubTexture name="Dog1Defeat31" x="758" y="706" width="175" height="149" frameX="-35" frameY="-60" frameWidth="237" frameHeight="213"/>
+    <SubTexture name="Dog1Defeat32" x="187" y="738" width="177" height="153" frameX="-34" frameY="-56" frameWidth="237" frameHeight="213"/>
+    <SubTexture name="Dog1Defeat33" x="378" y="724" width="179" height="157" frameX="-33" frameY="-52" frameWidth="237" frameHeight="213"/>
+    <SubTexture name="Dog1Defeat34" x="378" y="561" width="179" height="161" frameX="-33" frameY="-48" frameWidth="237" frameHeight="213"/>
+    <SubTexture name="Dog1Defeat35" x="575" y="559" width="181" height="167" frameX="-32" frameY="-42" frameWidth="237" frameHeight="213"/>
+    <SubTexture name="Dog1Defeat36" x="770" y="535" width="183" height="169" frameX="-31" frameY="-40" frameWidth="237" frameHeight="213"/>
+    <SubTexture name="Dog1Defeat37" x="2" y="732" width="183" height="175" frameX="-31" frameY="-35" frameWidth="237" frameHeight="213"/>
+    <SubTexture name="Dog1Defeat38" x="191" y="557" width="185" height="179" frameX="-30" frameY="-31" frameWidth="237" frameHeight="213"/>
+    <SubTexture name="Dog1Defeat39" x="386" y="378" width="187" height="181" frameX="-29" frameY="-29" frameWidth="237" frameHeight="213"/>
+    <SubTexture name="Dog1Defeat40" x="581" y="376" width="187" height="181" frameX="-29" frameY="-25" frameWidth="237" frameHeight="213"/>
+    <SubTexture name="Dog1Defeat41" x="2" y="547" width="187" height="183" frameX="-29" frameY="-23" frameWidth="237" frameHeight="213"/>
+    <SubTexture name="Dog1Defeat42" x="390" y="189" width="189" height="187" frameX="-28" frameY="-19" frameWidth="237" frameHeight="213"/>
+    <SubTexture name="Dog1Defeat43" x="195" y="374" width="189" height="181" frameX="-28" frameY="-18" frameWidth="237" frameHeight="213"/>
+    <SubTexture name="Dog1Defeat44" x="2" y="362" width="191" height="183" frameX="-27" frameY="-16" frameWidth="237" frameHeight="213"/>
+    <SubTexture name="Dog1Defeat45" x="589" y="187" width="191" height="187" frameX="-27" frameY="-12" frameWidth="237" frameHeight="213"/>
+    <SubTexture name="Dog1Defeat46" x="197" y="189" width="191" height="183" frameX="-27" frameY="-11" frameWidth="237" frameHeight="213"/>
+    <SubTexture name="Dog1Defeat47" x="782" y="348" width="191" height="185" frameX="-27" frameY="-9" frameWidth="237" frameHeight="213"/>
+    <SubTexture name="Dog1Defeat48" x="394" y="2" width="193" height="185" frameX="-26" frameY="-9" frameWidth="237" frameHeight="213"/>
+    <SubTexture name="Dog1Defeat49" x="589" y="2" width="193" height="183" frameX="-26" frameY="-8" frameWidth="237" frameHeight="213"/>
+    <SubTexture name="Dog1Defeat50" x="2" y="175" width="193" height="185" frameX="-26" frameY="-6" frameWidth="237" frameHeight="213"/>
+    <SubTexture name="Dog1Defeat51" x="199" y="2" width="193" height="185" frameX="-26" frameY="-6" frameWidth="237" frameHeight="213"/>
+    <SubTexture name="Dog1Defeat52" x="784" y="175" width="193" height="171" frameX="-26" frameY="-4" frameWidth="237" frameHeight="213"/>
+    <SubTexture name="Dog1Defeat53" x="784" y="2" width="193" height="171" frameX="-26" frameY="-4" frameWidth="237" frameHeight="213"/>
+    <SubTexture name="Dog1Defeat54" x="2" y="2" width="195" height="171" frameX="-25" frameY="-4" frameWidth="237" frameHeight="213"/>
+</TextureAtlas>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:4dd17b28a3a277a5152a7a9ae506868e:e2c4222b2d6f6c397dc88aad6397ff42:7a529d8b2669421be5933d2c76e8f561$ -->
+<TextureAtlas imagePath="Dog1Up.png">
+    <SubTexture name="Dog1Up01" x="57" y="2" width="49" height="127" frameX="-37" frameY="0" frameWidth="129" frameHeight="131"/>
+    <SubTexture name="Dog1Up02" x="2" y="127" width="49" height="123" frameX="-37" frameY="-1" frameWidth="129" frameHeight="131"/>
+    <SubTexture name="Dog1Up03" x="104" y="248" width="49" height="109" frameX="-37" frameY="-11" frameWidth="129" frameHeight="131"/>
+    <SubTexture name="Dog1Up04" x="159" y="236" width="49" height="109" frameX="-37" frameY="-11" frameWidth="129" frameHeight="131"/>
+    <SubTexture name="Dog1Up05" x="159" y="125" width="49" height="109" frameX="-37" frameY="-11" frameWidth="129" frameHeight="131"/>
+    <SubTexture name="Dog1Up06" x="2" y="371" width="49" height="117" frameX="-38" frameY="-7" frameWidth="129" frameHeight="131"/>
+    <SubTexture name="Dog1Up07" x="2" y="252" width="49" height="117" frameX="-38" frameY="-7" frameWidth="129" frameHeight="131"/>
+    <SubTexture name="Dog1Up08" x="2" y="2" width="53" height="123" frameX="-37" frameY="0" frameWidth="129" frameHeight="131"/>
+    <SubTexture name="Dog1Up09" x="53" y="131" width="49" height="121" frameX="-38" frameY="0" frameWidth="129" frameHeight="131"/>
+    <SubTexture name="Dog1Up10" x="108" y="125" width="49" height="121" frameX="-38" frameY="0" frameWidth="129" frameHeight="131"/>
+    <SubTexture name="Dog1Up11" x="159" y="2" width="49" height="121" frameX="-37" frameY="-7" frameWidth="129" frameHeight="131"/>
+    <SubTexture name="Dog1Up12" x="108" y="2" width="49" height="121" frameX="-37" frameY="-7" frameWidth="129" frameHeight="131"/>
+</TextureAtlas>
