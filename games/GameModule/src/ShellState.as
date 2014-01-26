@@ -47,6 +47,7 @@ package
 		
 		public function onButtonTriggered(e:Event):void 
 		{
+			_ce.sound.playSound("buttonSfx");
 			resetGame();
 			_ce.state = new EditState();
 		}
