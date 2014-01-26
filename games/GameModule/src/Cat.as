@@ -10,6 +10,8 @@ package
 	import citrus.objects.platformer.box2d.Sensor;
 	import citrus.physics.box2d.Box2DUtils;
 	import citrus.physics.box2d.IBox2DPhysicsObject;
+	import starling.display.Image;
+	import starling.textures.Texture;
 	
 	/**
 	 * ...
@@ -33,6 +35,10 @@ package
 		
 		private static var id:uint = 0;
 		
+		private var strType:String;
+		private var frameNum:int;
+		private var frameDur:Number;
+		public var state:String;
 		
 		public function Cat(type:uint) 
 		{
@@ -45,7 +51,14 @@ package
 			hp = maxHp;
 			
 			playArt = new Box2DPhysicsObject("cat"+id, {x:x, y:y} );
-			playArt.view = "assets/battle_cat.swf";
+			//playArt.view = "assets/battle_cat.swf";
+			
+			frameDur = 0;
+			strType = "Cat" + type;
+			frameNum = 1;
+			state = Config.READY;
+			playArt.view = new Image(Resources.getAtlas(strType + state).getTexture(strType + state + "01"));		//easier to just put the '0' here
+			
 			sensor = new Sensor("cat_sensor", {x:x, y:y, width:128, height:128});
 			sensor.onBeginContact.add(onSensorCollide);
 			
@@ -94,8 +107,14 @@ package
 		public function update(timeDelta:Number):void
 		{
 			if (inBattle) playArt.visible = false;
-				else if(isActive) playArt.visible = true;
-				
+				else
+				{
+					playArt.visible = true;
+					if (!isActive) state = Config.DEFEAT;
+				}
+			
+			handlePlayArtAnimation(timeDelta);
+			
 			playArt.x = this.x;
 			playArt.y = this.y;
 			sensor.x = this.x;
@@ -103,6 +122,34 @@ package
 			
 			editArt.x = this.x;
 			editArt.y = this.y;
+		}
+		
+		private function handlePlayArtAnimation(timeDelta:Number):void
+		{
+			frameDur += timeDelta;
+			var img:Image = playArt.view as Image;
+			var strFrameNum:String;
+			
+			if (state == Config.DEFEAT)
+			{
+				trace(state);
+			}
+			if (frameDur >= Main.TARGET_FRAME_TIME)
+			{
+				frameNum++;
+				strFrameNum = (frameNum < 10) ? "0" + frameNum.toString() : frameNum.toString();
+				
+				var texture:Texture = Resources.getAtlas(strType + state).getTexture(strType + state + strFrameNum);
+				
+				if (texture == null)
+				{
+					frameNum = 1;
+					strFrameNum = "01";
+					texture = Resources.getAtlas(strType + state).getTexture(strType + state + strFrameNum);
+				}
+				img.texture = texture;
+				frameDur = 0;
+			}
 		}
 	}
 

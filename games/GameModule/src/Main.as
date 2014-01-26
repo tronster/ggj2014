@@ -18,6 +18,8 @@ package
 		public static var STAGE_WIDTH:Number;
 		public static var STAGE_HEIGHT:Number;
 		
+		public static var TARGET_FRAME_TIME:Number;
+		
 		public function Main():void 
 		{
 			super();
@@ -30,6 +32,7 @@ package
 			ourConsole.addCommand( "level", onFastSwitchLevel );
 			STAGE_WIDTH = stage.stageWidth;
 			STAGE_HEIGHT = stage.stageHeight;
+			TARGET_FRAME_TIME = stage.frameRate / 1000;
 			// touch or gesture?
 			//Multitouch.inputMode = MultitouchInputMode.TOUCH_POINT;
 			

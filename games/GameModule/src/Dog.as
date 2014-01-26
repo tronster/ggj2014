@@ -7,19 +7,22 @@ package
 	import citrus.objects.Box2DPhysicsObject;
 	import citrus.view.starlingview.AnimationSequence;
 	import flash.geom.Point;
+	import starling.display.Image;
+	import starling.display.MovieClip;
+	import starling.textures.Texture;
 	
 	/**
 	 * ...
 	 * @author 
 	 */
 	public class Dog 
-	{
+	{		
 		public var type		:uint;
 		public var x		:Number;
 		public var y		:Number;
 		public var hp		:Number;
 		public var maxHp	:Number;
-		public var movementSpeed:Number = 3;
+		public var movementSpeed:Number = 1.5;
 		
 		public var editArt:Box2DPhysicsObject;
 		public var playArt:DogPhysicsObject;
@@ -31,6 +34,11 @@ package
 		public var previousNode	:Node;
 		public var targetNode	:Node;
 		
+		private var strType:String;
+		private var frameNum:int;
+		private var frameDur:Number;
+		public var state:String;
+		
 		public function Dog(type:uint) 
 		{
 			this.type = type;
@@ -39,14 +47,15 @@ package
 			maxHp = Config.MAX_HP_DOG_1;
 			hp = maxHp;
 			
-			playArt = new DogPhysicsObject(this, "dogs_playart", { x:x, y:y, width:128, height:128} );
+			playArt = new DogPhysicsObject(this, "dogs_playart", { x:x, y:y, width:80, height:100} );
 			//playArt.view = "../embed/Dog1.swf";
+			frameDur = 0;
+			strType = "Dog" + type;
 			
-			var tempAnima:AnimationSequence =  Resources.getViewWithMultipleAtlas(["Dog" + type + "Left", 
-																					"Dog" + type + "Right", 
-																					"Dog" + type + "Up", 
-																					"Dog" + type + "Down"]);
-			playArt.view = tempAnima;
+			frameNum = 1;
+			state = Config.LEFT;
+			playArt.view = new Image(Resources.getAtlas(strType + state).getTexture(strType + state + "01"));		//easier to just put the '0' here
+			//playArt.view = tempAnima;
 		}
 		
 		public function destroy():void
@@ -75,30 +84,26 @@ package
 				if (distX > movementSpeed) 
 				{
 					distX = movementSpeed;
-					AnimationSequence(playArt.view).changeAnimation("Dog" + type + "Right", true);
-					//CitrusEngine.getInstance().state.remove(playArt);
-					//playArt.view = Resources.getView("Dog" + this.type + "Right");
+					state = Config.RIGHT;
+					//AnimationSequence(playArt.view).changeAnimation("Dog" + type + "Right", true);
 				}else if (distX < -movementSpeed) 
 				{
 					distX = -movementSpeed;
-					AnimationSequence(playArt.view).changeAnimation("Dog" + type + "Left", true);
-					//CitrusEngine.getInstance().state.remove(playArt);
-					//playArt.view = Resources.getView("Dog" + this.type + "Left");
+					state = Config.LEFT;
+					//AnimationSequence(playArt.view).changeAnimation("Dog" + type + "Left", true);
 				}
 					
 				//handle verticial movement
 				if (distY > movementSpeed) 
 				{
 					distY = movementSpeed;
-					AnimationSequence(playArt.view).changeAnimation("Dog" + type + "Down", true);
-					//CitrusEngine.getInstance().state.remove(playArt);
-					//playArt.view = Resources.getView("Dog" + this.type + "Down");
+					state = Config.DOWN;
+					//AnimationSequence(playArt.view).changeAnimation("Dog" + type + "Down", true);
 				}else if (distY < -movementSpeed) 
 				{
 					distY = -movementSpeed;
-					AnimationSequence(playArt.view).changeAnimation("Dog" + type + "Up", true);
-					//CitrusEngine.getInstance().state.remove(playArt);
-					//playArt.view = Resources.getView("Dog" + this.type + "Up");
+					state = Config.UP;
+					//AnimationSequence(playArt.view).changeAnimation("Dog" + type + "Up", true);
 				}
 				
 				this.x += distX;
@@ -107,14 +112,42 @@ package
 				if (distX == 0 && distY == 0) reachedNode = true;
 				
 				playArt.visible = true;
+			}else {
+				state = Config.DEFEAT;
 			}
 			
+			handlePlayArtAnimation(timeDelta);
 			//AnimationSequence(playArt.view).changeAnimation("Dog" + type + "Left");
-			var name:Vector.<String> = AnimationSequence(playArt.view).getAnimationNames();
-			trace(name[0], name.length, AnimationSequence(playArt.view).mcSequences[name[0]].currentFrame);
-				
+			//var name:Vector.<String> = AnimationSequence(playArt.view).getAnimationNames();
+			//trace(name[0], name.length, AnimationSequence(playArt.view).mcSequences[name[0]].currentFrame);
+			//var mc:MovieClip = name.length, AnimationSequence(playArt.view).mcSequences[name[0]]
+			
 			playArt.x = this.x;
 			playArt.y = this.y;
+		}
+		
+		private function handlePlayArtAnimation(timeDelta:Number):void
+		{
+			frameDur += timeDelta;
+			var img:Image = playArt.view as Image;
+			var strFrameNum:String;
+			
+			if (frameDur >= Main.TARGET_FRAME_TIME)
+			{
+				frameNum++;
+				strFrameNum = (frameNum < 10) ? "0" + frameNum.toString() : frameNum.toString();
+				
+				var texture:Texture = Resources.getAtlas(strType + state).getTexture(strType + state + strFrameNum);
+				
+				if (texture == null)
+				{
+					frameNum = 1;
+					strFrameNum = "01";
+					texture = Resources.getAtlas(strType + state).getTexture(strType + state + strFrameNum);
+				}
+				img.texture = texture;
+				frameDur = 0;
+			}
 		}
 		
 		public function setNode(node:Node):void

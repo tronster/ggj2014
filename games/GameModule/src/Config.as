@@ -8,6 +8,17 @@
 	//
 	public class Config 
 	{	
+		// ----- Global Strings --------------
+		public static const LEFT						:String = "Left";
+		public static const RIGHT						:String = "Right";
+		public static const UP							:String = "Up";
+		public static const DOWN						:String = "Down";
+		public static const IDLE						:String = "Idle";
+		public static const VICTORY						:String = "Victory";
+		public static const DEFEAT						:String = "Defeat";
+		public static const LOSE						:String = "Lose";
+		public static const READY						:String = "Ready";
+		
 		// ----- Game data --------------------
 		
 		public static const GAMEDATA_LEVELS		:String = "levels";
