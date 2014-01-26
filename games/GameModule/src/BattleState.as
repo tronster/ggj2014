@@ -43,8 +43,12 @@ package
 			
 			levelData = _ce.gameData[ Config.CURRENT_LEVEL ].clone();
 			
-			var bg:CitrusSprite = new CitrusSprite("bg", { view:Image.fromBitmap(new Resources.level_straight()) } );
+			var bg:CitrusSprite = new CitrusSprite("bg", { view:Image.fromBitmap(new Resources.bg()) } );
 			add(bg);
+			
+			var bgPath:CitrusSprite = new CitrusSprite("bg", { view:Image.fromBitmap(new Resources.level_straight()) } );
+			bgPath.x = Main.STAGE_WIDTH - Image(bgPath.view).width;
+			add(bgPath);
 			
 			var sushi:CitrusSprite = new CitrusSprite("bg", { view:Resources.getView("Sushi") } );
 			sushi.x = levelData.path[0].x - AnimationSequence(sushi.view).width * .5;
@@ -52,7 +56,7 @@ package
 			add(sushi);
 			
 			var box2D:Box2D = new Box2D("box2D");
-			box2D.visible = true;
+			//box2D.visible = true;
 			box2D.gravity = new b2Vec2(0, 0);
 			add(box2D);
 			
