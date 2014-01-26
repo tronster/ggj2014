@@ -1,7 +1,10 @@
 package  
 {
+	import citrus.objects.CitrusSprite;
 	public class LevelData 
 	{
+		public var citrus	:CitrusSprite;
+
 		public var path		:Vector.<Node>;
 		public var spawns	:Vector.<Spawn>; 
 		public var tiles	:Vector.<uint>;
@@ -28,7 +31,7 @@ package
 			var ld:LevelData = new LevelData();
 			
 			for each( var node:Node in path )
-				ld.path.push( path );
+				ld.path.push( node );
 				
 			for each( var spawn:Spawn in spawns)
 				ld.spawns.push( spawn );

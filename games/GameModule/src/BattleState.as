@@ -53,6 +53,7 @@ package
 			box2D.gravity = new b2Vec2(0, 0);
 			add(box2D);
 			
+<<<<<<< HEAD
 			retryBtn = new Button(Resources.getAtlas("temp_sheet").getTexture("replay_idle_button"));
 			retryBtn.x = 480;
 			retryBtn.y = 500;
@@ -64,14 +65,19 @@ package
 			victoryImage = new CitrusSprite("title", { view:Image.fromBitmap(new Resources.defeat()) } );
 			victoryImage.x = 150;
 			
+=======
+			/* ??TRON remove:
+			//levelInfo = LevelData(_ce.gameData).clone();
+>>>>>>> 9b61a21ec6d6c495e53bc996c0b4aec96e61bbaf
 			levelData = new LevelData();
 			
 			//hard code spawns
 			var tempSpawn:Spawn;
 			for (var i:int = 0; i < 1; i++)
 			{
-				tempSpawn = new Spawn(2, (i + 1));	//time to spawn is 1 second intervals
+				tempSpawn = new Spawn(1, (i + 1));	//time to spawn is 1 second intervals
 				levelData.spawns.push(tempSpawn);
+<<<<<<< HEAD
 			}
 			//levelData = _ce.gameData[ Config.CURRENT_LEVEL ].clone();
 			
@@ -88,7 +94,12 @@ package
 				add(cat.sensor);
 			}
 			
+=======
+			}*/
+			levelData = _ce.gameData[ Config.CURRENT_LEVEL ].clone();
+>>>>>>> 9b61a21ec6d6c495e53bc996c0b4aec96e61bbaf
 			
+			/*
 			//hard code nodes
 			var tempNode:Node = new Node();
 			tempNode.x = 192;
@@ -96,7 +107,7 @@ package
 			tempNode.gfxType = 1;
 			levelData.path.push(tempNode);
 			
-			/*tempNode = new Node();
+			tempNode = new Node();
 			tempNode.x = 250;
 			tempNode.y = stage.stageHeight * .5;
 			tempNode.gfxType = 1;
@@ -112,7 +123,7 @@ package
 			tempNode.x = stage.stageWidth * .75;
 			tempNode.y = stage.stageHeight * .1;
 			tempNode.gfxType = 1;
-			levelData.path.push(tempNode);*/
+			levelData.path.push(tempNode);
 			
 			tempNode = new Node();
 			tempNode.x = stage.stageWidth * .75;
@@ -126,6 +137,8 @@ package
 			tempNode.y = stage.stageHeight * .5;
 			tempNode.gfxType = 1;
 			levelData.path.push(tempNode);
+			*/
+			
 			
 			//get how many total nodes are in the path
 			numNodes = levelData.path.length;

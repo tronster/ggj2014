@@ -32,15 +32,15 @@ package
 			title = new CitrusSprite("title", { view:Image.fromBitmap(new Resources.title()) } );
 			title.x = 150; 
 			add( title );
-			eaze(title).to( 1.1, {y:100 });
+			eaze(title).to( 1.1, {y:200 });
 			
 			var startBtn:Button =  new Button(
 				Resources.getAtlas().getTexture("button"),
 				"",
 				Resources.getAtlas().getTexture("button hover"));
 
-			startBtn.x = (stage.stageWidth * .5) - (startBtn.width * .5);
-			startBtn.y = (stage.stageHeight * .75 );
+			startBtn.x = 750;
+			startBtn.y = 550;
 			startBtn.addEventListener(Event.TRIGGERED, onButtonTriggered);
 			addChild( startBtn );
 		}

@@ -65,7 +65,8 @@
 		static public const TILE_SUSHI			:uint = 9;
 				
 		static public const TILES_STRAIGHT:Array = [ 
-			0, 0, 0, 0, 0, 0, 0,
+			7, 5,
+		    0, 0, 0, 0, 0, 0, 0,
 			0, 0, 0, 0, 0, 0, 0,
 			9, 1, 1, 1, 1, 1, 7,
 			0, 0, 0, 0, 0, 0, 0,
@@ -73,6 +74,7 @@
 			];
 		
 		static public const TILES_ONEBEND:Array = [ 
+			7, 5,
 			0, 0, 0, 0, 0, 0, 0,
 			9, 1, 6, 0, 0, 0, 0,
 			0, 0, 3, 1, 1, 1, 7,
@@ -81,6 +83,7 @@
 			];
 
 		static public const TILES_ONEBENDLONG:Array = [ 
+			7, 5,
 			9, 1, 6, 0, 0, 0, 0,
 			0, 0, 2, 0, 0, 0, 0,
 			0, 0, 2, 0, 0, 0, 0,
@@ -89,6 +92,7 @@
 			];
 
 		static public const TILES_TWOBEND:Array = [ 
+			7, 5,
 			0, 4, 1, 6, 0, 0, 0,
 			0, 2, 0, 2, 0, 0, 0,
 			9, 5, 0, 2, 0, 0, 0,
