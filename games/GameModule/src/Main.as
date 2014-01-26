@@ -49,13 +49,23 @@ package
 			setUpStarling(true);
 			
 			//offset the sounds (less gap in the looping sound)
-			CitrusSoundInstance.startPositionOffset = 80;
+			//CitrusSoundInstance.startPositionOffset = 80;
 			
 			sound.addSound("editMusic", 		{ sound:"assets/editMusic.mp3",		permanent:true, volume:0.8 , loops:int.MAX_VALUE , group:CitrusSoundGroup.BGM } );	
 			sound.addSound("battleMusic", 		{ sound:"assets/battleMusic.mp3",	permanent:true, volume:0.8 , loops:int.MAX_VALUE , group:CitrusSoundGroup.BGM } );	
 
-			//sound.addSound("buttonSfx", { sound:"assets/beep1.mp3" , group:CitrusSoundGroup.SFX } );
-			//sound.addSound("beep2", { sound:"sounds/beep2.mp3" , group:CitrusSoundGroup.SFX } );
+			sound.addSound("buttonSfx", 		{ sound:"assets/buttonSfx.mp3" , 	group:CitrusSoundGroup.SFX } );
+			sound.addSound("catDropSfx", 		{ sound:"assets/catDropSfx.mp3" , 	group:CitrusSoundGroup.SFX } );
+			sound.addSound("catPickupSfx", 		{ sound:"assets/catPickupSfx.mp3", 	group:CitrusSoundGroup.SFX } );
+			sound.addSound("fightingSfx", 		{ sound:"assets/fightingSfx.mp3",	group:CitrusSoundGroup.SFX } );
+			sound.addSound("catsLoseSfx",	 	{ sound:"assets/catsLoseSfx.mp3",	group:CitrusSoundGroup.SFX } );
+			sound.addSound("catVictorySfx", 	{ sound:"assets/catVictorySfx.mp3",	group:CitrusSoundGroup.SFX } );
+			sound.addSound("dogDefeatSfx",	 	{ sound:"assets/dogDefeatSfx.mp3",	group:CitrusSoundGroup.SFX } );
+			sound.addSound("dogVictorySfx",	 	{ sound:"assets/dogVictorySfx.mp3",	group:CitrusSoundGroup.SFX } );
+			sound.addSound("dogWinsSfx",	 	{ sound:"assets/dogWinsSfx.mp3",	group:CitrusSoundGroup.SFX } );
+			sound.addSound("fightingSfx",	 	{ sound:"assets/fightingSfx.mp3",	group:CitrusSoundGroup.SFX } );
+			sound.addSound("goSfx",	 			{ sound:"assets/goSfx.mp3",			group:CitrusSoundGroup.SFX } );
+			sound.addSound("walking",	 		{ sound:"assets/walking.mp3",		group:CitrusSoundGroup.SFX } );
 				
 			gameData = new GameData();
 		}

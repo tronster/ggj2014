@@ -122,6 +122,7 @@ package
 							if (touch.globalY > cat.editArt.y - hh && touch.globalY < cat.editArt.y + hh )
 							{
 								targetCat = cat;
+								_ce.sound.playSound("catPickupSfx");
 								break;
 							}
 						}
@@ -134,6 +135,7 @@ package
 					break;
 					
 				case TouchPhase.ENDED:
+					_ce.sound.playSound("catDropSfx");
 					if ( draggedCat != null )	// ??TRON debug
 						trace("Putting down: " + draggedCat.editArt.ID );
 					draggedCat = null;
