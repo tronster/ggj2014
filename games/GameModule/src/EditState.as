@@ -45,8 +45,8 @@ package
 			add( box2D );
 			
 			
-			//bg = new CitrusSprite("bg", { view:Image.fromBitmap(new Resources.bg()) } );
-			//add(bg);
+			bg = new CitrusSprite("bg", { view:Image.fromBitmap(new Resources.bg()) } );
+			add( bg );
 
 			goButton = new Button(
 				Resources.getAtlas().getTexture("button"),

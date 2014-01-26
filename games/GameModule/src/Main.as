@@ -49,15 +49,15 @@ package
 			gameData[ Config.GAMEDATA_LEVELS ] = levels;	
 		}
 		
-		override public  function handleStarlingReady():void
+		override public function handleStarlingReady():void
 		{
 			Resources.initialize();
 			
 			// Remove default keyboard key actions and hook up our custom keyboard.
 			_input.keyboard.destroy();
 			_input.keyboard = new Keyboard("drgKeyboard");
-			
-			this.state = new EditState();
+		
+			this.state = new ShellState();
 		}
 		
 		private function deactivate(e:Event):void 

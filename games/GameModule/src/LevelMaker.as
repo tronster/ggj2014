@@ -1,5 +1,8 @@
 package  
 {
+	import citrus.objects.CitrusSprite;
+	import starling.display.DisplayObjectContainer;
+
 	/**
 	 * ...
 	 * @author 
@@ -20,9 +23,25 @@ package
 			ld.catType3 = cat3;
 			ld.objectiveText = "Stop all the dogs from taking our sushi!";
 			
-			
-			
 			return ld;
+		}
+		
+		
+		static function getView( ld:LevelData ):DisplayObjectContainer
+		{
+			//var cs:CitrusSprite
+			var doc:DisplayObjectContainer = new DisplayObjectContainer();
+			
+			const WIDTH		:uint = 7;	// last column is off-screen
+			const HEIGHT	:uint = 5;
+			
+			for (var y:int = 0; y < HEIGHT; ++y )
+			{
+				
+			}
+			
+			
+			return doc;
 		}
 		
 

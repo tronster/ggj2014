@@ -38,6 +38,8 @@ package
 				
 			ld.objectiveText= this.objectiveText;
 			ld.cloneCount 	= this.cloneCount + 1;
+			if ( ld.cloneCount > 1 )
+				error("You just cloned a cloned levelData with text '" + objectiveText + "'");
 				
 			return ld;
 		}
