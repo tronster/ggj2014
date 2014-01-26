@@ -1,5 +1,6 @@
 package  
 {
+	import aze.motion.eaze;
 	import citrus.core.starling.StarlingState;
 	import citrus.objects.CitrusSprite;
 	import starling.display.Button;
@@ -26,10 +27,12 @@ package
 			//background.view.pivotY = background.y = background.view.height / 2;
 			//background.y += 250;
 			//background.view.scaleX =background.view.scaleY = 2;
-			add(background);
+			add( background );
 
-			title = new CitrusSprite("title", { view:Image.fromBitmap(new Resources.title()), parallaxX:1.0 } );
-			add(title);
+			title = new CitrusSprite("title", { view:Image.fromBitmap(new Resources.title()) } );
+			title.x = 150; 
+			add( title );
+			eaze(title).to( 1.1, {y:100 });
 			
 			var startBtn:Button =  new Button(
 				Resources.getAtlas().getTexture("button"),

@@ -42,22 +42,30 @@ package
 			setUpStarling(true);
 
 			gameData = new GameData();
+
+			var levelData:LevelData;
+			
+			var tiles	:Array = [];
+			var spawns	:Array = [];
+			
+			spawns		= LevelMaker.addSpawns( spawns, 1, 1, 1, 2, 1, 3 );
+			levelData 	= LevelMaker.create( 3, 2, 1, tiles, spawns );
 			
 			var levels:Vector.<LevelData> = new Vector.<LevelData>();
-			levels.push( new LevelData() );
-			levels.push( new LevelData() );
+			levels.push( levelData );
+			
 			gameData[ Config.GAMEDATA_LEVELS ] = levels;	
 		}
 		
-		override public  function handleStarlingReady():void
+		override public function handleStarlingReady():void
 		{
 			Resources.initialize();
 			
 			// Remove default keyboard key actions and hook up our custom keyboard.
 			_input.keyboard.destroy();
 			_input.keyboard = new Keyboard("drgKeyboard");
-			
-			this.state = new EditState();
+		
+			this.state = new ShellState();
 		}
 		
 		private function deactivate(e:Event):void 
