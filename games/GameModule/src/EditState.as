@@ -14,9 +14,15 @@ package
 	import citrus.view.ICitrusArt;
 	import citrus.view.starlingview.AnimationSequence;
 	import citrus.view.starlingview.StarlingArt;
+	import flash.events.MouseEvent;
 	import starling.display.Button;
+	import starling.display.DisplayObject;
 	import starling.display.Image;
 	import starling.events.Event;
+	import starling.events.EventDispatcher;
+	import starling.events.Touch;
+	import starling.events.TouchEvent;
+	import starling.events.TouchPhase;
 	import starling.textures.Texture;
 	import starling.textures.TextureAtlas;
 	
@@ -30,7 +36,7 @@ package
 		public var goButton		:Button;
 		public var levelData	:LevelData;
 		public var cats			:Vector.<Cat>;
-		
+		public var draggedCat	:Cat;
 		
 		public var sa:AnimationSequence;
 		
@@ -46,7 +52,7 @@ package
 			super.initialize();
 			
 			var box2D:Box2D = new Box2D("box2D");
-			box2D.visible = false;
+			box2D.visible = true;
 			box2D.gravity = new b2Vec2(0, 0);
 			add( box2D );
 			
@@ -65,9 +71,9 @@ package
 				Resources.getAtlas().getTexture("button"),
 				"Go",
 				Resources.getAtlas().getTexture("button hover"));
-
 			goButton.x = 0;
 			goButton.y = stage.stageHeight - 100;
+			goButton.useHandCursor = true;
 			goButton.addEventListener(Event.TRIGGERED, onGoButtonTriggered);
 			addChild( goButton );
 			
@@ -81,10 +87,73 @@ package
 			for each( var cat:Cat in cats )
 			{
 				add( cat.editArt );
-				add( cat.sensor );				
+				add( cat.sensor );
+				
+				//cat.editArt.addEventListener( MouseEvent.MOUSE_DOWN, onMouseDown);
 			}
 			
+			//addEventListener(MouseEvent.MOUSE_DOWN, onMouseDown);
+			//bgGrass.touchable = true;
+			//this.touchable = true;
+			//addEventListener(TouchEvent.TOUCH, onTouch );
+			stage.touchable = true;
+			stage.addEventListener( TouchEvent.TOUCH, onTouch );
 		}
+		
+		private function onTouch( e:TouchEvent ):void
+		{
+			var touch:Touch = e.getTouch( stage );
+			if (touch == null )
+				return;
+			
+			//trace(touch + "    target: " + touch.target +  "   " + touch.getLocation(cats[0].editArt.view as DisplayObject ));
+			//trace(touch.isTouching( cats[0].editArt.view ));
+				
+			switch( touch.phase )
+			{
+				case TouchPhase.BEGAN:
+					var targetCat:Cat = null;
+					var cat:Cat;
+					for (var i:int = 0; i < cats.length; ++i )
+					{	
+						cat = cats[i];
+						var hw:int = (cat.editArt.width / 2); //half width
+						var hh:int = (cat.editArt.height / 2); //half height						
+						if (touch.globalX > cat.editArt.x - hw && touch.globalX < cat.editArt.x + hw)
+						{
+							if (touch.globalY > cat.editArt.y - hh && touch.globalY < cat.editArt.y + hh )
+							{
+								targetCat = cat;
+								break;
+							}
+						}
+					}
+					draggedCat = targetCat;
+					if ( draggedCat != null )	// ??TRON debug
+						trace("Picking up  : " + draggedCat.editArt.ID );
+					else
+						trace("No cat to picjk up!");
+					break;
+					
+				case TouchPhase.ENDED:
+					if ( draggedCat != null )	// ??TRON debug
+						trace("Putting down: " + draggedCat.editArt.ID );
+					draggedCat = null;
+					break;
+				
+				case TouchPhase.MOVED:
+					if ( draggedCat != null )	// ??TRON debug
+						trace("dragging    : " + draggedCat.editArt.ID );
+						
+					if ( draggedCat != null )
+					{
+						draggedCat.editArt.x = touch.globalX;
+						draggedCat.editArt.y = touch.globalY;
+					}
+					break;
+			}			
+		}
+		
 		
 		
 		private function onGoButtonTriggered( e:Event ):void
