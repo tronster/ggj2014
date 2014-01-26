@@ -2,20 +2,20 @@
 <!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
 <!-- $TexturePacker:SmartUpdate:a7b1aa01885686b4bdcc7bbc39f36908:73e3d1bd558bbe01b51e4258f7e0b27a:4b44ad06ad3315a10a3463d098c2bdfe$ -->
 <TextureAtlas imagePath="Battlecloud.png">
-    <SubTexture name="Battlecloud1" x="2" y="2" width="136" height="197"/>
-    <SubTexture name="Battlecloud10" x="140" y="2" width="136" height="197"/>
+    <SubTexture name="Battlecloud01" x="2" y="2" width="136" height="197"/>
+    <SubTexture name="Battlecloud02" x="2" y="2" width="136" height="197"/>
+    <SubTexture name="Battlecloud03" x="278" y="201" width="136" height="197"/>
+    <SubTexture name="Battlecloud04" x="278" y="201" width="136" height="197"/>
+    <SubTexture name="Battlecloud05" x="2" y="400" width="136" height="197"/>
+    <SubTexture name="Battlecloud06" x="2" y="400" width="136" height="197"/>
+    <SubTexture name="Battlecloud07" x="140" y="400" width="136" height="197"/>
+    <SubTexture name="Battlecloud08" x="140" y="400" width="136" height="197"/>
+    <SubTexture name="Battlecloud09" x="140" y="2" width="136" height="197"/>
+	<SubTexture name="Battlecloud10" x="140" y="2" width="136" height="197"/>
     <SubTexture name="Battlecloud11" x="278" y="2" width="136" height="197"/>
     <SubTexture name="Battlecloud12" x="278" y="2" width="136" height="197"/>
     <SubTexture name="Battlecloud13" x="2" y="201" width="136" height="197"/>
     <SubTexture name="Battlecloud14" x="2" y="201" width="136" height="197"/>
     <SubTexture name="Battlecloud15" x="140" y="201" width="136" height="197"/>
     <SubTexture name="Battlecloud16" x="140" y="201" width="136" height="197"/>
-    <SubTexture name="Battlecloud2" x="2" y="2" width="136" height="197"/>
-    <SubTexture name="Battlecloud3" x="278" y="201" width="136" height="197"/>
-    <SubTexture name="Battlecloud4" x="278" y="201" width="136" height="197"/>
-    <SubTexture name="Battlecloud5" x="2" y="400" width="136" height="197"/>
-    <SubTexture name="Battlecloud6" x="2" y="400" width="136" height="197"/>
-    <SubTexture name="Battlecloud7" x="140" y="400" width="136" height="197"/>
-    <SubTexture name="Battlecloud8" x="140" y="400" width="136" height="197"/>
-    <SubTexture name="Battlecloud9" x="140" y="2" width="136" height="197"/>
 </TextureAtlas>

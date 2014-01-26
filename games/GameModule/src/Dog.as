@@ -16,8 +16,8 @@ package
 		public var type		:uint;
 		public var x		:Number;
 		public var y		:Number;
-		public var hp		:int;
-		public var maxHp	:int;
+		public var hp		:Number;
+		public var maxHp	:Number;
 		public var movementSpeed:Number = 3;
 		
 		public var editArt:Box2DPhysicsObject;
@@ -84,11 +84,7 @@ package
 			playArt.y = this.y;
 		}
 		
-<<<<<<< Updated upstream
-		public function setNode(node:Node) :void
-=======
 		public function setNode(node:Node):void
->>>>>>> Stashed changes
 		{
 			previousNode = targetNode;
 			targetNode = node;
