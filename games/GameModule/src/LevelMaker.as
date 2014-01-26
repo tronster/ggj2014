@@ -19,7 +19,7 @@ package
 			ld.catType1 		= cat1;
 			ld.catType2 		= cat2;
 			ld.catType3 		= cat3;
-			ld.objectiveText 	= "Stop all the dogs from taking our sushi!";
+			ld.objectiveText 	= "Stop our neighbor's dogs from taking our sushi!";
 			
 			var i:int = 0;
 			for (i = 0; i < tiles.length; i++ )		ld.tiles.push( tiles[i] );

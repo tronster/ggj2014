@@ -49,7 +49,7 @@ package
 			var spawns	:Array = [];
 			
 			spawns		= LevelMaker.addSpawns( spawns, 1, 1, 1, 2, 1, 3 );
-			levelData 	= LevelMaker.create( 1, 0, 0, tiles, spawns );
+			levelData 	= LevelMaker.create( 5, 2, 0, tiles, spawns );
 			
 			var levels:Vector.<LevelData> = new Vector.<LevelData>();
 			levels.push( levelData );
@@ -65,7 +65,8 @@ package
 			_input.keyboard.destroy();
 			_input.keyboard = new Keyboard("drgKeyboard");
 		
-			this.state = new ShellState();
+			//this.state = new ShellState();
+			this.state = new EditState();
 		}
 		
 		private function deactivate(e:Event):void 

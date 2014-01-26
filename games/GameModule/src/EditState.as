@@ -25,9 +25,10 @@ package
 	{
 		public var bg			:CitrusSprite;
 		public var bgGrass		:CitrusSprite;
+		public var sidescroll	:CitrusSprite;
+		public var commander	:Box2DPhysicsObject;
 		public var goButton		:Button;
 		public var levelData	:LevelData;
-		public var testObj		:Box2DPhysicsObject;
 		public var cats			:Vector.<Cat>;
 		
 		
@@ -53,8 +54,11 @@ package
 			bg = new CitrusSprite("bg", { view:Image.fromBitmap(new Resources.bg()) } );
 			add( bg );
 
-			bgGrass = new CitrusSprite("bgGrass", { x:192, view:Image.fromBitmap(new Resources.bgGrass()) } );
+			bgGrass = new CitrusSprite("bgGrass", { x:192, view:Image.fromBitmap(new Resources.bg()) } );
 			add( bgGrass );
+
+			sidescroll = new CitrusSprite("sidescroll", { x:0, y:0, view:Image.fromBitmap(new Resources.sidescroll()) } );
+			add( sidescroll );
 		
 			
 			goButton = new Button(
@@ -67,10 +71,10 @@ package
 			goButton.addEventListener(Event.TRIGGERED, onGoButtonTriggered);
 			addChild( goButton );
 			
-			//var sa:AnimationSequence = new AnimationSequence( Resources.getAtlas("Cat1Victory"), ["Cat1Victory"], "Cat1Victory", 30, true );
-			var testObj:Box2DPhysicsObject = new Box2DPhysicsObject("enemy", { x:500, y:500, view:Resources.getView("Cat1Victory") } );
-			add(testObj);
-						
+			var commander:Box2DPhysicsObject = new Box2DPhysicsObject("CommanderCatCute", { x:170, y:490, view:Resources.getView("CommanderCatCute") } );
+			add(commander);
+			
+			
 			getCurrentLevelData();
 			
 			// Place on the stage

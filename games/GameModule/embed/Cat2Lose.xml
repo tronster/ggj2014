@@ -1,45 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
-<!-- $TexturePacker:SmartUpdate:fc41be665d40cf39c62944eff05ce331:01b63096b2cbf445ad3be0e09b840775:99e4c35d76987b4d6aca54dbbd49ca69$ -->
+<!-- $TexturePacker:SmartUpdate:31f967ffb8e12abffaa35acc1381af96:f38e3de5feb4d661ecd6a221b5809d7c:99e4c35d76987b4d6aca54dbbd49ca69$ -->
 <TextureAtlas imagePath="Cat2Lose.png">
-    <SubTexture name="Cat1Lose01" x="138" y="2" width="66" height="89"/>
-    <SubTexture name="Cat1Lose02" x="138" y="2" width="66" height="89"/>
-    <SubTexture name="Cat1Lose03" x="70" y="2" width="66" height="89"/>
-    <SubTexture name="Cat1Lose04" x="2" y="93" width="66" height="89"/>
-    <SubTexture name="Cat1Lose05" x="2" y="2" width="66" height="89"/>
-    <SubTexture name="Cat1Lose06" x="2" y="2" width="66" height="89"/>
-    <SubTexture name="Cat1Lose07" x="138" y="2" width="66" height="89"/>
-    <SubTexture name="Cat1Lose08" x="138" y="2" width="66" height="89"/>
-    <SubTexture name="Cat1Lose09" x="138" y="2" width="66" height="89"/>
-    <SubTexture name="Cat1Lose10" x="138" y="2" width="66" height="89"/>
-    <SubTexture name="Cat1Lose11" x="138" y="2" width="66" height="89"/>
-    <SubTexture name="Cat1Lose12" x="138" y="2" width="66" height="89"/>
-    <SubTexture name="Cat1Lose13" x="138" y="2" width="66" height="89"/>
-    <SubTexture name="Cat1Lose14" x="138" y="2" width="66" height="89"/>
-    <SubTexture name="Cat1Lose15" x="138" y="2" width="66" height="89"/>
-    <SubTexture name="Cat1Lose16" x="138" y="2" width="66" height="89"/>
-    <SubTexture name="Cat1Lose17" x="138" y="2" width="66" height="89"/>
-    <SubTexture name="Cat1Lose18" x="138" y="2" width="66" height="89"/>
-    <SubTexture name="Cat1Lose19" x="138" y="2" width="66" height="89"/>
-    <SubTexture name="Cat1Lose20" x="138" y="2" width="66" height="89"/>
-    <SubTexture name="Cat1Lose21" x="138" y="2" width="66" height="89"/>
-    <SubTexture name="Cat1Lose22" x="138" y="2" width="66" height="89"/>
-    <SubTexture name="Cat1Lose23" x="138" y="2" width="66" height="89"/>
-    <SubTexture name="Cat1Lose24" x="138" y="2" width="66" height="89"/>
-    <SubTexture name="Cat1Lose25" x="138" y="2" width="66" height="89"/>
-    <SubTexture name="Cat1Lose26" x="138" y="2" width="66" height="89"/>
-    <SubTexture name="Cat1Lose27" x="138" y="2" width="66" height="89"/>
-    <SubTexture name="Cat1Lose28" x="138" y="2" width="66" height="89"/>
-    <SubTexture name="Cat1Lose29" x="138" y="2" width="66" height="89"/>
-    <SubTexture name="Cat1Lose30" x="138" y="2" width="66" height="89"/>
-    <SubTexture name="Cat1Lose31" x="138" y="2" width="66" height="89"/>
-    <SubTexture name="Cat1Lose32" x="138" y="2" width="66" height="89"/>
-    <SubTexture name="Cat1Lose33" x="70" y="2" width="66" height="89"/>
-    <SubTexture name="Cat1Lose34" x="2" y="93" width="66" height="89"/>
-    <SubTexture name="Cat1Lose35" x="2" y="2" width="66" height="89"/>
-    <SubTexture name="Cat1Lose36" x="2" y="2" width="66" height="89"/>
-    <SubTexture name="Cat1Lose37" x="138" y="2" width="66" height="89"/>
-    <SubTexture name="Cat1Lose38" x="138" y="2" width="66" height="89"/>
-    <SubTexture name="Cat1Lose39" x="138" y="2" width="66" height="89"/>
-    <SubTexture name="Cat1Lose40" x="138" y="2" width="66" height="89"/>
+    <SubTexture name="Cat2Lose01" x="108" y="182" width="51" height="28" frameX="-8" frameY="-4" frameWidth="63" frameHeight="38"/>
+    <SubTexture name="Cat2Lose02" x="161" y="152" width="51" height="28" frameX="-8" frameY="-4" frameWidth="63" frameHeight="38"/>
+    <SubTexture name="Cat2Lose03" x="108" y="152" width="51" height="28" frameX="-8" frameY="-4" frameWidth="63" frameHeight="38"/>
+    <SubTexture name="Cat2Lose04" x="161" y="122" width="51" height="28" frameX="-8" frameY="-4" frameWidth="63" frameHeight="38"/>
+    <SubTexture name="Cat2Lose05" x="108" y="122" width="51" height="28" frameX="-8" frameY="-4" frameWidth="63" frameHeight="38"/>
+    <SubTexture name="Cat2Lose06" x="55" y="212" width="51" height="28" frameX="-8" frameY="-5" frameWidth="63" frameHeight="38"/>
+    <SubTexture name="Cat2Lose07" x="55" y="182" width="51" height="28" frameX="-8" frameY="-5" frameWidth="63" frameHeight="38"/>
+    <SubTexture name="Cat2Lose08" x="55" y="152" width="51" height="28" frameX="-8" frameY="-5" frameWidth="63" frameHeight="38"/>
+    <SubTexture name="Cat2Lose09" x="55" y="122" width="51" height="28" frameX="-8" frameY="-5" frameWidth="63" frameHeight="38"/>
+    <SubTexture name="Cat2Lose10" x="161" y="92" width="51" height="28" frameX="-8" frameY="-5" frameWidth="63" frameHeight="38"/>
+    <SubTexture name="Cat2Lose11" x="2" y="2" width="51" height="30" frameX="-8" frameY="-3" frameWidth="63" frameHeight="38"/>
+    <SubTexture name="Cat2Lose12" x="108" y="92" width="51" height="28" frameX="-8" frameY="-5" frameWidth="63" frameHeight="38"/>
+    <SubTexture name="Cat2Lose13" x="55" y="92" width="51" height="28" frameX="-8" frameY="-5" frameWidth="63" frameHeight="38"/>
+    <SubTexture name="Cat2Lose14" x="2" y="214" width="51" height="28" frameX="-8" frameY="-5" frameWidth="63" frameHeight="38"/>
+    <SubTexture name="Cat2Lose15" x="2" y="184" width="51" height="28" frameX="-8" frameY="-5" frameWidth="63" frameHeight="38"/>
+    <SubTexture name="Cat2Lose16" x="2" y="154" width="51" height="28" frameX="-8" frameY="-5" frameWidth="63" frameHeight="38"/>
+    <SubTexture name="Cat2Lose17" x="2" y="124" width="51" height="28" frameX="-8" frameY="-5" frameWidth="63" frameHeight="38"/>
+    <SubTexture name="Cat2Lose18" x="2" y="94" width="51" height="28" frameX="-8" frameY="-5" frameWidth="63" frameHeight="38"/>
+    <SubTexture name="Cat2Lose19" x="161" y="62" width="51" height="28" frameX="-8" frameY="-5" frameWidth="63" frameHeight="38"/>
+    <SubTexture name="Cat2Lose20" x="108" y="62" width="51" height="28" frameX="-8" frameY="-4" frameWidth="63" frameHeight="38"/>
+    <SubTexture name="Cat2Lose21" x="2" y="64" width="51" height="28" frameX="-8" frameY="-4" frameWidth="63" frameHeight="38"/>
+    <SubTexture name="Cat2Lose22" x="55" y="62" width="51" height="28" frameX="-8" frameY="-5" frameWidth="63" frameHeight="38"/>
+    <SubTexture name="Cat2Lose23" x="161" y="32" width="51" height="28" frameX="-8" frameY="-5" frameWidth="63" frameHeight="38"/>
+    <SubTexture name="Cat2Lose24" x="108" y="32" width="51" height="28" frameX="-8" frameY="-4" frameWidth="63" frameHeight="38"/>
+    <SubTexture name="Cat2Lose25" x="2" y="34" width="51" height="28" frameX="-8" frameY="-4" frameWidth="63" frameHeight="38"/>
+    <SubTexture name="Cat2Lose26" x="55" y="32" width="51" height="28" frameX="-8" frameY="-4" frameWidth="63" frameHeight="38"/>
+    <SubTexture name="Cat2Lose27" x="161" y="2" width="51" height="28" frameX="-8" frameY="-4" frameWidth="63" frameHeight="38"/>
+    <SubTexture name="Cat2Lose28" x="108" y="2" width="51" height="28" frameX="-8" frameY="-4" frameWidth="63" frameHeight="38"/>
+    <SubTexture name="Cat2Lose29" x="55" y="2" width="51" height="28" frameX="-8" frameY="-4" frameWidth="63" frameHeight="38"/>
+    <SubTexture name="Cat2Lose30" x="108" y="182" width="51" height="28" frameX="-8" frameY="-4" frameWidth="63" frameHeight="38"/>
 </TextureAtlas>
