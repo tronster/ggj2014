@@ -6,6 +6,7 @@ package
 	import citrus.objects.CitrusSprite;
 	import citrus.objects.platformer.simple.Sensor;
 	import citrus.physics.box2d.Box2D;
+	import citrus.view.starlingview.AnimationSequence;
 	import starling.display.Button;
 	import starling.display.Image;
 	import starling.events.Event;
@@ -44,6 +45,11 @@ package
 			
 			var bg:CitrusSprite = new CitrusSprite("bg", { view:Image.fromBitmap(new Resources.level_straight()) } );
 			add(bg);
+			
+			var sushi:CitrusSprite = new CitrusSprite("bg", { view:Resources.getView("Sushi") } );
+			sushi.x = levelData.path[0].x - AnimationSequence(sushi.view).width * .5;
+			sushi.y = levelData.path[0].y - AnimationSequence(sushi.view).height * .5;
+			add(sushi);
 			
 			var box2D:Box2D = new Box2D("box2D");
 			box2D.visible = true;
