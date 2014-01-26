@@ -10,7 +10,7 @@ package
 		public var catType2 :uint;
 		public var catType3 :uint;
 		
-		public var objectiveText:String;
+		public var objectiveText:String = "not set";
 		
 		public var cloneCount:int = 0;	// for debugging
 		
@@ -19,7 +19,7 @@ package
 		{	
 			path 	= new Vector.<Node>();
 			spawns 	= new Vector.<Spawn>();
-			tiles	= new Vector.<uint>();
+			tiles	= new Vector.<uint>();			
 		}
 		
 		
@@ -40,7 +40,7 @@ package
 			ld.cloneCount 	= this.cloneCount + 1;
 			if ( ld.cloneCount > 1 )
 				error("You just cloned a cloned levelData with text '" + objectiveText + "'");
-				
+			
 			return ld;
 		}
 		

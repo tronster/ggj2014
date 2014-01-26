@@ -30,6 +30,9 @@ package
 		public var isPlaced:Boolean = false;
 		public var sensor:Sensor;
 		
+		private static var id:uint = 0;
+		
+		
 		public function Cat(type:uint) 
 		{
 			this.type = type;
@@ -38,7 +41,7 @@ package
 			maxHp = Config.MAX_HP_DOG_1;
 			hp = maxHp;
 			
-			playArt = new Box2DPhysicsObject("dog", {x:x, y:y} );
+			playArt = new Box2DPhysicsObject("cat"+(++id), {x:x, y:y} );
 			playArt.view = "assets/battle_cat.swf";
 			sensor = new Sensor("cat_sensor", {x:x, y:y, width:128, height:128});
 			sensor.onBeginContact.add(onSensorCollide);

@@ -72,6 +72,13 @@ package
 			add(testObj);
 						
 			getCurrentLevelData();
+			
+			for each( var cat:Cat in cats )
+			{
+				add( cat.playArt );
+				add( cat.sensor );				
+			}
+			
 		}
 		
 		
@@ -99,7 +106,7 @@ package
 				levelNum = 1;
 			}
 			
-			levelData	= ( _ce.gameData[ Config.GAMEDATA_LEVELS ][levelNum - 1] ).clone();
+			levelData	= ( _ce.gameData[ Config.GAMEDATA_LEVELS ][levelNum - 1] ); // .clone();
 			cats 		= levelData.makeFreshCats();
 		}
 		
