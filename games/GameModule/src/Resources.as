@@ -40,6 +40,10 @@ package
 		
 		[Embed(source="/../embed/main_font.png")]													public static const MainFontTexture:Class;
 		[Embed(source="/../embed/main_font.fnt", mimeType="application/octet-stream")]				public static const MainFontData:Class;
+
+		[Embed(source="/../embed/AtlasTextureTemp.png")]												public static const AtlasTextureTemp:Class;
+		[Embed(source="/../embed/AtlasXmlTemp.fnt", mimeType="application/octet-stream")]			public static const AtlasXmlTemp:Class;
+		
 		
 		private static var atlases:Dictionary;
 		
@@ -65,6 +69,10 @@ package
 			xml							= XML( new BattleCloudXml() );
 			atlases["battlecloud"]		= new TextureAtlas(texture, xml );
 			*/
+			
+			texture						= makeTexture("AtlasTextureTemp");
+			xml							= XML( new AtlasXmlTemp() );
+			atlases["temp_sheet"]		= new TextureAtlas(texture, xml );			
 			
 			makeAtlas( "BattleCloud", BattleCloudXml );
 			makeAtlas( "Cat1Defeat", Cat1Defeat );
