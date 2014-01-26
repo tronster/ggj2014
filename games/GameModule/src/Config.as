@@ -36,7 +36,53 @@
 		public static const DAMAGE_LOW		:Number = .1;
 
 		
+		// ----- LEVELS --------------------
 		
+		static public const TILE_NONE			:uint = 0;
+		static public const TILE_STRAIGHT		:uint = 1;
+		static public const TILE_VSTRAIGHT		:uint = 2;
+		static public const TILE_TOP_RIGHT		:uint = 3;
+		static public const TILE_BOTTOM_RIGHT	:uint = 4;
+		static public const TILE_TOP_LEFT		:uint = 5;
+		static public const TILE_BOTTOM_LEFT	:uint = 6;
+		static public const TILE_DOG_START		:uint = 7;
+		static public const TILE_UNUSED2		:uint = 8;
+		static public const TILE_SUSHI			:uint = 9;
+				
+		static public const TILES_STRAIGHT:Array = [ 
+			0, 0, 0, 0, 0, 0, 0,
+			0, 0, 0, 0, 0, 0, 0,
+			9, 1, 1, 1, 1, 1, 7,
+			0, 0, 0, 0, 0, 0, 0,
+			0, 0, 0, 0, 0, 0, 0,
+			];
+		
+		static public const TILES_ONEBEND:Array = [ 
+			0, 0, 0, 0, 0, 0, 0,
+			9, 1, 6, 0, 0, 0, 0,
+			0, 0, 3, 1, 1, 1, 7,
+			0, 0, 0, 0, 0, 0, 0,
+			0, 0, 0, 0, 0, 0, 0
+			];
+
+		static public const TILES_ONEBENDLONG:Array = [ 
+			9, 1, 6, 0, 0, 0, 0,
+			0, 0, 2, 0, 0, 0, 0,
+			0, 0, 2, 0, 0, 0, 0,
+			0, 0, 2, 0, 0, 0, 0,
+			0, 0, 3, 1, 1, 1, 7
+			];
+
+		static public const TILES_TWOBEND:Array = [ 
+			0, 4, 1, 6, 0, 0, 0,
+			0, 2, 0, 2, 0, 0, 0,
+			9, 5, 0, 2, 0, 0, 0,
+			0, 0, 0, 2, 0, 0, 0,
+			0, 0, 0, 3, 1, 1, 7
+			];
+		
+			
+			
 		// ----- INPUT --------------------
 
 		public static const DEFAULT_P1_MOVE_LEFT	:uint	= Keyboard.LEFT;

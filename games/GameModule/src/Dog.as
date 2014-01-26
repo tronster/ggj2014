@@ -84,11 +84,7 @@ package
 			playArt.y = this.y;
 		}
 		
-<<<<<<< Updated upstream
-		public function setNode(node:Node) :void
-=======
 		public function setNode(node:Node):void
->>>>>>> Stashed changes
 		{
 			previousNode = targetNode;
 			targetNode = node;
