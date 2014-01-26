@@ -42,10 +42,18 @@ package
 			setUpStarling(true);
 
 			gameData = new GameData();
+
+			var levelData:LevelData;
+			
+			var tiles	:Array = [];
+			var spawns	:Array = [];
+			
+			spawns		= LevelMaker.addSpawns( spawns, 1, 1, 1, 2, 1, 3 );
+			levelData = LevelMaker.create( 3, 2, 1, tiles, spawns );
+			
 			
 			var levels:Vector.<LevelData> = new Vector.<LevelData>();
-			levels.push( new LevelData() );
-			levels.push( new LevelData() );
+			levels.push( levelData );
 			gameData[ Config.GAMEDATA_LEVELS ] = levels;	
 		}
 		

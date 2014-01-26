@@ -44,6 +44,7 @@ package
 			box2D.gravity = new b2Vec2(0, 0);
 			add(box2D);
 			
+			/* ??TRON remove:
 			//levelInfo = LevelData(_ce.gameData).clone();
 			levelData = new LevelData();
 			
@@ -53,7 +54,9 @@ package
 			{
 				tempSpawn = new Spawn(1, (i + 1));	//time to spawn is 1 second intervals
 				levelData.spawns.push(tempSpawn);
-			}
+			}*/
+			levelData = _ce.gameData[ Config.CURRENT_LEVEL ].clone();
+			
 			
 			//hard code nodes
 			var tempNode:Node = new Node();

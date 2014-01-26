@@ -1,5 +1,6 @@
 package  
 {
+	import adobe.utils.CustomActions;
 	import aze.motion.EazeTween;
 	import aze.motion.eaze;
 	import Box2D.Common.Math.b2Vec2;
@@ -23,13 +24,17 @@ package
 	public class EditState extends StarlingState
 	{
 		public var bg			:CitrusSprite;
+		public var bgGrass		:CitrusSprite;
 		public var goButton		:Button;
 		public var levelData	:LevelData;
-		public var testObj:Box2DPhysicsObject;
+		public var testObj		:Box2DPhysicsObject;
+		public var cats			:Vector.<Cat>;
 		
 		
 		public var sa:AnimationSequence;
 		
+		
+		/// CTOR
 		public function EditState() 
 		{
 			super();
@@ -48,6 +53,10 @@ package
 			bg = new CitrusSprite("bg", { view:Image.fromBitmap(new Resources.bg()) } );
 			add( bg );
 
+			bgGrass = new CitrusSprite("bgGrass", { x:192, view:Image.fromBitmap(new Resources.bgGrass()) } );
+			add( bgGrass );
+		
+			
 			goButton = new Button(
 				Resources.getAtlas().getTexture("button"),
 				"Go",
@@ -72,6 +81,10 @@ package
 			// TRON: This crashes after a few state returns, looks like added physics objects aren't being cleaned up.
 			//	_ce.futureState = new BattleState();
 			//	eaze(this).to( 1.5, {alpha:0});
+			
+			_ce.gameData[Config.ACTIVE_CATS] 	= cats;
+			_ce.gameData[Config.CURRENT_LEVEL]	= levelData;
+			
 			_ce.state = new BattleState();
 		}
 		
@@ -86,7 +99,8 @@ package
 				levelNum = 1;
 			}
 			
-			levelData = ( _ce.gameData[ Config.GAMEDATA_LEVELS ][levelNum] ).clone();		
+			levelData	= ( _ce.gameData[ Config.GAMEDATA_LEVELS ][levelNum - 1] ).clone();
+			cats 		= levelData.makeFreshCats();
 		}
 		
 	}
