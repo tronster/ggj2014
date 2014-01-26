@@ -73,9 +73,10 @@ package
 						
 			getCurrentLevelData();
 			
+			// Place on the stage
 			for each( var cat:Cat in cats )
 			{
-				add( cat.playArt );
+				add( cat.editArt );
 				add( cat.sensor );				
 			}
 			

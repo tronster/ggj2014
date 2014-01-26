@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
-<!-- $TexturePacker:SmartUpdate:3ef2035d8ccb7053e775c13149a91a7c:01b63096b2cbf445ad3be0e09b840775:26d783cfc67108e6c8154c2501add294$ -->
-<TextureAtlas imagePath="Cat1Lose.png">
+<!-- $TexturePacker:SmartUpdate:107092fed75bd7636bd71524796e0120:01b63096b2cbf445ad3be0e09b840775:088ec96a7b8522f8e21551c198fd772a$ -->
+<TextureAtlas imagePath="Cat3Lose.png">
     <SubTexture name="Cat1Lose01" x="138" y="2" width="66" height="89"/>
     <SubTexture name="Cat1Lose02" x="138" y="2" width="66" height="89"/>
     <SubTexture name="Cat1Lose03" x="70" y="2" width="66" height="89"/>

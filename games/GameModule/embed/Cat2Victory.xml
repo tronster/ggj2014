@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:d0e69caf1d7e15b43097504d9429e4d0:03d5ee8e51163131bdd84e07078288dd:0689cfc14d856f4ff53c68ad1a4c1931$ -->
+<TextureAtlas imagePath="Cat2Victory.png">
+    <SubTexture name="Cat1Victory01" x="190" y="189" width="39" height="45" frameX="-14" frameY="-98" frameWidth="71" frameHeight="145"/>
+    <SubTexture name="Cat1Victory02" x="190" y="189" width="39" height="45" frameX="-14" frameY="-98" frameWidth="71" frameHeight="145"/>
+    <SubTexture name="Cat1Victory03" x="194" y="2" width="41" height="45" frameX="-13" frameY="-98" frameWidth="71" frameHeight="145"/>
+    <SubTexture name="Cat1Victory04" x="194" y="2" width="41" height="45" frameX="-13" frameY="-98" frameWidth="71" frameHeight="145"/>
+    <SubTexture name="Cat1Victory05" x="45" y="206" width="41" height="45" frameX="-14" frameY="-98" frameWidth="71" frameHeight="145"/>
+    <SubTexture name="Cat1Victory06" x="45" y="206" width="41" height="45" frameX="-14" frameY="-98" frameWidth="71" frameHeight="145"/>
+    <SubTexture name="Cat1Victory07" x="2" y="206" width="41" height="45" frameX="-14" frameY="-98" frameWidth="71" frameHeight="145"/>
+    <SubTexture name="Cat1Victory08" x="141" y="156" width="51" height="31" frameX="-8" frameY="-114" frameWidth="71" frameHeight="145"/>
+    <SubTexture name="Cat1Victory09" x="143" y="189" width="45" height="63" frameX="-9" frameY="-74" frameWidth="71" frameHeight="145"/>
+    <SubTexture name="Cat1Victory10" x="2" y="115" width="47" height="89" frameX="-4" frameY="-39" frameWidth="71" frameHeight="145"/>
+    <SubTexture name="Cat1Victory11" x="2" y="2" width="71" height="111" frameX="0" frameY="0" frameWidth="71" frameHeight="145"/>
+    <SubTexture name="Cat1Victory12" x="51" y="115" width="45" height="85" frameX="-16" frameY="-12" frameWidth="71" frameHeight="145"/>
+    <SubTexture name="Cat1Victory13" x="75" y="2" width="47" height="83" frameX="-15" frameY="-45" frameWidth="71" frameHeight="145"/>
+    <SubTexture name="Cat1Victory14" x="98" y="87" width="61" height="67" frameX="0" frameY="-77" frameWidth="71" frameHeight="145"/>
+    <SubTexture name="Cat1Victory15" x="88" y="202" width="53" height="51" frameX="-4" frameY="-94" frameWidth="71" frameHeight="145"/>
+    <SubTexture name="Cat1Victory16" x="98" y="156" width="41" height="39" frameX="-13" frameY="-103" frameWidth="71" frameHeight="145"/>
+</TextureAtlas>

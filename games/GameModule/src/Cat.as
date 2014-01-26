@@ -1,5 +1,6 @@
 package  
 {
+	import Box2D.Collision.b2AABB;
 	import Box2D.Dynamics.Contacts.b2Contact;
 	import citrus.core.CitrusEngine;
 	import citrus.core.CitrusObject;
@@ -35,16 +36,21 @@ package
 		
 		public function Cat(type:uint) 
 		{
+			id++;
+			
 			this.type = type;
 			x = 0;
 			y = 0;
 			maxHp = Config.MAX_HP_DOG_1;
 			hp = maxHp;
 			
-			playArt = new Box2DPhysicsObject("cat"+(++id), {x:x, y:y} );
+			playArt = new Box2DPhysicsObject("cat"+id, {x:x, y:y} );
 			playArt.view = "assets/battle_cat.swf";
 			sensor = new Sensor("cat_sensor", {x:x, y:y, width:128, height:128});
 			sensor.onBeginContact.add(onSensorCollide);
+			
+			editArt = new Box2DPhysicsObject("editCat" + id, { x:x, y:y } );
+			editArt.view = Resources.getView("Cat" + type + "Idle");
 		}
 		
 		private function onSensorCollide(contact:b2Contact):void 
@@ -80,6 +86,9 @@ package
 			playArt.y = this.y;
 			sensor.x = this.x;
 			sensor.x = this.y;
+
+			editArt.x = this.x;
+			editArt.y = this.y;
 		}
 		
 		public function update(timeDelta:Number):void
@@ -91,6 +100,9 @@ package
 			playArt.y = this.y;
 			sensor.x = this.x;
 			sensor.y = this.y;
+			
+			editArt.x = this.x;
+			editArt.y = this.y;
 		}
 	}
 
