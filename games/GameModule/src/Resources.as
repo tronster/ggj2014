@@ -46,7 +46,12 @@ package
 		
 		[Embed(source = "/../embed/Battlecloud.png")]												public static const BattleCloudTexture	:Class;		
 		[Embed(source = "/../embed/Battlecloud.xml", mimeType="application/octet-stream")]			public static const BattleCloudXml		:Class;		
-			
+
+		[Embed(source = "/../embed/hpbar.png")]														public static const HPBarTexture		:Class;		
+		[Embed(source = "/../embed/hpbar.xml", 		mimeType="application/octet-stream")]			public static const HPBar				:Class;		
+		
+		
+		
 		[Embed(source="/../embed/DefaultSpritesheet.png")]											public static const AtlasTextureDefault:Class;
 		[Embed(source="/../embed/DefaultSpritesheet.xml", mimeType="application/octet-stream")]		public static const AtlasXmlDefault:Class;
 		
@@ -84,9 +89,7 @@ package
 			texture						= makeTexture("AtlasTextureTemp");
 			xml							= XML( new AtlasXmlTemp() );
 			atlases["temp_sheet"]		= new TextureAtlas(texture, xml );			
-			
-			makeAtlas( "BattleCloud", 	BattleCloudXml );
-			
+						
 			makeAtlas( "Cat1Defeat", 	Cat1Defeat );
 			makeAtlas( "Cat1Idle",  	Cat1Idle );
 			makeAtlas( "Cat1Victory",  	Cat1Victory );
@@ -99,6 +102,10 @@ package
 			makeAtlas( "Dog1Right",  	Dog1Right );
 			makeAtlas( "Dog1Up", 	 	Dog1Up );
 			makeAtlas( "Dog1Victory",  	Dog1Victory );
+			
+			makeAtlas( "BattleCloud", 	BattleCloudXml );
+			makeAtlas( "HPBar", 		HPBar );
+			
 		}
 	
 		//--------------------------------------------------------------------
