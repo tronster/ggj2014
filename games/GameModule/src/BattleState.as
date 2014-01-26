@@ -156,19 +156,24 @@ package
 					}
 				}
 				
-				if (levelData.spawns.length == 0 && dogs.length == 0) win = true;
-			}else {
-				if (gameover) handleGameover();
-				
-				if (win) handleWin();
-				
+				if (levelData.spawns.length == 0 && dogs.length == 0) 
+					win = true;
+			}
+			else 
+			{
+				if (gameover) 
+					handleGameover();
+			
+				if (win) 
+					handleWin();
+			
 				for (i = battles.length - 1; i >= 0; i--)
 				{
 					var battle:BattleObject = battles[i];
 					battle.stopAnimation();
 				}
 			}
-			
+				
 			//tempCat.update(timeDelta);
 			
 			lifeTime += timeDelta;

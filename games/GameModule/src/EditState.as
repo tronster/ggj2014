@@ -190,6 +190,8 @@ package
 
 		override public function destroy():void
 		{
+			remove(levelData.citrus);			
+			
 			//_ce.sound.crossFade();
 			_ce.sound.stopAllPlayingSounds();
 			_ce.sound.removeEventListeners();
