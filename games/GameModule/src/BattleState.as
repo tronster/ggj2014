@@ -105,6 +105,8 @@ package
 			add(tempCat.sensor);*/
 			
 			lifeTime = 0;
+			
+			_ce.sound.playSound("battleMusic");
 		}
 		
 		override public function update(timeDelta:Number):void
@@ -219,6 +221,13 @@ package
 				}
 			}
 		}
+		
+		override public function destroy():void
+		{
+			_ce.sound.stopAllPlayingSounds();
+			_ce.sound.removeEventListeners();
+		}
+		
 	}
 
 }

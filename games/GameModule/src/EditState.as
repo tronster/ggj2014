@@ -47,12 +47,6 @@ package
 			super();
 		}
 		
-		override public function destroy():void
-		{
-			super.destroy();
-			remove(levelData.citrus);
-		}
-		
 		override public function initialize():void
 		{
 			super.initialize();
@@ -101,10 +95,8 @@ package
 				//cat.editArt.addEventListener( MouseEvent.MOUSE_DOWN, onMouseDown);
 			}
 			
-			//addEventListener(MouseEvent.MOUSE_DOWN, onMouseDown);
-			//bgGrass.touchable = true;
-			//this.touchable = true;
-			//addEventListener(TouchEvent.TOUCH, onTouch );
+			_ce.sound.playSound("editMusic");
+			
 			stage.touchable = true;
 			stage.addEventListener( TouchEvent.TOUCH, onTouch );
 		}
@@ -114,9 +106,6 @@ package
 			var touch:Touch = e.getTouch( stage );
 			if (touch == null )
 				return;
-			
-			//trace(touch + "    target: " + touch.target +  "   " + touch.getLocation(cats[0].editArt.view as DisplayObject ));
-			//trace(touch.isTouching( cats[0].editArt.view ));
 				
 			switch( touch.phase )
 			{
@@ -196,6 +185,14 @@ package
 			
 			levelData	= ( _ce.gameData[ Config.GAMEDATA_LEVELS ][levelNum - 1] ); // .clone();
 			cats 		= levelData.makeFreshCats();
+		}
+		
+
+		override public function destroy():void
+		{
+			//_ce.sound.crossFade();
+			_ce.sound.stopAllPlayingSounds();
+			_ce.sound.removeEventListeners();
 		}
 		
 	}
