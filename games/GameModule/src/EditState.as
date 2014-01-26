@@ -25,6 +25,8 @@ package
 		public var bg			:CitrusSprite;
 		public var goButton		:Button;
 		public var levelData	:LevelData;
+		public var testObj:Box2DPhysicsObject;
+		
 		
 		public var sa:AnimationSequence;
 		
@@ -57,8 +59,8 @@ package
 			addChild( goButton );
 			
 			//var sa:AnimationSequence = new AnimationSequence( Resources.getAtlas("Cat1Victory"), ["Cat1Victory"], "Cat1Victory", 30, true );
-			var enemy:Box2DPhysicsObject = new Box2DPhysicsObject("enemy", { x:500, y:500, view:Resources.getView("Cat1Victory") } );
-			add(enemy);
+			var testObj:Box2DPhysicsObject = new Box2DPhysicsObject("enemy", { x:500, y:500, view:Resources.getView("Cat1Victory") } );
+			add(testObj);
 						
 			getCurrentLevelData();
 		}
@@ -67,8 +69,10 @@ package
 		private function onGoButtonTriggered( e:Event ):void
 		{
 			goButton.removeEventListener(Event.TRIGGERED, onGoButtonTriggered);
-			_ce.futureState = new BattleState();
-			eaze(this).to( 1.5, {alpha:0});
+			// TRON: This crashes after a few state returns, looks like added physics objects aren't being cleaned up.
+			//	_ce.futureState = new BattleState();
+			//	eaze(this).to( 1.5, {alpha:0});
+			_ce.state = new BattleState();
 		}
 		
 		
@@ -84,6 +88,7 @@ package
 			
 			levelData = ( _ce.gameData[ Config.GAMEDATA_LEVELS ][levelNum] ).clone();		
 		}
+		
 	}
 
 }
