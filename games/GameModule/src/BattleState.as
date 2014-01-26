@@ -63,22 +63,10 @@ package
 			sushi.x = levelData.path[0].x - AnimationSequence(sushi.view).width * .5;
 			sushi.y = levelData.path[0].y - AnimationSequence(sushi.view).height * .5;
 			add(sushi);
-<<<<<<< HEAD
-						
-			retryBtn = new Button(Resources.getAtlas("temp_sheet").getTexture("replay_idle_button"));
-			retryBtn.x = 600;
-			retryBtn.y = 550;
-=======
-			
-			var box2D:Box2D = new Box2D("box2D");
-			//box2D.visible = true;
-			box2D.gravity = new b2Vec2(0, 0);
-			add(box2D);
 			
 			retryBtn = new Button(Texture.fromBitmap(new Resources.retryButton()));
 			retryBtn.x = (Main.STAGE_WIDTH - retryBtn.width) * .5;
 			retryBtn.y = Main.STAGE_HEIGHT * .65;
->>>>>>> 03dd447d92c89cd198b6e8bbd3043a062a3402a8
 			addEventListener(Event.TRIGGERED, onRetryClicked);
 			
 			//defeatImage = new CitrusSprite("title", { view:Image.fromBitmap(new Resources.defeat()) } );
