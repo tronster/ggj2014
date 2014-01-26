@@ -15,6 +15,7 @@ package
 		[Embed(source = "/../embed/sidescroll.png")]												public static const sidescroll	:Class;
 		[Embed(source = "/../embed/defeat.png")]													public static const defeat		:Class;
 		[Embed(source = "/../embed/victory.png")]													public static const victory		:Class;
+		[Embed(source = "/../embed/tryagainButtonDown.png")]										public static const retryButton	:Class;
 	
 		[Embed(source = "/../embed/level_straight.png")]											public static const level_straight	:Class;		
 		[Embed(source = "/../embed/level_low_curve.png")]											public static const level_low_curve	:Class;		
