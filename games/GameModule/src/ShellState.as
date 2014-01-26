@@ -54,7 +54,7 @@ package
 		
 		public function resetGame():void
 		{
-			_ce.gameData[Config.CURRENT_LEVEL_NUM] 	= 1;
+			_ce.gameData[Config.CURRENT_LEVEL_NUM] 	= 4;
 			_ce.gameData[Config.CURRENT_LEVEL] 		= null;
 		}
 	}

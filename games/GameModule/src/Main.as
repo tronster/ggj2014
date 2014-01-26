@@ -57,7 +57,7 @@ package
 			sound.addSound("buttonSfx", 		{ sound:"assets/buttonSfx.mp3" , 	group:CitrusSoundGroup.SFX } );
 			sound.addSound("catDropSfx", 		{ sound:"assets/catDropSfx.mp3" , 	group:CitrusSoundGroup.SFX } );
 			sound.addSound("catPickupSfx", 		{ sound:"assets/catPickupSfx.mp3", 	group:CitrusSoundGroup.SFX } );
-			sound.addSound("fightingSfx", 		{ sound:"assets/fightingSfx.mp3",	group:CitrusSoundGroup.SFX } );
+			sound.addSound("fightingSfx", 		{ sound:"assets/fightingSfx.mp3",	volume:0.5, group:CitrusSoundGroup.SFX } );
 			sound.addSound("catsLoseSfx",	 	{ sound:"assets/catsLoseSfx.mp3",	group:CitrusSoundGroup.SFX } );
 			sound.addSound("catVictorySfx", 	{ sound:"assets/catVictorySfx.mp3",	group:CitrusSoundGroup.SFX } );
 			sound.addSound("dogDefeatSfx",	 	{ sound:"assets/dogDefeatSfx.mp3",	group:CitrusSoundGroup.SFX } );
@@ -98,7 +98,7 @@ package
 			levels.push( levelData );
 
 			// Level 3
-			spawns		= LevelMaker.makeSpawns( [], 1, 1, 2, 5, 3, 7 );
+			spawns		= LevelMaker.makeSpawns( [], 1, 1, 2, 6, 3, 11 );
 			path		= LevelMaker.makePath([ [0,2,1], [1,2,1], [2,2,1], [3,2,1], [3,3,1], [3,4,1], [4,4,1], [5,4,1], [6,4,1] ]);
 			levelData 	= LevelMaker.create( 1, 1, 1, path, spawns, "Even in puffy's yard the dogs have found us." );			
 			//levelData.citrus = new CitrusSprite("bg", { x:192, view:Image.fromBitmap(new Resources.level_low_curve()) } );
@@ -106,12 +106,14 @@ package
 			levels.push( levelData );
 
 			// Level 4
+			/*
 			spawns		= LevelMaker.makeSpawns( [], 3, 1, 2, 4, 1, 9 );
 			path		= LevelMaker.makePath([ [0,2,1], [1,2,1], [2,2,1], [3,2,1], [3,3,1], [3,4,1], [4,4,1], [5,4,1], [6,4,1] ]);
 			levelData 	= LevelMaker.create( 1, 1, 1, path, spawns, "Who let these dogs out?" );			
 			//levelData.citrus = new CitrusSprite("bg", { x:192, view:Image.fromBitmap(new Resources.level_low_curve()) } );
-			levelData.citrusSpriteNum = 1;
+			levelData.citrusSpriteNum = 2;
 			levels.push( levelData );
+			*/
 			
 			// Level 5
 			spawns		= LevelMaker.makeSpawns( []		, 1, 1, 1, 5, 2, 9 );
