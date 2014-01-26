@@ -84,7 +84,7 @@
         <key>algorithmSettings</key>
         <struct type="AlgorithmSettings">
             <key>algorithm</key>
-            <enum type="AlgorithmSettings::AlgorithmId">Basic</enum>
+            <enum type="AlgorithmSettings::AlgorithmId">MaxRects</enum>
             <key>freeSizeMode</key>
             <enum type="AlgorithmSettings::AlgorithmFreeSizeMode">Best</enum>
             <key>sizeConstraints</key>
@@ -166,7 +166,7 @@
         </struct>
         <key>fileList</key>
         <array>
-            <filename>CatLose</filename>
+            <filename>Cat1Lose</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

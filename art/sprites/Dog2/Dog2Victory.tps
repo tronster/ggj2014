@@ -127,7 +127,7 @@
             <key>data</key>
             <struct type="DataFile">
                 <key>name</key>
-                <filename>../../../games/GameModule/embed/Dog2Up.xml</filename>
+                <filename>../../../games/GameModule/embed/Dog2Victory.xml</filename>
             </struct>
         </map>
         <key>multiPack</key>
