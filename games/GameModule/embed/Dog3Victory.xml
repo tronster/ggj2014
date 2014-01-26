@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:f8c61429be777ce2a3fc9642edb55cef:8bd68e4e639ba725fe1909b9e4de66ed:fe02012a1514c628c93bf98694cc7b77$ -->
+<TextureAtlas imagePath="Dog3Victory.png">
+    <SubTexture name="Dog3Victory01" x="55" y="286" width="51" height="69" frameX="-40" frameY="-59" frameWidth="129" frameHeight="129"/>
+    <SubTexture name="Dog3Victory02" x="2" y="428" width="51" height="69" frameX="-40" frameY="-59" frameWidth="129" frameHeight="129"/>
+    <SubTexture name="Dog3Victory03" x="59" y="144" width="55" height="69" frameX="-40" frameY="-59" frameWidth="129" frameHeight="129"/>
+    <SubTexture name="Dog3Victory04" x="2" y="144" width="55" height="69" frameX="-40" frameY="-59" frameWidth="129" frameHeight="129"/>
+    <SubTexture name="Dog3Victory05" x="112" y="215" width="53" height="69" frameX="-38" frameY="-59" frameWidth="129" frameHeight="129"/>
+    <SubTexture name="Dog3Victory06" x="57" y="215" width="53" height="69" frameX="-38" frameY="-59" frameWidth="129" frameHeight="129"/>
+    <SubTexture name="Dog3Victory07" x="179" y="2" width="57" height="69" frameX="-38" frameY="-59" frameWidth="129" frameHeight="129"/>
+    <SubTexture name="Dog3Victory08" x="120" y="2" width="57" height="69" frameX="-38" frameY="-59" frameWidth="129" frameHeight="129"/>
+    <SubTexture name="Dog3Victory09" x="2" y="215" width="53" height="69" frameX="-38" frameY="-59" frameWidth="129" frameHeight="129"/>
+    <SubTexture name="Dog3Victory10" x="171" y="144" width="53" height="69" frameX="-38" frameY="-59" frameWidth="129" frameHeight="129"/>
+    <SubTexture name="Dog3Victory11" x="61" y="2" width="57" height="69" frameX="-38" frameY="-59" frameWidth="129" frameHeight="129"/>
+    <SubTexture name="Dog3Victory12" x="2" y="2" width="57" height="69" frameX="-38" frameY="-59" frameWidth="129" frameHeight="129"/>
+    <SubTexture name="Dog3Victory13" x="116" y="144" width="53" height="69" frameX="-38" frameY="-59" frameWidth="129" frameHeight="129"/>
+    <SubTexture name="Dog3Victory14" x="2" y="357" width="51" height="69" frameX="-40" frameY="-59" frameWidth="129" frameHeight="129"/>
+    <SubTexture name="Dog3Victory15" x="173" y="73" width="55" height="69" frameX="-40" frameY="-59" frameWidth="129" frameHeight="129"/>
+    <SubTexture name="Dog3Victory16" x="116" y="73" width="55" height="69" frameX="-40" frameY="-59" frameWidth="129" frameHeight="129"/>
+    <SubTexture name="Dog3Victory17" x="2" y="286" width="51" height="69" frameX="-40" frameY="-59" frameWidth="129" frameHeight="129"/>
+    <SubTexture name="Dog3Victory18" x="167" y="215" width="51" height="69" frameX="-40" frameY="-59" frameWidth="129" frameHeight="129"/>
+    <SubTexture name="Dog3Victory19" x="59" y="73" width="55" height="69" frameX="-40" frameY="-59" frameWidth="129" frameHeight="129"/>
+    <SubTexture name="Dog3Victory20" x="2" y="73" width="55" height="69" frameX="-40" frameY="-59" frameWidth="129" frameHeight="129"/>
+</TextureAtlas>

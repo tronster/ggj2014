@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:462ae7340b60967762d895704f5a15e0:9e6f45f28b29e468a234fd7215fd8a06:c464ee08cd5551a184bf1cbe98f86031$ -->
+<TextureAtlas imagePath="Dog2Down.png">
+    <SubTexture name="Dog2Down01" x="132" y="308" width="68" height="150" frameX="-46" frameY="-8" frameWidth="172" frameHeight="172"/>
+    <SubTexture name="Dog2Down02" x="192" y="2" width="68" height="150" frameX="-46" frameY="-8" frameWidth="172" frameHeight="172"/>
+    <SubTexture name="Dog2Down03" x="62" y="158" width="64" height="154" frameX="-50" frameY="-11" frameWidth="172" frameHeight="172"/>
+    <SubTexture name="Dog2Down04" x="62" y="2" width="64" height="154" frameX="-50" frameY="-11" frameWidth="172" frameHeight="172"/>
+    <SubTexture name="Dog2Down05" x="2" y="318" width="64" height="154" frameX="-50" frameY="-11" frameWidth="172" frameHeight="172"/>
+    <SubTexture name="Dog2Down06" x="202" y="302" width="58" height="146" frameX="-56" frameY="-12" frameWidth="172" frameHeight="172"/>
+    <SubTexture name="Dog2Down07" x="200" y="154" width="58" height="146" frameX="-56" frameY="-12" frameWidth="172" frameHeight="172"/>
+    <SubTexture name="Dog2Down08" x="128" y="156" width="70" height="150" frameX="-56" frameY="-8" frameWidth="172" frameHeight="172"/>
+    <SubTexture name="Dog2Down09" x="128" y="2" width="62" height="152" frameX="-56" frameY="-11" frameWidth="172" frameHeight="172"/>
+    <SubTexture name="Dog2Down10" x="68" y="314" width="62" height="152" frameX="-56" frameY="-11" frameWidth="172" frameHeight="172"/>
+    <SubTexture name="Dog2Down11" x="2" y="160" width="58" height="156" frameX="-56" frameY="-12" frameWidth="172" frameHeight="172"/>
+    <SubTexture name="Dog2Down12" x="2" y="2" width="58" height="156" frameX="-56" frameY="-12" frameWidth="172" frameHeight="172"/>
+</TextureAtlas>
