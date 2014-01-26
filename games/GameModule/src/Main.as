@@ -3,6 +3,8 @@ package
 	import citrus.core.Console;
 	import citrus.core.starling.StarlingCitrusEngine;
 	import citrus.objects.CitrusSprite;
+	import citrus.sounds.CitrusSoundGroup;
+	import citrus.sounds.CitrusSoundInstance;
 	import drg.Keyboard;
 	import starling.display.Image;
 //	import flash.desktop.NativeApplication;
@@ -45,7 +47,12 @@ package
 		override public function initialize():void
 		{
 			setUpStarling(true);
-
+			
+			//offset the sounds (less gap in the looping sound)
+			CitrusSoundInstance.startPositionOffset = 80;
+			
+			sound.addSound("editMusic", 		{ sound:"assets/editMusic.mp3",		permanent:true, volume:0.8 , loops:int.MAX_VALUE , group:CitrusSoundGroup.BGM } );	
+			sound.addSound("battleMusic", 		{ sound:"assets/battleMusic.mp3",	permanent:true, volume:0.8 , loops:int.MAX_VALUE , group:CitrusSoundGroup.BGM } );	
 			gameData = new GameData();
 		}
 		
