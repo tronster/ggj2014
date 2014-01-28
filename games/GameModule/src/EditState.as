@@ -41,7 +41,7 @@ package
 		public var draggedCat	:Cat;
 		
 		public var sa:AnimationSequence;
-		
+		public var box2D:Box2D;
 		
 		/// CTOR
 		public function EditState() 
@@ -49,15 +49,30 @@ package
 			super();
 		}
 		
+		override public function destroy():void
+		{
+			super.destroy();
+			
+			remove(levelbg);
+			
+			//_ce.sound.crossFade();
+			_ce.sound.stopAllPlayingSounds();
+			_ce.sound.removeEventListeners();
+			
+			/*for each(var cat:Cat in cats)
+			{
+				cat.playArt.destroy();
+			}*/
+		}
+		
 		override public function initialize():void
 		{
 			super.initialize();
 			
-			var box2D:Box2D = new Box2D("box2D");
+			box2D = new Box2D("box2D");
 			box2D.visible = false;
 			box2D.gravity = new b2Vec2(0, 0);
 			add( box2D );
-			
 			
 			bg = new CitrusSprite("bg", { view:Image.fromBitmap(new Resources.bg()) } );
 			add( bg );
@@ -193,18 +208,7 @@ package
 			
 			levelData	= ( _ce.gameData[ Config.GAMEDATA_LEVELS ][levelNum - 1] ); // .clone();
 			cats 		= levelData.makeFreshCats();
-		}
-		
-
-		override public function destroy():void
-		{
-			remove(levelbg);
-			
-			//_ce.sound.crossFade();
-			_ce.sound.stopAllPlayingSounds();
-			_ce.sound.removeEventListeners();
-		}
-		
+		}		
 	}
 
 }

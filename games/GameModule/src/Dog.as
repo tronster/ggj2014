@@ -28,6 +28,7 @@ package
 		public var playArt:DogPhysicsObject;
 		
 		public var inBattle:Boolean = false;
+		public var doDeath:Boolean = false;
 		public var isActive:Boolean = true;
 		public var reachedNode:Boolean = false;
 		
@@ -47,13 +48,14 @@ package
 			maxHp = Config.MAX_HP_DOG_1;
 			hp = maxHp;
 			
-			playArt = new DogPhysicsObject(this, "dogs_playart", { x:x, y:y, width:80, height:100} );
+			
 			//playArt.view = "../embed/Dog1.swf";
 			frameDur = 0;
 			strType = "Dog" + type;
 			
 			frameNum = 1;
 			state = Config.LEFT;
+			playArt = new DogPhysicsObject(this, "dogs_playart", { x:x, y:y, width:90, height:90} );
 			playArt.view = new Image(Resources.getAtlas(strType + state).getTexture(strType + state + "01"));		//easier to just put the '0' here
 			//playArt.view = tempAnima;
 		}
@@ -81,41 +83,46 @@ package
 			if (inBattle)
 			{
 				playArt.visible = false;
-			}else if(isActive){
-				//calculate distance to move to next node
-				if (distX > movementSpeed) 
-				{
-					distX = movementSpeed;
-					state = Config.RIGHT;
-					//AnimationSequence(playArt.view).changeAnimation("Dog" + type + "Right", true);
-				}else if (distX < -movementSpeed) 
-				{
-					distX = -movementSpeed;
-					state = Config.LEFT;
-					//AnimationSequence(playArt.view).changeAnimation("Dog" + type + "Left", true);
-				}
-					
-				//handle verticial movement
-				if (distY > movementSpeed) 
-				{
-					distY = movementSpeed;
-					state = Config.DOWN;
-					//AnimationSequence(playArt.view).changeAnimation("Dog" + type + "Down", true);
-				}else if (distY < -movementSpeed) 
-				{
-					distY = -movementSpeed;
-					state = Config.UP;
-					//AnimationSequence(playArt.view).changeAnimation("Dog" + type + "Up", true);
-				}
-				
-				this.x += distX;
-				this.y += distY;
-				//raise flag if the dog has reached this node
-				if (distX == 0 && distY == 0) reachedNode = true;
-				
-				playArt.visible = true;
 			}else {
-				state = Config.DEFEAT;
+				playArt.visible = true;
+				
+				if (isActive && !doDeath)
+				{
+					//calculate distance to move to next node
+					if (distX > movementSpeed) 
+					{
+						distX = movementSpeed;
+						state = Config.RIGHT;
+						//AnimationSequence(playArt.view).changeAnimation("Dog" + type + "Right", true);
+					}else if (distX < -movementSpeed) 
+					{
+						distX = -movementSpeed;
+						state = Config.LEFT;
+						//AnimationSequence(playArt.view).changeAnimation("Dog" + type + "Left", true);
+					}
+						
+					//handle verticial movement
+					if (distY > movementSpeed) 
+					{
+						distY = movementSpeed;
+						state = Config.DOWN;
+						//AnimationSequence(playArt.view).changeAnimation("Dog" + type + "Down", true);
+					}else if (distY < -movementSpeed) 
+					{
+						distY = -movementSpeed;
+						state = Config.UP;
+						//AnimationSequence(playArt.view).changeAnimation("Dog" + type + "Up", true);
+					}
+					
+					this.x += distX;
+					this.y += distY;
+					//raise flag if the dog has reached this node
+					if (distX == 0 && distY == 0) reachedNode = true;					
+				}else {
+					state = Config.DEFEAT;
+					Image(playArt.view).scaleX = 2;
+					Image(playArt.view).scaleY = 2;
+				}
 			}
 			
 			handlePlayArtAnimation(timeDelta);
@@ -143,10 +150,18 @@ package
 				
 				if (texture == null)
 				{
-					frameNum = 1;
-					strFrameNum = "01";
-					texture = Resources.getAtlas(strType + state).getTexture(strType + state + strFrameNum);
+					if (!doDeath)
+					{
+						frameNum = 1;
+						strFrameNum = "01";
+						texture = Resources.getAtlas(strType + state).getTexture(strType + state + strFrameNum);
+					}else { 
+						isActive = false;
+						return;
+					}
 				}
+				
+				trace("Dog's Texture Info: ", texture.width, texture.height, texture.scale);
 				img.texture = texture;
 				frameDur = 0;
 			}

@@ -25,13 +25,13 @@ package
 		public var hp		:Number;
 		public var maxHp	:Number;
 		
-		public var editArt:Box2DPhysicsObject;
-		public var playArt:Box2DPhysicsObject;
+		public var editArt:CatPhysicsObject;
+		public var playArt:CatPhysicsObject;
+		public var sensor:ExtendedBox2dSensor;
 		
 		public var inBattle:Boolean = false;
 		public var isActive:Boolean = true;
 		public var isPlaced:Boolean = false;
-		public var sensor:Sensor;
 		
 		private static var id:uint = 0;
 		
@@ -55,40 +55,14 @@ package
 			frameNum = 1;
 			state = Config.READY;
 			
-			sensor = new Sensor("cat_sensor", {x:x, y:y, width:128, height:128});
+			sensor = new ExtendedBox2dSensor("cat_sensor" + id, {x:x, y:y, width:65, height:90});
 			sensor.onBeginContact.add(onSensorCollide);
 			
-			editArt = new Box2DPhysicsObject("editCat" + id, { x:x, y:y, width:60, height:60 } );
+			editArt = new CatPhysicsObject(this, "editCat" + id, { x:x, y:y, width:60, height:60 } );
 			editArt.view = Resources.getView("Cat" + type + "Idle");
-		}
-		
-		private function onSensorCollide(contact:b2Contact):void 
-		{
-			var other:IBox2DPhysicsObject = Box2DUtils.CollisionGetOther(sensor, contact);
 			
-			//check if the collision was with a dog's physics object
-			if (other is DogPhysicsObject && !inBattle)
-			{
-				var battle:BattleObject = new BattleObject("battle", this, DogPhysicsObject(other).parent, { x:this.x, y:this.y } );
-				
-				//make sure the current state is a battle state so we can add a battle object to it
-				var state:IState = CitrusEngine.getInstance().state;
-				if ((state is BattleState)) 
-				{
-					CitrusEngine.getInstance().sound.playSound("fightingSfx");
-					
-					state.add(battle);
-					state.add(battle.catHealth);
-					state.add(battle.dogHealth);
-					BattleState(state).addBattleObject(battle);
-				}
-			}
-			trace("Cat's Sensor has Collided with " + Box2DUtils.CollisionGetOther(sensor, contact));
-		}
-		
-		private function goInBattle(dog:Dog):void 
-		{
-			
+			playArt = new CatPhysicsObject(this, "cat" + id, { x:x, y:y, width:50, height:50 } );
+			playArt.view = new Image(Resources.getAtlas(strType + state).getTexture(strType + state + "01"));		//easier to just put the '0' here
 		}
 		
 		public function initForEdit():void
@@ -102,11 +76,13 @@ package
 			this.x = editArt.x;
 			this.y = editArt.y;
 			
-			playArt = new Box2DPhysicsObject("cat" + id, { x:x, y:y } );
-			playArt.view = new Image(Resources.getAtlas(strType + state).getTexture(strType + state + "01"));		//easier to just put the '0' here
+			playArt.changeBox2d();
+			sensor.changeBox2d();
+			//playArt = new Box2DPhysicsObject("cat" + id, { x:x, y:y } );
+			//playArt.view = new Image(Resources.getAtlas(strType + state).getTexture(strType + state + "01"));		//easier to just put the '0' here
 			
-			sensor = new Sensor("cat_sensor", {x:x, y:y, width:75, height:90});
-			sensor.onBeginContact.add(onSensorCollide);
+			//sensor = new Sensor("cat_sensor", {x:x, y:y, width:75, height:90});
+			//sensor.onBeginContact.add(onSensorCollide);
 		}
 		
 		public function update(timeDelta:Number):void
@@ -135,10 +111,6 @@ package
 			var img:Image = playArt.view as Image;
 			var strFrameNum:String;
 			
-			if (state == Config.DEFEAT)
-			{
-				trace(state);
-			}
 			if (frameDur >= Main.TARGET_FRAME_TIME)
 			{
 				frameNum++;
@@ -155,6 +127,30 @@ package
 				img.texture = texture;
 				frameDur = 0;
 			}
+		}
+		
+		private function onSensorCollide(contact:b2Contact):void 
+		{
+			var other:IBox2DPhysicsObject = Box2DUtils.CollisionGetOther(sensor, contact);
+			
+			//check if the collision was with a dog's physics object
+			if (other is DogPhysicsObject && !inBattle)
+			{
+				var battle:BattleObject = new BattleObject("battle", this, DogPhysicsObject(other).parent, { x:this.x, y:this.y } );
+				
+				//make sure the current state is a battle state so we can add a battle object to it
+				var state:IState = CitrusEngine.getInstance().state;
+				if ((state is BattleState)) 
+				{
+					CitrusEngine.getInstance().sound.playSound("fightingSfx");
+					
+					state.add(battle);
+					state.add(battle.catHealth);
+					state.add(battle.dogHealth);
+					BattleState(state).addBattleObject(battle);
+				}
+			}
+			trace("Cat's Sensor has Collided with " + Box2DUtils.CollisionGetOther(sensor, contact));
 		}
 	}
 

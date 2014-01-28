@@ -6,7 +6,7 @@ package
 	 * ...
 	 * @author ...
 	 */
-	public class DogPhysicsObject extends Box2DPhysicsObject
+	public class DogPhysicsObject extends ExtendedBox2DPhysicsObject
 	{
 		public var parent:Dog;
 		
