@@ -84,7 +84,7 @@ package
 			AnimationSequence(dogHealth.view).mcSequences["hpbar"].currentFrame = Math.ceil((dog.hp / dog.maxHp) * (numHealthBarFrames - 1));
 			checkBattleEnded();
 			
-			trace("There is a battle going on", cat.hp, cat.type, dog.hp, dog.type);
+			trace("There is a battle going on, Cat: Hp ", cat.hp + " Type ", cat.type + " Dog: Hp ", dog.hp + " Type ", dog.type);
 		}
 		
 		private function checkBattleEnded():void
@@ -93,7 +93,7 @@ package
 			
 			if (dog.hp <= 0) 
 			{
-				dog.isActive = false;
+				dog.doDeath = true;
 				endBattle = true;
 			}
 			

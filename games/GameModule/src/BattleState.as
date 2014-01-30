@@ -32,6 +32,7 @@ package
 		private var retryBtn:Button;
 		private var defeatImage:Image;
 		private var victoryImage:Image;
+		private var box2D:Box2D;
 		
 		public function BattleState() 
 		{
@@ -43,8 +44,8 @@ package
 		{
 			super.initialize();
 			
-			var box2D:Box2D = new Box2D("box2D");
-			//box2D.visible = true;
+			box2D = new Box2D("box2D");
+			box2D.visible = true;
 			box2D.gravity = new b2Vec2(0, 0);
 			add(box2D);
 			
@@ -71,36 +72,30 @@ package
 			
 			//defeatImage = new CitrusSprite("title", { view:Image.fromBitmap(new Resources.defeat()) } );
 			defeatImage = Image.fromBitmap(new Resources.defeat());
-			defeatImage.x = 150;
+			defeatImage.x = (Main.STAGE_WIDTH - defeatImage.width) * .5;
 			defeatImage.y = -defeatImage.height ;
 			addChild(defeatImage);
 			
 			victoryImage = Image.fromBitmap(new Resources.victory());
 			victoryImage.y = -victoryImage.height ;
-			victoryImage.x = 150;
+			victoryImage.x = (Main.STAGE_WIDTH - victoryImage.width) * .5;
 			addChild(victoryImage);
 			
 			cats = _ce.gameData[Config.ACTIVE_CATS];
 			//cats = new Vector.<Cat>();
 			for (var k:int = 0; k < cats.length; k++)
 			{
-				//var cat:Cat = new Cat(1);
 				var cat:Cat = cats[k];
-				//cat.x = Math.random() * (Main.STAGE_WIDTH - 192) + 192;
-				//cat.y = Math.random() * (Main.STAGE_HEIGHT);
 				cat.initForBattle();
 				add(cat.playArt);
 				add(cat.sensor);
-			}
-			
-			//levelData = _ce.gameData[ Config.CURRENT_LEVEL ].clone();			
+			}		
 			
 			//get how many total nodes are in the path
 			numNodes = levelData.path.length;
 			
 			dogs = new Vector.<Dog>();
 			battles = new Vector.<BattleObject>();
-
 			
 			lifeTime = 0;
 			
@@ -110,6 +105,7 @@ package
 		override public function update(timeDelta:Number):void
 		{
 			var i:int; 		//used for first degree loops
+			var battle:BattleObject;
 			
 			if (!gameover && !win)
 			{
@@ -120,7 +116,7 @@ package
 				{
 					var dogInfo:Spawn = levelData.spawns.shift();
 					var tempDog:Dog = new Dog(dogInfo.dogType);
-					tempDog.targetNode = levelData.path[numNodes - 1];	//last node in the list
+					tempDog.targetNode = levelData.path[numNodes - 1];	//starting node is last node in the list
 					tempDog.init();
 					add(tempDog.playArt);
 					dogs.push(tempDog);
@@ -143,12 +139,11 @@ package
 				{
 					var cat:Cat = cats[i];
 					cat.update(timeDelta);
-					if(i == 0) trace(cat.x, cat.y, cat.playArt.x, cat.playArt.y, cat.playArt.visible);
 				}
 				
 				for (i = battles.length - 1; i >= 0; i--)
 				{
-					var battle:BattleObject = battles[i];
+					battle = battles[i];
 					battle.update(timeDelta);
 					
 					if (!battle.isBattling)
@@ -158,8 +153,7 @@ package
 					}
 				}
 				
-				if (levelData.spawns.length == 0 && dogs.length == 0) 
-					win = true;
+				if (levelData.spawns.length == 0 && dogs.length == 0) win = true;
 			}
 			else 
 			{
@@ -171,30 +165,30 @@ package
 			
 				for (i = battles.length - 1; i >= 0; i--)
 				{
-					var battle:BattleObject = battles[i];
+					battle = battles[i];
 					battle.stopAnimation();
 				}
 			}
-				
-			//tempCat.update(timeDelta);
 			
 			lifeTime += timeDelta;
 		}
 		
 		private function handleWin():void 
 		{
-			eaze(victoryImage).to( .5, { y:100 } );
+			victoryImage.y += 10;
+			
+			if (victoryImage.y > 100) victoryImage.y = 100;
 			
 			addChild(retryBtn);
-			trace("You Lose");
 		}
 		
 		private function handleGameover():void 
 		{
-			eaze(defeatImage).to( 1.1, { y:100 } );
+			defeatImage.y += 10;
+			
+			if (defeatImage.y > 100) defeatImage.y = 100;
 			
 			addChild(retryBtn);
-			trace("You Lose");
 		}
 		
 		private function onRetryClicked(e:Event):void 
