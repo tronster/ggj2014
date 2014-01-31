@@ -127,7 +127,7 @@ package
 			// Level 6
 			spawns		= LevelMaker.makeSpawns( []	  , 3, 1,  3, 5, 2, 10 );
 			spawns		= LevelMaker.makeSpawns( spawns, 1, 15, 3, 20, 2, 5 );
-			path		= LevelMaker.makePath([ [0,3,1], [1,3,1], [1,4,1], [2,4,1], [3,4,1], [3,3,1], [4,3,1], [4,2,1], [5,2,1], [6,2,1] ]);
+			path		= LevelMaker.makePath([ [0,1,1], [1,1,1], [2,1,1], [2,2,1], [2,3,1], [3,3,1], [4,3,1], [4,2,1], [5,2,1], [6,2,1] ]);
 			levelData 	= LevelMaker.create( 2, 2, 2, path, spawns, "Keep fighting warrior cats!" );			
 			//levelData.citrus = new CitrusSprite("bg", { x:192, view:Image.fromBitmap(new Resources.level_backtrack()) } );
 			levelData.citrusSpriteNum = 2;
@@ -137,7 +137,8 @@ package
 			spawns		= LevelMaker.makeSpawns( [], 1, 1, 1, 3, 1, 8 );
 			spawns		= LevelMaker.makeSpawns( spawns, 2, 12, 2, 15, 3, 20 );
 			spawns		= LevelMaker.makeSpawns( spawns, 3, 24, 3, 28, 3, 32 );
-			path		= LevelMaker.makePath([ [0,2,1], [1,2,1], [2,2,1], [3,2,1], [4,2,1], [4,3,1], [4,2,1], [3,2,1], [2,2,1], [2,1,1], [2,0,1], [3,0,1], [4,0,1], [5,0,1], [6,0,1] ]);
+			//path		= LevelMaker.makePath([ [0,2,1], [1,2,1], [2,2,1], [3,2,1], [4,2,1], [4,3,1], [4,2,1], [3,2,1], [2,2,1], [2,1,1], [2,0,1], [3,0,1], [4,0,1], [5,0,1], [6,0,1] ]);
+			path		= LevelMaker.makePath([ [0,3,1], [1,3,1], [1,4,1], [4,4,1], [4,2,1], [2,2,1], [2,0,1], [6,0,1] ]);
 			levelData 	= LevelMaker.create( 3, 3, 3, path, spawns, "Our last stand, Katseye!!!!!!" );			
 			//levelData.citrus = new CitrusSprite("bg", { x:192, view:Image.fromBitmap(new Resources.level_backtrack()) } );
 			levelData.citrusSpriteNum = 3;

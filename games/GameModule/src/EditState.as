@@ -70,7 +70,7 @@ package
 			super.initialize();
 			
 			box2D = new Box2D("box2D");
-			box2D.visible = false;
+			//box2D.visible = true;
 			box2D.gravity = new b2Vec2(0, 0);
 			add( box2D );
 			
@@ -158,7 +158,11 @@ package
 				case TouchPhase.ENDED:
 					_ce.sound.playSound("catDropSfx");
 					if ( draggedCat != null )	// ??TRON debug
+					{
+						
 						trace("Putting down: " + draggedCat.editArt.ID );
+						trace(draggedCat.x, draggedCat.y, draggedCat.editArt.x, draggedCat.editArt.y);
+					}
 					draggedCat = null;
 					break;
 				
@@ -180,6 +184,7 @@ package
 		private function onGoButtonTriggered( e:Event ):void
 		{
 			goButton.removeEventListener(Event.TRIGGERED, onGoButtonTriggered);
+			
 			// TRON: This crashes after a few state returns, looks like added physics objects aren't being cleaned up.
 			//	_ce.futureState = new BattleState();
 			//	eaze(this).to( 1.5, {alpha:0});
@@ -193,6 +198,7 @@ package
 			_ce.gameData[Config.CURRENT_LEVEL]	= levelData;
 			
 			_ce.state = new BattleState();
+			
 		}
 		
 		

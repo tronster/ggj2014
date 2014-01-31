@@ -60,7 +60,7 @@ package
 			{
 				if (arr[i].length != 3 )
 				{
-					error("makePath has an invalid path node, need 3 data go " + arr[i].lenght );
+					error("makePath has an invalid path node, need 3 data go " + arr[i].length );
 					continue;
 				}
 				

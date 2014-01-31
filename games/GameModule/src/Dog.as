@@ -6,6 +6,7 @@ package
 	import citrus.core.CitrusEngine;
 	import citrus.objects.Box2DPhysicsObject;
 	import citrus.view.starlingview.AnimationSequence;
+	import citrus.view.starlingview.StarlingArt;
 	import flash.geom.Point;
 	import starling.display.Image;
 	import starling.display.MovieClip;
@@ -22,7 +23,7 @@ package
 		public var y		:Number;
 		public var hp		:Number;
 		public var maxHp	:Number;
-		public var movementSpeed:Number = 1.5;
+		public var movementSpeed:Number = 1.8;
 		
 		public var editArt:Box2DPhysicsObject;
 		public var playArt:DogPhysicsObject;
@@ -36,9 +37,8 @@ package
 		public var targetNode	:Node;
 		
 		private var strType:String;
-		private var frameNum:int;
-		private var frameDur:Number;
-		public var state:String;
+		private var state:String;
+		private var sequence:AnimationSequence;
 		
 		public function Dog(type:uint) 
 		{
@@ -50,13 +50,32 @@ package
 			
 			
 			//playArt.view = "../embed/Dog1.swf";
-			frameDur = 0;
 			strType = "Dog" + type;
-			
-			frameNum = 1;
 			state = Config.LEFT;
-			playArt = new DogPhysicsObject(this, "dogs_playart", { x:x, y:y, width:90, height:90} );
-			playArt.view = new Image(Resources.getAtlas(strType + state).getTexture(strType + state + "01"));		//easier to just put the '0' here
+			
+			//set up playArt's view
+			sequence = Resources.getViewWithMultipleAtlas([strType + Config.LEFT, strType + Config.RIGHT, 
+																			strType + Config.UP, strType + Config.DOWN, 
+																			strType + Config.DEFEAT], 24);
+			sequence.onAnimationComplete.add(playArtAnimationComplete);
+			//set up playArt
+			playArt = new DogPhysicsObject(this, "dogs_playart", { x:x, y:y, width:90, height:90 } );
+			playArt.view = sequence;
+			
+			var names:Vector.<String> = AnimationSequence(playArt.view).getAnimationNames();
+			for each(var str:String in names)
+			{
+				trace("Animation Name: " + str);
+			}
+			
+			//output all looping animations in within Starling Art, this should be global across the entire game
+			StarlingArt.setLoopAnimations([strType + Config.LEFT, strType + Config.RIGHT, strType + Config.UP, strType + Config.DOWN]);
+			for each(var obj:Object in StarlingArt.loopAnimation)
+			{
+				trace("StarlingArt Loops: " + obj);
+			}
+			
+			//playArt.view = new Image(Resources.getAtlas(strType + state).getTexture(strType + state + "01"));		//easier to just put the '0' here
 			//playArt.view = tempAnima;
 		}
 		
@@ -65,6 +84,11 @@ package
 			var state:BattleState = CitrusEngine.getInstance().state as BattleState;
 			
 			state.remove(playArt);
+		}
+		
+		public function stopAnimations():void
+		{
+			(sequence as MovieClip).stop();
 		}
 		
 		public function init():void
@@ -89,16 +113,15 @@ package
 				if (isActive && !doDeath)
 				{
 					//calculate distance to move to next node
+					//and determine state based on direction
 					if (distX > movementSpeed) 
 					{
 						distX = movementSpeed;
 						state = Config.RIGHT;
-						//AnimationSequence(playArt.view).changeAnimation("Dog" + type + "Right", true);
 					}else if (distX < -movementSpeed) 
 					{
 						distX = -movementSpeed;
 						state = Config.LEFT;
-						//AnimationSequence(playArt.view).changeAnimation("Dog" + type + "Left", true);
 					}
 						
 					//handle verticial movement
@@ -106,12 +129,10 @@ package
 					{
 						distY = movementSpeed;
 						state = Config.DOWN;
-						//AnimationSequence(playArt.view).changeAnimation("Dog" + type + "Down", true);
 					}else if (distY < -movementSpeed) 
 					{
 						distY = -movementSpeed;
 						state = Config.UP;
-						//AnimationSequence(playArt.view).changeAnimation("Dog" + type + "Up", true);
 					}
 					
 					this.x += distX;
@@ -120,50 +141,23 @@ package
 					if (distX == 0 && distY == 0) reachedNode = true;					
 				}else {
 					state = Config.DEFEAT;
-					Image(playArt.view).scaleX = 2;
-					Image(playArt.view).scaleY = 2;
 				}
 			}
 			
-			handlePlayArtAnimation(timeDelta);
-			//AnimationSequence(playArt.view).changeAnimation("Dog" + type + "Left");
-			//var name:Vector.<String> = AnimationSequence(playArt.view).getAnimationNames();
-			//trace(name[0], name.length, AnimationSequence(playArt.view).mcSequences[name[0]].currentFrame);
-			//var mc:MovieClip = name.length, AnimationSequence(playArt.view).mcSequences[name[0]]
-			
+			playArt.animation = strType + state;
 			playArt.x = this.x;
 			playArt.y = this.y;
+			//keep the sequence centered on the physics object since the size of the animation may change at any given time
+			sequence.x = -sequence.width * .5;
+			sequence.y = -sequence.height * .5;
 		}
 		
-		private function handlePlayArtAnimation(timeDelta:Number):void
+		private function playArtAnimationComplete(name:String):void 
 		{
-			frameDur += timeDelta;
-			var img:Image = playArt.view as Image;
-			var strFrameNum:String;
-			
-			if (frameDur >= Main.TARGET_FRAME_TIME)
+			//if the anaimation that has completed is the defeat animation, the dog should no longer be active
+			if (name == strType + Config.DEFEAT)
 			{
-				frameNum++;
-				strFrameNum = (frameNum < 10) ? "0" + frameNum.toString() : frameNum.toString();
-				
-				var texture:Texture = Resources.getAtlas(strType + state).getTexture(strType + state + strFrameNum);
-				
-				if (texture == null)
-				{
-					if (!doDeath)
-					{
-						frameNum = 1;
-						strFrameNum = "01";
-						texture = Resources.getAtlas(strType + state).getTexture(strType + state + strFrameNum);
-					}else { 
-						isActive = false;
-						return;
-					}
-				}
-				
-				trace("Dog's Texture Info: ", texture.width, texture.height, texture.scale);
-				img.texture = texture;
-				frameDur = 0;
+				isActive = false;
 			}
 		}
 		
