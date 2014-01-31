@@ -41,6 +41,7 @@ package
 
 			startBtn.x = 750;
 			startBtn.y = 550;
+			startBtn.text = "Start";
 			startBtn.addEventListener(Event.TRIGGERED, onButtonTriggered);
 			addChild( startBtn );
 		}
@@ -48,13 +49,13 @@ package
 		public function onButtonTriggered(e:Event):void 
 		{
 			_ce.sound.playSound("buttonSfx");
-			//resetGame();
+			resetGame();
 			_ce.state = new EditState();
 		}
 		
 		public function resetGame():void
 		{
-			_ce.gameData[Config.CURRENT_LEVEL_NUM] 	= 1;
+			_ce.gameData[Config.CURRENT_LEVEL_NUM] 	= Config.START_ON_LEVEL;
 			_ce.gameData[Config.CURRENT_LEVEL] 		= null;
 		}
 	}

@@ -36,14 +36,16 @@ package
 			dog.inBattle = true;
 			
 			var tempSequence:AnimationSequence = Resources.getView("hpbar");
-			MovieClip(tempSequence).stop();
+			tempSequence.pauseAnimation( true );
 			
 			catHealth = new CitrusSprite("cat_battle_health", {view:tempSequence});
 			catHealth.x = (this.x + view.width * .5) - catHealth.view.width * .5;
 			catHealth.y = (this.y + view.height * .5) - (catHealth.view.height * .5) - 20;
 			
+			
 			tempSequence = Resources.getView("hpbar");
-			MovieClip(tempSequence).stop();
+			tempSequence.pauseAnimation( true );
+			
 			dogHealth = new CitrusSprite("dog_battle_health", { view:tempSequence } );
 			dogHealth.x = (this.x + view.width * .5) - catHealth.view.width * .5;
 			dogHealth.y = (this.y + view.height * .5) + 20;
