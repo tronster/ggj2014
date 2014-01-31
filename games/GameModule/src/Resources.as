@@ -212,19 +212,24 @@ package
 		}			
 		
 		// name Cat1Victory
-		static public function getView( name:String, loop:Boolean = true ) :AnimationSequence
+		static public function getView( name:String, loop:Boolean = true, framerate:int = 30) :AnimationSequence
 		{
-			var sa:AnimationSequence = new AnimationSequence( Resources.getAtlas( name ), [name], name, 30, loop );
+			var sa:AnimationSequence = new AnimationSequence( Resources.getAtlas( name ), [name], name, framerate, loop );
 			return sa;
 		}
 		
-		static public function getViewWithMultipleAtlas(args:Array):AnimationSequence
+		/**
+		 * Returns a single animation sequence that uses animations frm multiple atlases
+		 * @param	args		Array of string that represent the animation names (these names must match the animation and file name of the alas)
+		 * @return
+		 */
+		static public function getViewWithMultipleAtlas(args:Array, framerate:int = 30):AnimationSequence
 		{
 			var sa:AnimationSequence;
 			
 			if (args is Array)
 			{
-				sa = new AnimationSequence(getAtlas(args[0]), [args[0]], args[0], 30, true);
+				sa = new AnimationSequence(getAtlas(args[0]), [args[0]], args[0], framerate, true);
 				
 				for (var i:int = 1; i < args.length; i++)
 				{

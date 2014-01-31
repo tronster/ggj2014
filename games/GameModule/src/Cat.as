@@ -1,5 +1,6 @@
 package  
 {
+	import adobe.utils.CustomActions;
 	import Box2D.Collision.b2AABB;
 	import Box2D.Dynamics.Contacts.b2Contact;
 	import citrus.core.CitrusEngine;
@@ -10,7 +11,10 @@ package
 	import citrus.objects.platformer.box2d.Sensor;
 	import citrus.physics.box2d.Box2DUtils;
 	import citrus.physics.box2d.IBox2DPhysicsObject;
+	import citrus.view.starlingview.AnimationSequence;
+	import citrus.view.starlingview.StarlingArt;
 	import starling.display.Image;
+	import starling.display.MovieClip;
 	import starling.textures.Texture;
 	
 	/**
@@ -24,6 +28,7 @@ package
 		public var y		:Number;
 		public var hp		:Number;
 		public var maxHp	:Number;
+		public var state:String;
 		
 		public var editArt:CatPhysicsObject;
 		public var playArt:CatPhysicsObject;
@@ -33,12 +38,9 @@ package
 		public var isActive:Boolean = true;
 		public var isPlaced:Boolean = false;
 		
-		private static var id:uint = 0;
-		
+		private var id:uint = 0;
 		private var strType:String;
-		private var frameNum:int;
-		private var frameDur:Number;
-		public var state:String;
+		private var sequence:AnimationSequence;
 		
 		public function Cat(type:uint) 
 		{
@@ -50,19 +52,26 @@ package
 			maxHp = Config.MAX_HP_DOG_1;
 			hp = maxHp;
 			
-			frameDur = 0;
 			strType = "Cat" + type;
-			frameNum = 1;
 			state = Config.READY;
 			
-			sensor = new ExtendedBox2dSensor("cat_sensor" + id, {x:x, y:y, width:65, height:90});
-			sensor.onBeginContact.add(onSensorCollide);
+			sequence = Resources.getViewWithMultipleAtlas([strType + Config.READY, strType + Config.LOSE]);
+			sequence.onAnimationComplete.add(playArtAnimationComplete);
 			
 			editArt = new CatPhysicsObject(this, "editCat" + id, { x:x, y:y, width:60, height:60 } );
 			editArt.view = Resources.getView("Cat" + type + "Idle");
 			
-			playArt = new CatPhysicsObject(this, "cat" + id, { x:x, y:y, width:50, height:50 } );
-			playArt.view = new Image(Resources.getAtlas(strType + state).getTexture(strType + state + "01"));		//easier to just put the '0' here
+			playArt = new CatPhysicsObject(this, "cat" + id, { x:x, y:y, width:50, height:50, view:sequence } );
+			StarlingArt.setLoopAnimations([strType + Config.READY, strType + Config.LOSE]);
+			
+			sensor = new ExtendedBox2dSensor("cat_sensor" + id, {x:x, y:y, width:sequence.width * .75, height:sequence.height});
+			sensor.onBeginContact.add(onSensorCollide);
+			//playArt.view = new Image(Resources.getAtlas(strType + state).getTexture(strType + state + "01"));		//easier to just put the '0' here
+		}
+		
+		public function stopAnimations():void
+		{
+			(sequence as MovieClip).stop();
 		}
 		
 		public function initForEdit():void
@@ -78,6 +87,7 @@ package
 			
 			playArt.changeBox2d();
 			sensor.changeBox2d();
+			
 			//playArt = new Box2DPhysicsObject("cat" + id, { x:x, y:y } );
 			//playArt.view = new Image(Resources.getAtlas(strType + state).getTexture(strType + state + "01"));		//easier to just put the '0' here
 			
@@ -91,42 +101,21 @@ package
 				else
 				{
 					playArt.visible = true;
-					if (!isActive) state = Config.DEFEAT;
+					if (!isActive) state = Config.LOSE;
 				}
 			
-			handlePlayArtAnimation(timeDelta);
+			playArt.animation = strType + state;
 			
 			playArt.x = this.x;
 			playArt.y = this.y;
 			sensor.x = this.x;
 			sensor.y = this.y;
-			
 			editArt.x = this.x;
 			editArt.y = this.y;
-		}
-		
-		private function handlePlayArtAnimation(timeDelta:Number):void
-		{
-			frameDur += timeDelta;
-			var img:Image = playArt.view as Image;
-			var strFrameNum:String;
 			
-			if (frameDur >= Main.TARGET_FRAME_TIME)
-			{
-				frameNum++;
-				strFrameNum = (frameNum < 10) ? "0" + frameNum.toString() : frameNum.toString();
-				
-				var texture:Texture = Resources.getAtlas(strType + state).getTexture(strType + state + strFrameNum);
-				
-				if (texture == null)
-				{
-					frameNum = 1;
-					strFrameNum = "01";
-					texture = Resources.getAtlas(strType + state).getTexture(strType + state + strFrameNum);
-				}
-				img.texture = texture;
-				frameDur = 0;
-			}
+			//keep the sequence centered on the physics object since the size of the animation may change at any given time
+			sequence.x = -sequence.width * .5;
+			sequence.y = -sequence.height * .5;
 		}
 		
 		private function onSensorCollide(contact:b2Contact):void 
@@ -150,7 +139,12 @@ package
 					BattleState(state).addBattleObject(battle);
 				}
 			}
-			trace("Cat's Sensor has Collided with " + Box2DUtils.CollisionGetOther(sensor, contact));
+			//trace("Cat's Sensor has Collided with " + Box2DUtils.CollisionGetOther(sensor, contact));
+		}
+		
+		private function playArtAnimationComplete(name:String):void 
+		{
+			
 		}
 	}
 

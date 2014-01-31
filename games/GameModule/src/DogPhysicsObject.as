@@ -15,6 +15,14 @@ package
 			this.parent = parent;
 			super(name, params);
 		}
+		
+		/*protected function updateAnimation():void {
+			
+			var prevAnimation:String = _animation;
+			
+			if (prevAnimation != _animation)
+				onAnimationChange.dispatch();
+		}*/
 	}
 
 }

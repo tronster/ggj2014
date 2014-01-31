@@ -45,7 +45,7 @@ package
 			super.initialize();
 			
 			box2D = new Box2D("box2D");
-			box2D.visible = true;
+			//box2D.visible = true;
 			box2D.gravity = new b2Vec2(0, 0);
 			add(box2D);
 			
@@ -99,7 +99,17 @@ package
 			
 			lifeTime = 0;
 			
+			_ce.sound.playSound("goSfx");
 			_ce.sound.playSound("battleMusic");
+		}
+		
+		override public function destroy():void
+		{
+			super.destroy();
+			
+			remove(levelbg);			
+			_ce.sound.stopAllPlayingSounds();
+			_ce.sound.removeEventListeners();
 		}
 		
 		override public function update(timeDelta:Number):void
@@ -153,7 +163,13 @@ package
 					}
 				}
 				
-				if (levelData.spawns.length == 0 && dogs.length == 0) win = true;
+				if (levelData.spawns.length == 0 && dogs.length == 0)
+				{
+					win = true;
+					_ce.sound.stopAllPlayingSounds();
+					_ce.sound.playSound("catVictorySfx");
+					stopAllAnimations();
+				}
 			}
 			else 
 			{
@@ -163,14 +179,24 @@ package
 				if (win) 
 					handleWin();
 			
-				for (i = battles.length - 1; i >= 0; i--)
+				/*for (i = battles.length - 1; i >= 0; i--)
 				{
 					battle = battles[i];
 					battle.stopAnimation();
-				}
+				}*/
 			}
 			
 			lifeTime += timeDelta;
+		}
+		
+		/**
+		 * Stop all necessary animations, typically for end of game
+		 */
+		private function stopAllAnimations():void 
+		{
+			//for each(var cat:Cat in cats) cat.stopAnimations(); 
+			//for each(var dog:Dog in dogs) dog.stopAnimations(); 
+			//for each(var battleObj:BattleObject in battles) battleObj.stopAnimations(); 
 		}
 		
 		private function handleWin():void 
@@ -218,21 +244,16 @@ package
 					if (i == 0) 
 					{
 						gameover = true;
+						_ce.sound.stopAllPlayingSounds("dogWinsSfx");
+						_ce.sound.playSound("dogWinsSfx");
+						stopAllAnimations();
 					}else {
 						node = levelData.path[i - 1];
 						dog.setNode(node);
 					}
 				}
 			}
-		}
-		
-		override public function destroy():void
-		{
-			remove(levelbg);			
-			_ce.sound.stopAllPlayingSounds();
-			_ce.sound.removeEventListeners();
-		}
-		
+		}		
 	}
 
 }
