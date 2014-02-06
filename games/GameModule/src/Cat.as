@@ -71,7 +71,7 @@ package
 		
 		public function stopAnimations():void
 		{
-			(sequence as MovieClip).stop();
+			sequence.pauseAnimation( false );
 		}
 		
 		public function initForEdit():void

@@ -9,7 +9,7 @@
 	public class Config 
 	{	
 		// ----- Global Strings --------------
-		public static const START_ON_LEVEL				:int = 1;
+		public static const START_ON_LEVEL				:int = 2;
 
 		public static const LEFT						:String = "Left";
 		public static const RIGHT						:String = "Right";

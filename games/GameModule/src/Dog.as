@@ -88,7 +88,7 @@ package
 		
 		public function stopAnimations():void
 		{
-			(sequence as MovieClip).stop();
+			sequence.pauseAnimation( false );
 		}
 		
 		public function init():void
@@ -140,7 +140,13 @@ package
 					//raise flag if the dog has reached this node
 					if (distX == 0 && distY == 0) reachedNode = true;					
 				}else {
-					state = Config.DEFEAT;
+					if (state != Config.DEFEAT)
+					{
+						state = Config.DEFEAT;
+						this.y -= 50;
+						this.x += 10;
+					}
+					
 				}
 			}
 			

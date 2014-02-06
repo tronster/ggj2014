@@ -83,8 +83,13 @@ package
 		
 		static public function getView( ld:LevelData ):DisplayObjectContainer
 		{
-			//var cs:CitrusSprite
 			var doc:DisplayObjectContainer = new DisplayObjectContainer();
+			var img:CitrusSprite;
+
+			var cs:CitrusSprite;
+			cs = new CitrusSprite("bg", { view:Image.fromBitmap(new Resources.bg()) } );
+			doc.addChild( cs.view );
+			
 			
 			const WIDTH		:uint = 7;	// last column is off-screen
 			const HEIGHT	:uint = 5;
@@ -98,7 +103,7 @@ package
 					switch( tileType )
 					{
 						case Config.TILE_NONE:
-//							img = 
+							img = new CitrusSprite( tileName(x,y), tileParams( Resources.tile_grass ) );
 							break;
 					}
 				}
@@ -112,6 +117,15 @@ package
 		}
 		
 
+		static private function tileName(x:int, y:int):String
+		{
+			return "tile" + String(x) + "-" + String(y);
+		}
+		
+		static private function tileParams( cls:Class ):Object
+		{
+			return { view:Image.fromBitmap( new cls() ) } ;
+		}
 		
 	}
 

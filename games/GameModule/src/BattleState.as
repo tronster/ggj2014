@@ -194,9 +194,9 @@ package
 		 */
 		private function stopAllAnimations():void 
 		{
-			//for each(var cat:Cat in cats) cat.stopAnimations(); 
-			//for each(var dog:Dog in dogs) dog.stopAnimations(); 
-			//for each(var battleObj:BattleObject in battles) battleObj.stopAnimations(); 
+			for each(var cat:Cat in cats) cat.stopAnimations(); 
+			for each(var dog:Dog in dogs) dog.stopAnimations(); 
+			for each(var battleObj:BattleObject in battles) battleObj.stopAnimations(); 
 		}
 		
 		private function handleWin():void 

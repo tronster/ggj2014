@@ -9,6 +9,8 @@ package
 
 	public class Resources
 	{
+		// Non-sheet graphics
+		
 		[Embed(source = "/../embed/BackgroundArtPlayState.png")]									public static const bg			:Class;
 		[Embed(source = "/../embed/titlebg.png")]													public static const titlebg		:Class;
 		[Embed(source = "/../embed/title.png")]														public static const title		:Class;		
@@ -21,6 +23,10 @@ package
 		[Embed(source = "/../embed/level_low_curve.png")]											public static const level_low_curve	:Class;		
 		[Embed(source = "/../embed/level_two_bend.png")]											public static const level_two_bend	:Class;		
 		[Embed(source = "/../embed/level_backtrack.png")]											public static const level_backtrack	:Class;
+
+		[Embed(source = "/../embed/tile_none.png")]													public static const tile_none		:Class;
+		[Embed(source = "/../embed/tile_grass.png")]												public static const tile_grass		:Class;
+		[Embed(source = "/../embed/tile_path_lr.png")]												public static const tile_path_lr	:Class;
 	
 	
 		// Sheets
@@ -106,20 +112,20 @@ package
 		[Embed(source = "/../embed/Dog3Victory.xml", 	mimeType="application/octet-stream")]		public static const Dog3Victory			:Class;		
 		
 		
-		
 		[Embed(source = "/../embed/Battlecloud.png")]												public static const BattlecloudTexture	:Class;		
 		[Embed(source = "/../embed/Battlecloud.xml", 	mimeType="application/octet-stream")]		public static const BattlecloudXml		:Class;		
 
 		[Embed(source = "/../embed/hpbar.png")]														public static const hpbarTexture		:Class;		
 		[Embed(source = "/../embed/hpbar.xml", 			mimeType="application/octet-stream")]		public static const hpbar				:Class;		
 		
+		[Embed(source = "/../embed/DefaultSpritesheet.png")]										public static const AtlasTextureDefault:Class;
+		[Embed(source = "/../embed/DefaultSpritesheet.xml", mimeType="application/octet-stream")]	public static const AtlasXmlDefault:Class;
+		
+		[Embed(source = "/../embed/asset_sheet.png")]												public static const AtlasTextureTemp:Class;
+		[Embed(source = "/../embed/asset_data.xml", mimeType="application/octet-stream")]			public static const AtlasXmlTemp:Class;
 		
 		
-		[Embed(source="/../embed/DefaultSpritesheet.png")]											public static const AtlasTextureDefault:Class;
-		[Embed(source="/../embed/DefaultSpritesheet.xml", mimeType="application/octet-stream")]		public static const AtlasXmlDefault:Class;
-		
-		[Embed(source="/../embed/asset_sheet.png")]													public static const AtlasTextureTemp:Class;
-		[Embed(source="/../embed/asset_data.xml", mimeType="application/octet-stream")]				public static const AtlasXmlTemp:Class;
+		// Everything else
 		
 		[Embed(source="/../embed/main_font.png")]													public static const MainFontTexture:Class;
 		[Embed(source="/../embed/main_font.fnt", mimeType="application/octet-stream")]				public static const MainFontData:Class;

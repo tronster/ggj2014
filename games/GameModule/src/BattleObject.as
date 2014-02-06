@@ -36,7 +36,7 @@ package
 			dog.inBattle = true;
 			
 			var tempSequence:AnimationSequence = Resources.getView("hpbar");
-			tempSequence.pauseAnimation( true );
+			tempSequence.pauseAnimation( false );
 			
 			catHealth = new CitrusSprite("cat_battle_health", {view:tempSequence});
 			catHealth.x = (this.x + view.width * .5) - catHealth.view.width * .5;
@@ -44,7 +44,7 @@ package
 			
 			
 			tempSequence = Resources.getView("hpbar");
-			tempSequence.pauseAnimation( true );
+			tempSequence.pauseAnimation( false );
 			
 			dogHealth = new CitrusSprite("dog_battle_health", { view:tempSequence } );
 			dogHealth.x = (this.x + view.width * .5) - catHealth.view.width * .5;
@@ -59,7 +59,7 @@ package
 		 * @param	state
 		 */
 		public function dispose(state:IState):void
-		{
+		{	
 			super.destroy();
 			state.remove(this);
 			state.remove(catHealth);
@@ -68,9 +68,9 @@ package
 		
 		public function stopAnimations():void
 		{
-			AnimationSequence(catHealth.view).mcSequences["hpbar"].stop();
-			AnimationSequence(dogHealth.view).mcSequences["hpbar"].stop();
-			(battleSequence as MovieClip).stop();
+			AnimationSequence(catHealth.view).pauseAnimation( false );
+			AnimationSequence(dogHealth.view).pauseAnimation( false );
+			battleSequence.pauseAnimation( false );
 		}
 		
 		override public function update(timeDelta:Number):void 
