@@ -2,31 +2,184 @@ package
 {
 	import citrus.core.CitrusEngine;
 	import citrus.objects.CitrusSprite;
-	import starling.display.DisplayObjectContainer;
 	import starling.display.Image;
 
-	/**
-	 * ...
-	 * @author 
-	 */
-	public class LevelMaker 
-	{
-		
 
-		static public function create( cat1:uint, cat2:uint, cat3:uint, path:Vector.<Node>, spawns:Array, txt:String = "" ):LevelData
+	
+	public class LevelMaker 
+	{	
+		static public function foo():void
 		{
-			var ld:LevelData 	= new LevelData();
-			ld.catType1 		= cat1;
-			ld.catType2 		= cat2;
-			ld.catType3 		= cat3;
+		}
+				
+		static public function create( rawLevelData:Array, cats:Array, path2:Vector.<Node>, spawns:Array, txt:String = "" ):LevelData
+		{			
+			const HEADER_LENGTH:int = 5;
+			
+			assert( rawLevelData.length > HEADER_LENGTH, "Invalid level data sent to LevelMaker!" );
+			
+			var width	:int = rawLevelData[0];
+			var height	:int = rawLevelData[1];
+			var startx	:int = rawLevelData[2];
+			var starty	:int = rawLevelData[3];
+			var tileSize:int = rawLevelData[4];
+			
+			var ld:LevelData 	= new LevelData(width, height);
+			ld.catType1 		= valueOrZero( cats[0] );
+			ld.catType2 		= valueOrZero( cats[1] );
+			ld.catType3 		= valueOrZero( cats[2] );
 			ld.objectiveText 	= (txt.length > 0) ? txt : "Stop our neighbor's dogs from taking our sushi!";
-			ld.path				= path;
+			//ld.path				= path;
+			
+			// Copy 1d array into 2d structure
+			var x:int;
+			var y:int;
+			var value:uint;
+			var endNode:Node = new Node( -1, -1 );
+			for (y = 0; y < height; ++y )
+			{
+				for (x = 0; x < width; ++x)
+				{
+					value = rawLevelData[ HEADER_LENGTH + (x + (y * width)) ];
+					ld.tiles.put( x, y, value ); 
+					
+					// Ending tile?  Note where it's at
+					if ( value == Config.TILE_SUSHI )
+					{
+						endNode.set( x, y );
+					}
+				}
+			}
+			
+			assert( endNode.isSet(), "No end node was found in level data!" );
+						
+			// Find path in 2d structure, starting from the end goal working back to the start...
+			
+			// Track visisted tiles
+			var visited:Array2d = new Array2d( width, height );
+			visited.fill( false );
+			
+			var currentNode	:Node 			= endNode;
+			var tile		:int			= 0;
+			var path		:Vector.<Node> 	= new Vector.<Node>();
+			var isBuilding	:Boolean 		= true;
+
+			while ( isBuilding )
+			{
+				path.push( currentNode );
+				visited.put( currentNode.x, currentNode.y, true );
+				
+				tile = ld.tiles.at(currentNode.x, currentNode.y);
+				
+				switch( tile )
+				{
+					default:
+						assert( false, "Unknown tile type found in building level nodes, value: " + tile );
+						isBuilding = false;
+						break;
+						
+					case Config.TILE_NONE:
+						assert( false, "Starting tile wasn't found in making level nodes." );
+						isBuilding = false;
+						break;
+						
+					case Config.TILE_PATH_STRAIGHT:
+						if ( visited.at( currentNode.x - 1, currentNode.y ) )
+							currentNode = new Node( currentNode.x + 1, currentNode.y );
+						else
+							currentNode = new Node( currentNode.x - 1, currentNode.y );
+						break;
+						
+					case Config.TILE_PATH_VSTRAIGHT:
+						if ( visited.at( currentNode.x, currentNode.y + 1 ) )
+							currentNode = new Node( currentNode.x, currentNode.y - 1 )
+						else
+							currentNode = new Node( currentNode.x, currentNode.y + 1 )						
+						break;
+						
+					case Config.TILE_PATH_TOP_RIGHT:
+						if ( visited.at( currentNode.x, currentNode.y - 1 ) )
+							currentNode = new Node( currentNode.x + 1 , currentNode.y );
+						else
+							currentNode = new Node( currentNode.x, currentNode.y - 1 );
+						break;
+						
+					case Config.TILE_PATH_BOTTOM_RIGHT:
+						if ( visited.at( currentNode.x + 1, currentNode.y ) )
+							currentNode = new Node( currentNode.x, currentNode.y + 1);
+						else
+							currentNode = new Node( currentNode.x + 1, currentNode.y );
+						break;
+						
+					case Config.TILE_PATH_TOP_LEFT:
+						if ( visited.at( currentNode.x, currentNode.y - 1) )
+							currentNode = new Node( currentNode.x - 1, currentNode.y );
+						else
+							currentNode = new Node( currentNode.x, currentNode.y - 1 );
+						break;
+						
+					case Config.TILE_PATH_BOTTOM_LEFT:
+						if ( visited.at( currentNode.x - 1, currentNode.y ) )
+							currentNode = new Node( currentNode.x, currentNode.y + 1 );
+						else 
+							currentNode = new Node( currentNode.x - 1, currentNode.y );
+						break;
+					
+					case Config.TILE_DOG_START:
+						isBuilding = false;
+						currentNode = null;
+						break;
+						
+					case Config.TILE_SUSHI:
+						currentNode = new Node( currentNode.x + 1, currentNode.y );
+						break;
+						
+				}
+				
+				if ( currentNode )
+				{
+					// Mark nodes we already visisted.
+					assert( !visited.at( currentNode.x, currentNode.y ), "Already visisted tile " + currentNode.x + ", " + currentNode.y + " when build nodes.");
+				}
+				else
+				{
+					assert( !isBuilding, "NULL current node but still building node path! Wat?" );
+				}
+				
+			} // END for nodes
+			
 			
 			var i:int = 0;
-			//for (i = 0; i < tiles.length; i++ )		ld.tiles.push( tiles[i] );
-			for (i = 0; i < spawns.length; i++ )	ld.spawns.push( spawns[i] );
+			
+			// Nodes in path list are in grid coordiantes, need to put them
+			// into screen space coordinates...
+			for ( i = 0; i < path.length; ++i )
+			{
+				path[i].x = startx + (tileSize/2) + ( path[i].x * tileSize );
+				path[i].y = starty + (tileSize/2) + ( path[i].y * tileSize );
+			}			
+			ld.path = path;
+			
+			// ??TRON: Debug - remove: yeah, some of the paths are not aligned, originally bad values
+			/*
+			for (var t:int = 0; t < path.length; t++ )
+			{
+				trace( "v" + t + ": " + ld.path[t] + " == " + path2[t] );
+			}
+			*/
+
+			for (i = 0; i < spawns.length; i++ )
+				ld.spawns.push( spawns[i] );
 			
 			return ld;
+		}
+		
+		
+		/// Helper
+		static private function valueOrZero( val:* ):int
+		{
+			if ( val == null ) return 0;
+			else return int(val);
 		}
 		
 		
@@ -71,7 +224,6 @@ package
 				node = new Node();
 				node.x 		= START_X + (TILE_SIZE/2) + (x * TILE_SIZE);
 				node.y 		= START_Y + (TILE_SIZE/2) + (y * TILE_SIZE);
-				node.gfxType= t;
 				
 				path.push( node );
 			}
@@ -79,44 +231,6 @@ package
 		}
 		
 		
-		
-		
-		static public function getView( ld:LevelData ):DisplayObjectContainer
-		{
-			var doc:DisplayObjectContainer = new DisplayObjectContainer();
-			var img:CitrusSprite;
-
-			var cs:CitrusSprite;
-			cs = new CitrusSprite("bg", { view:Image.fromBitmap(new Resources.bg()) } );
-			doc.addChild( cs.view );
-			
-			
-			const WIDTH		:uint = 7;	// last column is off-screen
-			const HEIGHT	:uint = 5;
-			var tileType	:int = 0;
-			
-			for (var y:int = 0; y < HEIGHT; ++y )
-			{
-				for (var x:int = 0; x < WIDTH; ++x )
-				{
-					tileType = ld.tiles[ (y * WIDTH) + x ];
-					switch( tileType )
-					{
-						case Config.TILE_NONE:
-							img = new CitrusSprite( tileName(x,y), tileParams( Resources.tile_grass ) );
-							break;
-					}
-				}
-			}
-			
-			var cs:CitrusSprite;
-			cs = new CitrusSprite("bg", { view:Image.fromBitmap(new Resources.bg()) } );
-			doc.addChild( cs.view );
-			
-			return doc;
-		}
-		
-
 		static private function tileName(x:int, y:int):String
 		{
 			return "tile" + String(x) + "-" + String(y);

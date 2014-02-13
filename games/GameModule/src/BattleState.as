@@ -9,6 +9,7 @@ package
 	import citrus.view.starlingview.AnimationSequence;
 	import starling.display.Button;
 	import starling.display.Image;
+	import starling.display.Sprite;
 	import starling.events.Event;
 	import starling.textures.Texture;
 	import starling.textures.TextureAtlas;
@@ -18,8 +19,6 @@ package
 	{
 		public var startTime:uint;
 		
-		public var levelbg		:CitrusSprite;
-
 		private var lifeTime:Number;
 		private var levelData:LevelData;
 		private var dogs:Vector.<Dog>;
@@ -34,10 +33,11 @@ package
 		private var victoryImage:Image;
 		private var box2D:Box2D;
 		
+		
+		/// CTOR
 		public function BattleState() 
 		{
 			super();
-			trace("Battle State Constructed");
 		}
 		
 		override public function initialize():void
@@ -56,9 +56,13 @@ package
 			
 			//var bgPath:CitrusSprite = new CitrusSprite("bg", { view:Image.fromBitmap(new Resources.level_straight()) } );
 			//bgPath.x = Main.STAGE_WIDTH - Image(bgPath.view).width;
-			//add(bgPath);
-			levelbg = levelData.getCitrusObject()
-			add( levelbg );
+			//add(bgPath);			
+			//levelbg = levelData.getCitrusObject()
+			//add( levelbg );
+			var levelbg	:Sprite = levelData.getViewBackground();
+			var levelbgSprite:CitrusSprite = new CitrusSprite("levelbg", { view: levelbg } );
+			levelbgSprite.x = 192;
+			add( levelbgSprite );
 			
 			var sushi:CitrusSprite = new CitrusSprite("bg", { view:Resources.getView("Sushi") } );
 			sushi.x = levelData.path[0].x - AnimationSequence(sushi.view).width * .5;
@@ -106,8 +110,6 @@ package
 		override public function destroy():void
 		{
 			super.destroy();
-			
-			remove(levelbg);			
 			_ce.sound.stopAllPlayingSounds();
 			_ce.sound.removeEventListeners();
 		}

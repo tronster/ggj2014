@@ -15,6 +15,10 @@ Icon made by Elegant Themes from www.flaticon.com.
 
 =========[ v2 ]==============================================================
 
+- More robust levels [ Tronster ]
+	*** In progress ***
+	- Tile system
+
 - Something has to be done during play [ Tronster ]
 	- What would that game play:
 		- Click a lot
@@ -26,27 +30,27 @@ Icon made by Elegant Themes from www.flaticon.com.
 - What order of dogs coming into level [ Shawn ]
 	- Art for this? [ ?El? ] 
 
-- Prevent cats from overlapping on edit
+- Prevent cats from overlapping on edit [ Tronster ]
 
-- Keep cats on road during edit
+- Keep cats on road during edit [ Tronster ]
 
 - (Don't allow start until cat(s) are placed)
 
-- Icons next to HP bars during battles
+- Icons next to HP bars during battles [ Shawn ]
 
-- More robust levels
-		
-- Fonts on buttons
+- Fonts on buttons [ Shawn ]
 
 - Transition animation [Tronster] 
 	- Via video H.264 
 
-- Hand icon to place cats
+- Hand icon to place cats [ Shawn ]
 
 - (How to play)
 
 
 ART:
+- Change ending art (sushi looks like "pig" according to some players)
+- Shorten width of trailing parts of long dragon dog
 - Change smoke to look like fighting (not wreckage)
 	- e.g., Looney tunes fighting dust cloud
 - More art to left side during gameplay

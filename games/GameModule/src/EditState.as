@@ -18,6 +18,7 @@ package
 	import starling.display.Button;
 	import starling.display.DisplayObject;
 	import starling.display.Image;
+	import starling.display.Sprite;
 	import starling.events.Event;
 	import starling.events.EventDispatcher;
 	import starling.events.Touch;
@@ -30,7 +31,6 @@ package
 	
 	public class EditState extends StarlingState
 	{
-		public var levelbg		:CitrusSprite;
 		public var bg			:CitrusSprite;
 		public var bgGrass		:CitrusSprite;
 		public var sidescroll	:CitrusSprite;
@@ -53,8 +53,6 @@ package
 		{
 			super.destroy();
 			
-			remove(levelbg);
-			
 			//_ce.sound.crossFade();
 			_ce.sound.stopAllPlayingSounds();
 			_ce.sound.removeEventListeners();
@@ -68,7 +66,7 @@ package
 		override public function initialize():void
 		{
 			super.initialize();
-			
+				
 			box2D = new Box2D("box2D");
 			//box2D.visible = true;
 			box2D.gravity = new b2Vec2(0, 0);
@@ -78,10 +76,15 @@ package
 			add( bg );
 			
 			getCurrentLevelData();
-			
-			levelbg = levelData.getCitrusObject()
-			add( levelbg );
 
+			// Draw the background; wrap it up in a native Citrus Sprite because 
+			// Citrus hates us and doesn't play nicely interleaving graphics with
+			// native Starling.
+			var levelbg	:Sprite = levelData.getViewBackground();
+			var levelbgSprite:CitrusSprite = new CitrusSprite("levelbg", { view: levelbg } );
+			levelbgSprite.x = 192;
+			add( levelbgSprite );
+			
 			/*
 			bgGrass = new CitrusSprite("bgGrass", { x:192, view:Image.fromBitmap(new Resources.bg()) } );
 			add( bgGrass );
@@ -213,7 +216,7 @@ package
 			}
 			
 			levelData	= ( _ce.gameData[ Config.GAMEDATA_LEVELS ][levelNum - 1] ); // .clone();
-			cats 		= levelData.makeFreshCats();
+			cats 		= levelData.getCatsAsVector();
 		}		
 	}
 

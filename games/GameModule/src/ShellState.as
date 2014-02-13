@@ -4,7 +4,9 @@ package
 	import citrus.core.starling.StarlingState;
 	import citrus.objects.CitrusSprite;
 	import starling.display.Button;
+	import starling.display.DisplayObjectContainer;
 	import starling.display.Image;
+	import starling.display.Sprite;
 	import starling.events.Event;
 	
 	public class ShellState extends StarlingState
@@ -13,6 +15,7 @@ package
 		public var background	:CitrusSprite;
 		
 		
+		/// CTOR
 		public function ShellState() 
 		{
 			super();
@@ -44,7 +47,17 @@ package
 			startBtn.text = "Start";
 			startBtn.addEventListener(Event.TRIGGERED, onButtonTriggered);
 			addChild( startBtn );
+			
+			
+			/* ??TRON - test, remove:
+			var doc:Sprite = new Sprite();
+			var csprite:CitrusSprite;
+			csprite = new CitrusSprite("bg", { view:Image.fromBitmap(new Resources.tile_grass()) } );
+			doc.addChild( csprite.view as Image );
+			addChild( doc );
+			*/
 		}
+		
 		
 		public function onButtonTriggered(e:Event):void 
 		{

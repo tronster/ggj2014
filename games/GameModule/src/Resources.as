@@ -24,9 +24,14 @@ package
 		[Embed(source = "/../embed/level_two_bend.png")]											public static const level_two_bend	:Class;		
 		[Embed(source = "/../embed/level_backtrack.png")]											public static const level_backtrack	:Class;
 
-		[Embed(source = "/../embed/tile_none.png")]													public static const tile_none		:Class;
-		[Embed(source = "/../embed/tile_grass.png")]												public static const tile_grass		:Class;
-		[Embed(source = "/../embed/tile_path_lr.png")]												public static const tile_path_lr	:Class;
+		[Embed(source = "/../embed/tile_none.png")]													public static const tile_none				:Class;
+		[Embed(source = "/../embed/tile_grass.png")]												public static const tile_grass				:Class;
+		[Embed(source = "/../embed/tile_path_straight.png")]										public static const tile_path_straight		:Class;
+		[Embed(source = "/../embed/tile_path_vstraight.png")]										public static const tile_path_vstraight		:Class;
+		[Embed(source = "/../embed/tile_path_bottom_left.png")]										public static const tile_path_bottom_left	:Class;
+		[Embed(source = "/../embed/tile_path_bottom_right.png")]									public static const tile_path_bottom_right	:Class;
+		[Embed(source = "/../embed/tile_path_top_left.png")]										public static const tile_path_top_left		:Class;
+		[Embed(source = "/../embed/tile_path_top_right.png")]										public static const tile_path_top_right		:Class;
 	
 	
 		// Sheets

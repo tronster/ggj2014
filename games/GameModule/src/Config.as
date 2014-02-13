@@ -9,7 +9,7 @@
 	public class Config 
 	{	
 		// ----- Global Strings --------------
-		public static const START_ON_LEVEL				:int = 2;
+		public static const START_ON_LEVEL				:int = 1;
 
 		public static const LEFT						:String = "Left";
 		public static const RIGHT						:String = "Right";
@@ -55,28 +55,36 @@
 		
 		// ----- LEVELS --------------------
 		
-		static public const TILE_NONE			:uint = 0;
-		static public const TILE_STRAIGHT		:uint = 1;
-		static public const TILE_VSTRAIGHT		:uint = 2;
-		static public const TILE_TOP_RIGHT		:uint = 3;
-		static public const TILE_BOTTOM_RIGHT	:uint = 4;
-		static public const TILE_TOP_LEFT		:uint = 5;
-		static public const TILE_BOTTOM_LEFT	:uint = 6;
-		static public const TILE_DOG_START		:uint = 7;
-		static public const TILE_UNUSED2		:uint = 8;
-		static public const TILE_SUSHI			:uint = 9;
+		static public const TILE_NONE				:uint = 0;
+		static public const TILE_PATH_STRAIGHT		:uint = 1;
+		static public const TILE_PATH_VSTRAIGHT		:uint = 2;
+		static public const TILE_PATH_TOP_RIGHT		:uint = 3;
+		static public const TILE_PATH_BOTTOM_RIGHT	:uint = 4;
+		static public const TILE_PATH_TOP_LEFT		:uint = 5;
+		static public const TILE_PATH_BOTTOM_LEFT	:uint = 6;
+		static public const TILE_DOG_START			:uint = 7;
+		static public const TILE_UNUSED2			:uint = 8;
+		static public const TILE_SUSHI				:uint = 9;
 				
-		static public const TILES_STRAIGHT:Array = [ 
-			7, 5,
+		
+		// FORMAT:
+		// 	width in tiles
+		//	height in tiles
+		//	start x offset in pixels
+		//	start y offset in pixels
+		//	size of tile (width and height...keeping it uniform yo!)
+		
+		static public var LEVEL_DATA_STRAIGHT:Array = [ 
+			7, 5, 192, 0, 128,			
 		    0, 0, 0, 0, 0, 0, 0,
 			0, 0, 0, 0, 0, 0, 0,
 			9, 1, 1, 1, 1, 1, 7,
 			0, 0, 0, 0, 0, 0, 0,
-			0, 0, 0, 0, 0, 0, 0,
+			0, 0, 0, 0, 0, 0, 0
 			];
 		
-		static public const TILES_ONEBEND:Array = [ 
-			7, 5,
+		static public const LEVEL_DATA_ONEBEND:Array = [ 
+			7, 5, 192, 0, 128,			
 			0, 0, 0, 0, 0, 0, 0,
 			9, 1, 6, 0, 0, 0, 0,
 			0, 0, 3, 1, 1, 1, 7,
@@ -84,8 +92,8 @@
 			0, 0, 0, 0, 0, 0, 0
 			];
 
-		static public const TILES_ONEBENDLONG:Array = [ 
-			7, 5,
+		static public const LEVEL_DATA_ONEBENDLONG:Array = [ 
+			7, 5, 192, 0, 128,			
 			9, 1, 6, 0, 0, 0, 0,
 			0, 0, 2, 0, 0, 0, 0,
 			0, 0, 2, 0, 0, 0, 0,
@@ -93,8 +101,8 @@
 			0, 0, 3, 1, 1, 1, 7
 			];
 
-		static public const TILES_TWOBEND:Array = [ 
-			7, 5,
+		static public const LEVEL_DATA_TWOBEND:Array = [ 
+			7, 5, 192, 0, 128,			
 			0, 4, 1, 6, 0, 0, 0,
 			0, 2, 0, 2, 0, 0, 0,
 			9, 5, 0, 2, 0, 0, 0,
