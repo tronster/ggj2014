@@ -38,16 +38,15 @@ package
 			TARGET_FRAME_TIME = stage.frameRate / 1000;
 			// touch or gesture?
 			//Multitouch.inputMode = MultitouchInputMode.TOUCH_POINT;
-			
-			// entry point
-			// new to AIR? please read *carefully* the readme.txt files!
+
+			Global.stage2d = stage;
 		}
 		
 		override public function initialize():void
 		{
 			setUpStarling(true);
 			
-			// Offset the sounds (less gap in the looping sound); ??TRON - Cutting off EFX sounds though; see if it can only be put on music.
+			// Offset the sounds (less gap in the looping sound); BUt cutting off EFX sounds though; see if it can only be put on music.
 			//CitrusSoundInstance.startPositionOffset = 80;
 			
 			sound.addSound("editMusic", 		{ sound:"assets/editMusic.mp3",		permanent:true, volume:0.8 , loops:int.MAX_VALUE , group:CitrusSoundGroup.BGM } );	

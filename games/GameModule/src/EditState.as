@@ -1,33 +1,24 @@
 package  
 {
-	import adobe.utils.CustomActions;
-	import aze.motion.EazeTween;
-	import aze.motion.eaze;
+	import flash.events.Event;
 	import Box2D.Common.Math.b2Vec2;
-	import citrus.core.CitrusObject;
 	import citrus.core.starling.StarlingState;
 	import citrus.objects.Box2DPhysicsObject;
 	import citrus.objects.CitrusSprite;
-	import citrus.objects.platformer.box2d.Hero;
 	import citrus.physics.box2d.Box2D;
-	import citrus.utils.objectmakers.ObjectMaker2D;
-	import citrus.view.ICitrusArt;
 	import citrus.view.starlingview.AnimationSequence;
-	import citrus.view.starlingview.StarlingArt;
-	import flash.events.MouseEvent;
 	import starling.display.Button;
-	import starling.display.DisplayObject;
 	import starling.display.Image;
 	import starling.display.Sprite;
+	import starling.display.Stage;
 	import starling.events.Event;
-	import starling.events.EventDispatcher;
+	import starling.events.KeyboardEvent;
 	import starling.events.Touch;
 	import starling.events.TouchEvent;
 	import starling.events.TouchPhase;
 	import starling.text.TextField;
-	import starling.textures.Texture;
-	import starling.textures.TextureAtlas;
-	
+	import com.tronster.video.*;
+
 	
 	public class EditState extends StarlingState
 	{
@@ -39,7 +30,8 @@ package
 		public var levelData	:LevelData;
 		public var cats			:Vector.<Cat>;
 		public var draggedCat	:Cat;
-		
+		private var vs			:VideoStream;
+				
 		public var sa:AnimationSequence;
 		public var box2D:Box2D;
 		
@@ -100,7 +92,7 @@ package
 			goButton.x = 0;
 			goButton.y = stage.stageHeight - 100;
 			goButton.useHandCursor = true;
-			goButton.addEventListener(Event.TRIGGERED, onGoButtonTriggered);
+			goButton.addEventListener( starling.events.Event.TRIGGERED, onGoButtonTriggered);
 			addChild( goButton );
 			
 			var commander:Box2DPhysicsObject = new Box2DPhysicsObject("CommanderCatCute", { x:170, y:490, view:Resources.getView("CommanderCatCute") } );
@@ -184,24 +176,16 @@ package
 		
 		
 		
-		private function onGoButtonTriggered( e:Event ):void
+		private function onGoButtonTriggered( e:starling.events.Event ):void
 		{
-			goButton.removeEventListener(Event.TRIGGERED, onGoButtonTriggered);
-			
-			// TRON: This crashes after a few state returns, looks like added physics objects aren't being cleaned up.
-			//	_ce.futureState = new BattleState();
-			//	eaze(this).to( 1.5, {alpha:0});
-			
-			/*for each( var cat:Cat in cats )
-			{
-				remove(cat.sensor);
-			}*/
+			goButton.removeEventListener( starling.events.Event.TRIGGERED, onGoButtonTriggered);
 			
 			_ce.gameData[Config.ACTIVE_CATS] 	= cats;
 			_ce.gameData[Config.CURRENT_LEVEL]	= levelData;
 			
-			_ce.state = new BattleState();
-			
+			vs = new VideoStream( "assets/TransitionAnimation.mp4" );
+			vs.addEventListener( VideoStream.VIDEO_DONE, onVideoDone );
+			vs.addEventListener( VideoStream.VIDEO_READY, onVideoReady );				
 		}
 		
 		
@@ -217,7 +201,41 @@ package
 			
 			levelData	= ( _ce.gameData[ Config.GAMEDATA_LEVELS ][levelNum - 1] ); // .clone();
 			cats 		= levelData.getCatsAsVector();
-		}		
+		}
+		
+		
+		private function onVideoDone( e:flash.events.Event ):void
+		{
+			trace("video done");
+			switchToBattleState();
+		}
+		
+		private function onVideoReady( e:flash.events.Event ):void
+		{
+			trace("onVideoReady");
+			Global.stage2d.addChild( vs.video );
+			vs.video.width 		= Global.stage2d.stageWidth;
+			vs.video.height 	= Global.stage2d.stageHeight;
+			vs.play( true );
+			
+			stage.addEventListener( KeyboardEvent.KEY_DOWN, onKeyDown );
+		}
+		
+		private function onKeyDown( e:KeyboardEvent ):void
+		{
+			vs.stop();
+			switchToBattleState();
+		}
+		
+		private function switchToBattleState():void
+		{
+			stage.removeEventListener( KeyboardEvent.KEY_DOWN, onKeyDown );
+			Global.stage2d.removeChild( vs.video );
+			vs.removeEventListener( VideoStream.VIDEO_DONE, onVideoDone );
+			vs.removeEventListener( VideoStream.VIDEO_READY, onVideoReady );
+			_ce.state = new BattleState();			
+		}
+
 	}
 
 }

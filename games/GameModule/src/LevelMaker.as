@@ -160,14 +160,6 @@ package
 			}			
 			ld.path = path;
 			
-			// ??TRON: Debug - remove: yeah, some of the paths are not aligned, originally bad values
-			/*
-			for (var t:int = 0; t < path.length; t++ )
-			{
-				trace( "v" + t + ": " + ld.path[t] + " == " + path2[t] );
-			}
-			*/
-
 			for (i = 0; i < spawns.length; i++ )
 				ld.spawns.push( spawns[i] );
 			

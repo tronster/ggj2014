@@ -15,9 +15,10 @@ Icon made by Elegant Themes from www.flaticon.com.
 
 =========[ v2 ]==============================================================
 
-- More robust levels [ Tronster ]
-	*** In progress ***
+- More robust levels [ Tronster ] DONE
 	- Tile system
+- Transition animation [Tronster] DONE
+	- Via video H.264 
 
 - Something has to be done during play [ Tronster ]
 	- What would that game play:
@@ -31,18 +32,10 @@ Icon made by Elegant Themes from www.flaticon.com.
 	- Art for this? [ ?El? ] 
 
 - Prevent cats from overlapping on edit [ Tronster ]
-
 - Keep cats on road during edit [ Tronster ]
-
 - (Don't allow start until cat(s) are placed)
-
 - Icons next to HP bars during battles [ Shawn ]
-
 - Fonts on buttons [ Shawn ]
-
-- Transition animation [Tronster] 
-	- Via video H.264 
-
 - Hand icon to place cats [ Shawn ]
 
 - (How to play)

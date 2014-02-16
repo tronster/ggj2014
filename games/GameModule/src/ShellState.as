@@ -1,19 +1,20 @@
 package  
 {
-	import aze.motion.eaze;
-	import citrus.core.starling.StarlingState;
-	import citrus.objects.CitrusSprite;
+	import flash.events.Event;
 	import starling.display.Button;
 	import starling.display.DisplayObjectContainer;
 	import starling.display.Image;
 	import starling.display.Sprite;
 	import starling.events.Event;
+	import aze.motion.eaze;
+	import citrus.core.starling.StarlingState;
+	import citrus.objects.CitrusSprite;
+	
 	
 	public class ShellState extends StarlingState
 	{
 		public var title		:CitrusSprite;
 		public var background	:CitrusSprite;
-		
 		
 		/// CTOR
 		public function ShellState() 
@@ -26,10 +27,6 @@ package
 			super.initialize();
 			
 			background = new CitrusSprite("background", { view:Image.fromBitmap(new Resources.titlebg()), parallaxX:1.0 } );
-			//background.view.pivotX = background.x = background.view.width/2;
-			//background.view.pivotY = background.y = background.view.height / 2;
-			//background.y += 250;
-			//background.view.scaleX =background.view.scaleY = 2;
 			add( background );
 
 			title = new CitrusSprite("title", { view:Image.fromBitmap(new Resources.title()) } );
@@ -45,21 +42,12 @@ package
 			startBtn.x = 750;
 			startBtn.y = 550;
 			startBtn.text = "Start";
-			startBtn.addEventListener(Event.TRIGGERED, onButtonTriggered);
-			addChild( startBtn );
-			
-			
-			/* ??TRON - test, remove:
-			var doc:Sprite = new Sprite();
-			var csprite:CitrusSprite;
-			csprite = new CitrusSprite("bg", { view:Image.fromBitmap(new Resources.tile_grass()) } );
-			doc.addChild( csprite.view as Image );
-			addChild( doc );
-			*/
+			startBtn.addEventListener(starling.events.Event.TRIGGERED, onButtonTriggered);
+			addChild( startBtn );	
 		}
 		
 		
-		public function onButtonTriggered(e:Event):void 
+		public function onButtonTriggered(e:starling.events.Event):void 
 		{
 			_ce.sound.playSound("buttonSfx");
 			resetGame();
