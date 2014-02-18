@@ -33,9 +33,11 @@ package
 			
 			var ourConsole:Console = this.console;
 			ourConsole.addCommand( "level", onFastSwitchLevel );
-			STAGE_WIDTH = stage.stageWidth;
-			STAGE_HEIGHT = stage.stageHeight;
-			TARGET_FRAME_TIME = stage.frameRate / 1000;
+			
+			STAGE_WIDTH 		= stage.stageWidth;
+			STAGE_HEIGHT 		= stage.stageHeight;
+			TARGET_FRAME_TIME 	= stage.frameRate / 1000;
+
 			// touch or gesture?
 			//Multitouch.inputMode = MultitouchInputMode.TOUCH_POINT;
 
@@ -44,7 +46,7 @@ package
 		
 		override public function initialize():void
 		{
-			setUpStarling(true);
+			setUpStarling( Config.SHOW_FPS );
 			
 			// Offset the sounds (less gap in the looping sound); BUt cutting off EFX sounds though; see if it can only be put on music.
 			//CitrusSoundInstance.startPositionOffset = 80;

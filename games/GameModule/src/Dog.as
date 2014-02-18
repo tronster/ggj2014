@@ -1,16 +1,9 @@
 package  
 {
-	import Box2D.Collision.Shapes.b2MassData;
-	import Box2D.Common.Math.b2Vec2;
-	import Box2D.Dynamics.Contacts.b2Contact;
 	import citrus.core.CitrusEngine;
 	import citrus.objects.Box2DPhysicsObject;
 	import citrus.view.starlingview.AnimationSequence;
 	import citrus.view.starlingview.StarlingArt;
-	import flash.geom.Point;
-	import starling.display.Image;
-	import starling.display.MovieClip;
-	import starling.textures.Texture;
 	
 	/**
 	 * ...
@@ -18,28 +11,32 @@ package
 	 */
 	public class Dog 
 	{		
-		public var type		:uint;
-		public var x		:Number;
-		public var y		:Number;
-		public var hp		:Number;
-		public var maxHp	:Number;
+		public var type			:uint;
+		public var x			:Number;
+		public var y			:Number;
+		public var hp			:Number;
+		public var maxHp		:Number;
 		public var movementSpeed:Number = 1.8;
 		
-		public var editArt:Box2DPhysicsObject;
-		public var playArt:DogPhysicsObject;
+		public var editArt		:Box2DPhysicsObject;
+		public var playArt		:DogPhysicsObject;
 		
-		public var inBattle:Boolean = false;
-		public var doDeath:Boolean = false;
-		public var isActive:Boolean = true;
-		public var reachedNode:Boolean = false;
+		public var inBattle		:Boolean = false;
+		public var doDeath		:Boolean = false;
+		public var isActive		:Boolean = true;
+		public var reachedNode	:Boolean = false;
 		
 		public var previousNode	:Node;
 		public var targetNode	:Node;
 		
-		private var strType:String;
-		private var state:String;
-		private var sequence:AnimationSequence;
+		private var strType		:String;
+		private var state		:String;
+		private var sequence		:AnimationSequence;
 		
+		
+		
+		/// CTOR
+		/// @param type is 1,2, or 3 (paper, rock, sissors)
 		public function Dog(type:uint) 
 		{
 			this.type = type;
@@ -54,10 +51,15 @@ package
 			state = Config.LEFT;
 			
 			//set up playArt's view
-			sequence = Resources.getViewWithMultipleAtlas([strType + Config.LEFT, strType + Config.RIGHT, 
-																			strType + Config.UP, strType + Config.DOWN, 
-																			strType + Config.DEFEAT], 24);
+			sequence = Resources.getViewWithMultipleAtlas([	
+				strType + Config.LEFT, 
+				strType + Config.RIGHT, 
+				strType + Config.UP,
+				strType + Config.DOWN, 
+				strType + Config.DEFEAT
+				], 24);
 			sequence.onAnimationComplete.add(playArtAnimationComplete);
+			
 			//set up playArt
 			playArt = new DogPhysicsObject(this, "dogs_playart", { x:x, y:y, width:90, height:90 } );
 			playArt.view = sequence;

@@ -38,34 +38,6 @@ package
 			tiles	= new Array2d( width, height );
 		}
 		
-		
-		public function getCitrusObject():CitrusSprite
-		{
-			var c:CitrusSprite;
-			
-			switch(citrusSpriteNum)
-			{
-				case 0: 
-					c = new CitrusSprite("bg", { x:192, view:Image.fromBitmap(new Resources.level_straight()) } );
-					break;
-
-				case 1: 
-					c = new CitrusSprite("bg", { x:192, view:Image.fromBitmap(new Resources.level_low_curve()) } );
-					break;
-					
-				case 2: 
-					c = new CitrusSprite("bg", { x:192, view:Image.fromBitmap(new Resources.level_two_bend()) } );
-					break;
-					
-				case 3: 
-					c = new CitrusSprite("bg", { x:192, view:Image.fromBitmap(new Resources.level_backtrack()) } );
-					break;
-			}
-			
-			return c;
-		}
-		
-		
 		/// Duplicate this level data
 		public function clone():LevelData
 		{
@@ -76,7 +48,7 @@ package
 				
 			for each( var spawn:Spawn in spawns)
 				ld.spawns.push( spawn );
-
+				
 			ld.tiles = tiles.clone();
 			
 			ld.citrusSpriteNum = this.citrusSpriteNum;
@@ -112,7 +84,6 @@ package
 				cat = new Cat(1);
 				cat.x = xplacementConsts[ total % GRIDX];
 				cat.y =  STARTY + ( int(total / GRIDX) * GRIDSPACE );
-				cat.initForEdit();
 				v.push( cat );
 				total++;
 			}
@@ -122,7 +93,6 @@ package
 				cat = new Cat(2);
 				cat.x = xplacementConsts[ total % GRIDX];
 				cat.y =  STARTY + ( int(total / GRIDX) * GRIDSPACE );
-				cat.initForEdit();
 				v.push( cat );
 				total++;
 			}
@@ -132,7 +102,6 @@ package
 				cat = new Cat(3);
 				cat.x = xplacementConsts[ total % GRIDX];
 				cat.y =  STARTY + ( int(total / GRIDX) * GRIDSPACE );
-				cat.initForEdit();
 				v.push( cat );
 				total++;
 			}

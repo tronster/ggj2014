@@ -1,26 +1,17 @@
 package  
 {
-	import adobe.utils.CustomActions;
-	import Box2D.Collision.b2AABB;
 	import Box2D.Dynamics.Contacts.b2Contact;
 	import citrus.core.CitrusEngine;
-	import citrus.core.CitrusObject;
 	import citrus.core.IState;
-	import citrus.core.starling.StarlingState;
-	import citrus.objects.Box2DPhysicsObject;
-	import citrus.objects.platformer.box2d.Sensor;
+	import citrus.math.MathVector;
+	import citrus.objects.CitrusSprite;
 	import citrus.physics.box2d.Box2DUtils;
 	import citrus.physics.box2d.IBox2DPhysicsObject;
 	import citrus.view.starlingview.AnimationSequence;
 	import citrus.view.starlingview.StarlingArt;
-	import starling.display.Image;
-	import starling.display.MovieClip;
-	import starling.textures.Texture;
 	
-	/**
-	 * ...
-	 * @author 
-	 */
+	
+	
 	public class Cat 
 	{
 		public var type		:uint;		
@@ -28,23 +19,28 @@ package
 		public var y		:Number;
 		public var hp		:Number;
 		public var maxHp	:Number;
-		public var state:String;
+		public var state	:String;
 		
-		public var editArt:CatPhysicsObject;
-		public var playArt:CatPhysicsObject;
-		public var sensor:ExtendedBox2dSensor;
+		public var editArt	:CatPhysicsObject;
+		public var playArt	:CatPhysicsObject;
+		public var sensor	:ExtendedBox2dSensor;
 		
 		public var inBattle:Boolean = false;
 		public var isActive:Boolean = true;
 		public var isPlaced:Boolean = false;
 		
-		private var id:uint = 0;
-		private var strType:String;
-		private var sequence:AnimationSequence;
+		private var _id			:uint = 0;
+		private var strType		:String;
+		private var sequence	:AnimationSequence;
 		
+		public function get id():uint { return _id; }
+		
+		
+		
+		/// CTOR
 		public function Cat(type:uint) 
 		{
-			id++;
+			_id++;
 			
 			this.type = type;
 			x = 0;
@@ -58,14 +54,13 @@ package
 			sequence = Resources.getViewWithMultipleAtlas([strType + Config.READY, strType + Config.LOSE]);
 			sequence.onAnimationComplete.add(playArtAnimationComplete);
 			
-			editArt = new CatPhysicsObject(this, "editCat" + id, { x:x, y:y, width:60, height:60 } );
+			editArt = new CatPhysicsObject( this, "editCat" + id, { x:x, y:y, width:60, height:60 } );
 			editArt.view = Resources.getView("Cat" + type + "Idle");
 			
 			playArt = new CatPhysicsObject(this, "cat" + id, { x:x, y:y, width:50, height:50, view:sequence } );
 			StarlingArt.setLoopAnimations([strType + Config.READY, strType + Config.LOSE]);
 			
 			sensor = new ExtendedBox2dSensor("cat_sensor" + id, {x:x, y:y, width:sequence.width * .75, height:sequence.height});
-			sensor.onBeginContact.add(onSensorCollide);
 			//playArt.view = new Image(Resources.getAtlas(strType + state).getTexture(strType + state + "01"));		//easier to just put the '0' here
 		}
 		
@@ -74,10 +69,19 @@ package
 			sequence.pauseAnimation( false );
 		}
 		
+		public function onCollideEdit( a:CitrusSprite, b:CitrusSprite, mv:MathVector, n:Number  ):void
+		{
+			trace("onCollideEdit: ", a.name, b.name, mv, n );
+		}
+		
 		public function initForEdit():void
 		{
 			editArt.x = this.x;
 			editArt.y = this.y;
+			
+			sensor.changeBox2d();
+			sensor.onBeginContact.removeAll();
+			sensor.onBeginContact.add( onSensorCollideEdit );
 		}
 		
 		public function initForBattle():void
@@ -87,6 +91,8 @@ package
 			
 			playArt.changeBox2d();
 			sensor.changeBox2d();
+			sensor.onBeginContact.removeAll();
+			sensor.onBeginContact.add( onSensorCollideBattle );
 			
 			//playArt = new Box2DPhysicsObject("cat" + id, { x:x, y:y } );
 			//playArt.view = new Image(Resources.getAtlas(strType + state).getTexture(strType + state + "01"));		//easier to just put the '0' here
@@ -97,28 +103,51 @@ package
 		
 		public function update(timeDelta:Number):void
 		{
-			if (inBattle) playArt.visible = false;
-				else
-				{
-					playArt.visible = true;
-					if (!isActive) state = Config.LOSE;
-				}
+			var state:IState = CitrusEngine.getInstance().state;
+			if ( state is BattleState ) 
+				updatePlay();
+			else
+				updateEdit();
+		}
+		
+		
+		private function updateEdit() :void 
+		{	
+			editArt.x = sensor.x	= this.x;
+			editArt.y = sensor.y	= this.y;
+		}
+		
+		private function updatePlay() :void
+		{
+			if (inBattle) 
+			{
+				playArt.visible = false;
+			}
+			else
+			{
+				playArt.visible = true;
+				if (!isActive) 
+					state = Config.LOSE;
+			}
 			
-			playArt.animation = strType + state;
+			playArt.animation 	= strType + state;
+			playArt.x 			= sensor.x	= this.x;
+			playArt.y 			= sensor.y	= this.y;
 			
-			playArt.x = this.x;
-			playArt.y = this.y;
-			sensor.x = this.x;
-			sensor.y = this.y;
-			editArt.x = this.x;
-			editArt.y = this.y;
-			
-			//keep the sequence centered on the physics object since the size of the animation may change at any given time
+			// keep the sequence centered on the physics object since the size of the animation may change at any given time
 			sequence.x = -sequence.width * .5;
 			sequence.y = -sequence.height * .5;
 		}
 		
-		private function onSensorCollide(contact:b2Contact):void 
+		
+		private function onSensorCollideEdit( contact:b2Contact ):void 
+		{
+			var other:IBox2DPhysicsObject = Box2DUtils.CollisionGetOther(sensor, contact);
+			trace("onSensorCollideEdit: " + other );
+		}
+		
+		
+		private function onSensorCollideBattle(contact:b2Contact):void 
 		{
 			var other:IBox2DPhysicsObject = Box2DUtils.CollisionGetOther(sensor, contact);
 			
@@ -129,7 +158,7 @@ package
 				
 				//make sure the current state is a battle state so we can add a battle object to it
 				var state:IState = CitrusEngine.getInstance().state;
-				if ((state is BattleState)) 
+				if ( state is BattleState ) 
 				{
 					CitrusEngine.getInstance().sound.playSound("fightingSfx");
 					

@@ -10,6 +10,9 @@
 	{	
 		// ----- Global Strings --------------
 		public static const START_ON_LEVEL				:int = 1;
+		public static const SHOW_BOX2D					:Boolean = false;
+		public static const SHOW_LOG_DRAGDROP			:Boolean = false;
+		public static const SHOW_FPS					:Boolean = false;
 
 		public static const LEFT						:String = "Left";
 		public static const RIGHT						:String = "Right";

@@ -1,10 +1,8 @@
 package  
 {
-	import aze.motion.eaze;
 	import Box2D.Common.Math.b2Vec2;
 	import citrus.core.starling.StarlingState;
 	import citrus.objects.CitrusSprite;
-	import citrus.objects.platformer.simple.Sensor;
 	import citrus.physics.box2d.Box2D;
 	import citrus.view.starlingview.AnimationSequence;
 	import starling.display.Button;
@@ -12,7 +10,6 @@ package
 	import starling.display.Sprite;
 	import starling.events.Event;
 	import starling.textures.Texture;
-	import starling.textures.TextureAtlas;
 
 	
 	public class BattleState extends StarlingState
@@ -44,21 +41,16 @@ package
 		{
 			super.initialize();
 			
-			box2D = new Box2D("box2D");
-			//box2D.visible = true;
-			box2D.gravity = new b2Vec2(0, 0);
+			box2D 			= new Box2D("box2Dbattle");
+			box2D.visible 	= Config.SHOW_BOX2D;
+			box2D.gravity 	= new b2Vec2(0, 0);
 			add(box2D);
 			
 			levelData = _ce.gameData[ Config.CURRENT_LEVEL ].clone();
 			
 			var bg:CitrusSprite = new CitrusSprite("bg", { view:Image.fromBitmap(new Resources.bg()) } );
 			add(bg);
-			
-			//var bgPath:CitrusSprite = new CitrusSprite("bg", { view:Image.fromBitmap(new Resources.level_straight()) } );
-			//bgPath.x = Main.STAGE_WIDTH - Image(bgPath.view).width;
-			//add(bgPath);			
-			//levelbg = levelData.getCitrusObject()
-			//add( levelbg );
+
 			var levelbg	:Sprite = levelData.getViewBackground();
 			var levelbgSprite:CitrusSprite = new CitrusSprite("levelbg", { view: levelbg } );
 			levelbgSprite.x = 192;
@@ -86,13 +78,12 @@ package
 			addChild(victoryImage);
 			
 			cats = _ce.gameData[Config.ACTIVE_CATS];
-			//cats = new Vector.<Cat>();
 			for (var k:int = 0; k < cats.length; k++)
 			{
 				var cat:Cat = cats[k];
 				cat.initForBattle();
-				add(cat.playArt);
-				add(cat.sensor);
+				add( cat.playArt );
+				add( cat.sensor  );
 			}		
 			
 			//get how many total nodes are in the path
@@ -118,11 +109,11 @@ package
 		{
 			var i:int; 		//used for first degree loops
 			var battle:BattleObject;
+
+			super.update(timeDelta);
 			
 			if (!gameover && !win)
 			{
-				super.update(timeDelta);
-			
 				//check if it's time for a dog to be created
 				if (levelData.spawns.length >= 1 && levelData.spawns[0].time <= lifeTime)
 				{
@@ -139,7 +130,8 @@ package
 					var dog:Dog = dogs[i];
 					dog.update(timeDelta);
 					
-					if (dog.reachedNode) setNextNode(dog);
+					if (dog.reachedNode) 
+						setNextNode(dog);
 					
 					if (!dog.isActive) 
 					{
@@ -179,13 +171,7 @@ package
 					handleGameover();
 			
 				if (win) 
-					handleWin();
-			
-				/*for (i = battles.length - 1; i >= 0; i--)
-				{
-					battle = battles[i];
-					battle.stopAnimation();
-				}*/
+					handleWin();			
 			}
 			
 			lifeTime += timeDelta;

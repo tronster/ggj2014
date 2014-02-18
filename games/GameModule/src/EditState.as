@@ -1,23 +1,22 @@
 package  
 {
-	import flash.events.Event;
 	import Box2D.Common.Math.b2Vec2;
 	import citrus.core.starling.StarlingState;
 	import citrus.objects.Box2DPhysicsObject;
 	import citrus.objects.CitrusSprite;
 	import citrus.physics.box2d.Box2D;
 	import citrus.view.starlingview.AnimationSequence;
+	import com.tronster.video.*;
+	import flash.events.Event;
 	import starling.display.Button;
 	import starling.display.Image;
 	import starling.display.Sprite;
-	import starling.display.Stage;
 	import starling.events.Event;
 	import starling.events.KeyboardEvent;
 	import starling.events.Touch;
 	import starling.events.TouchEvent;
 	import starling.events.TouchPhase;
 	import starling.text.TextField;
-	import com.tronster.video.*;
 
 	
 	public class EditState extends StarlingState
@@ -32,8 +31,10 @@ package
 		public var draggedCat	:Cat;
 		private var vs			:VideoStream;
 				
-		public var sa:AnimationSequence;
-		public var box2D:Box2D;
+		private var sa			:AnimationSequence;
+		private var box2D		:Box2D;
+		private var videoIsPlaying :Boolean;
+		
 		
 		/// CTOR
 		public function EditState() 
@@ -48,20 +49,17 @@ package
 			//_ce.sound.crossFade();
 			_ce.sound.stopAllPlayingSounds();
 			_ce.sound.removeEventListeners();
-			
-			/*for each(var cat:Cat in cats)
-			{
-				cat.playArt.destroy();
-			}*/
 		}
 		
 		override public function initialize():void
 		{
 			super.initialize();
-				
-			box2D = new Box2D("box2D");
-			//box2D.visible = true;
-			box2D.gravity = new b2Vec2(0, 0);
+			
+			videoIsPlaying  = false;
+			
+			box2D 			= new Box2D("box2Dedit");
+			box2D.visible 	= Config.SHOW_BOX2D;
+			box2D.gravity 	= new b2Vec2(0, 0);
 			add( box2D );
 			
 			bg = new CitrusSprite("bg", { view:Image.fromBitmap(new Resources.bg()) } );
@@ -77,10 +75,6 @@ package
 			levelbgSprite.x = 192;
 			add( levelbgSprite );
 			
-			/*
-			bgGrass = new CitrusSprite("bgGrass", { x:192, view:Image.fromBitmap(new Resources.bg()) } );
-			add( bgGrass );
-			*/
 			sidescroll = new CitrusSprite("sidescroll", { x:0, y:0, view:Image.fromBitmap(new Resources.sidescroll()) } );
 			add( sidescroll );
 		
@@ -102,7 +96,9 @@ package
 			// Place on the stage
 			for each( var cat:Cat in cats )
 			{
+				cat.initForEdit();
 				add( cat.editArt );
+				add( cat.sensor  );
 			}
 			
 			
@@ -117,15 +113,35 @@ package
 			stage.addEventListener( TouchEvent.TOUCH, onTouch );
 		}
 		
+		
+		
+		override public function update(timeDelta:Number):void
+		{
+			super.update( timeDelta );
+			
+			for each( var cat:Cat in cats )
+				cat.update(timeDelta);
+		}
+		
+		
 		private function onTouch( e:TouchEvent ):void
 		{
 			var touch:Touch = e.getTouch( stage );
 			if (touch == null )
 				return;
+			
 				
 			switch( touch.phase )
 			{
 				case TouchPhase.BEGAN:
+					
+					// Shortcut to quit video if click/touch during play.
+					if ( videoIsPlaying )
+					{
+						switchToBattleState();
+						return;
+					}
+					
 					var targetCat:Cat = null;
 					var cat:Cat;
 					for (var i:int = 0; i < cats.length; ++i )
@@ -133,9 +149,9 @@ package
 						cat = cats[i];
 						var hw:int = (cat.editArt.width / 2); //half width
 						var hh:int = (cat.editArt.height / 2); //half height						
-						if (touch.globalX > cat.editArt.x - hw && touch.globalX < cat.editArt.x + hw)
+						if (touch.globalX > cat.x - hw && touch.globalX < cat.x + hw)
 						{
-							if (touch.globalY > cat.editArt.y - hh && touch.globalY < cat.editArt.y + hh )
+							if (touch.globalY > cat.y - hh && touch.globalY < cat.y + hh )
 							{
 								targetCat = cat;
 								_ce.sound.playSound("catPickupSfx");
@@ -144,33 +160,49 @@ package
 						}
 					}
 					draggedCat = targetCat;
-					if ( draggedCat != null )	// ??TRON debug
-						trace("Picking up  : " + draggedCat.editArt.ID );
-					else
-						trace("No cat to picjk up!");
+					if ( Config.SHOW_LOG_DRAGDROP )
+					{
+						if ( draggedCat != null )	// ??TRON debug
+							trace("Picking up  : " + draggedCat.editArt.ID );
+						else
+							trace("No cat to picjk up!");
+					}
 					break;
 					
 				case TouchPhase.ENDED:
 					_ce.sound.playSound("catDropSfx");
-					if ( draggedCat != null )	// ??TRON debug
+					if ( Config.SHOW_LOG_DRAGDROP )
 					{
-						
-						trace("Putting down: " + draggedCat.editArt.ID );
-						trace(draggedCat.x, draggedCat.y, draggedCat.editArt.x, draggedCat.editArt.y);
+						if ( draggedCat != null )	// ??TRON debug
+						{
+							trace("Putting down: " + draggedCat.editArt.ID + "  coord: " +
+								draggedCat.x, draggedCat.y, draggedCat.editArt.x, draggedCat.editArt.y);
+						}
 					}
 					draggedCat = null;
 					break;
 				
 				case TouchPhase.MOVED:
-					if ( draggedCat != null )	// ??TRON debug
-						trace("dragging    : " + draggedCat.editArt.ID );
+					if ( Config.SHOW_LOG_DRAGDROP )
+					{
+						if ( draggedCat != null )	// ??TRON debug
+							trace("dragging    : " + draggedCat.editArt.ID );
+					}
 						
 					if ( draggedCat != null )
 					{
-						draggedCat.editArt.x = touch.globalX;
-						draggedCat.editArt.y = touch.globalY;
+						draggedCat.x = touch.globalX;
+						draggedCat.y = touch.globalY;
 					}
 					break;
+					
+				default:
+					if ( Config.SHOW_LOG_DRAGDROP )
+					{
+						trace("Unhandled touch event, value: " + touch.phase);
+					}
+					break;
+
 			}			
 		}
 		
@@ -207,8 +239,10 @@ package
 		private function onVideoDone( e:flash.events.Event ):void
 		{
 			trace("video done");
+			videoIsPlaying = false;
 			switchToBattleState();
 		}
+		
 		
 		private function onVideoReady( e:flash.events.Event ):void
 		{
@@ -218,8 +252,11 @@ package
 			vs.video.height 	= Global.stage2d.stageHeight;
 			vs.play( true );
 			
+			videoIsPlaying  	= true;
+			
 			stage.addEventListener( KeyboardEvent.KEY_DOWN, onKeyDown );
 		}
+		
 		
 		private function onKeyDown( e:KeyboardEvent ):void
 		{
@@ -227,8 +264,10 @@ package
 			switchToBattleState();
 		}
 		
+		
 		private function switchToBattleState():void
 		{
+			videoIsPlaying = false;
 			stage.removeEventListener( KeyboardEvent.KEY_DOWN, onKeyDown );
 			Global.stage2d.removeChild( vs.video );
 			vs.removeEventListener( VideoStream.VIDEO_DONE, onVideoDone );
