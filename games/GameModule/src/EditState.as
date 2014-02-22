@@ -235,26 +235,29 @@ package
 			cats 		= levelData.getCatsAsVector();
 		}
 		
-		
+
+		/// Callback when video is (automatically) done playing.
 		private function onVideoDone( e:flash.events.Event ):void
 		{
-			trace("video done");
 			videoIsPlaying = false;
 			switchToBattleState();
 		}
 		
 		
+		/// Callback when video buffer is loaded and ready to start playing.
 		private function onVideoReady( e:flash.events.Event ):void
 		{
-			trace("onVideoReady");
-			Global.stage2d.addChild( vs.video );
-			vs.video.width 		= Global.stage2d.stageWidth;
-			vs.video.height 	= Global.stage2d.stageHeight;
-			vs.play( true );
-			
-			videoIsPlaying  	= true;
-			
-			stage.addEventListener( KeyboardEvent.KEY_DOWN, onKeyDown );
+			if ( !videoIsPlaying )
+			{
+				Global.stage2d.addChild( vs.video );
+				vs.video.width 		= Global.stage2d.stageWidth;
+				vs.video.height 	= Global.stage2d.stageHeight;
+				vs.play( true );
+				
+				videoIsPlaying  	= true;
+				
+				stage.addEventListener( KeyboardEvent.KEY_DOWN, onKeyDown );
+			}
 		}
 		
 		

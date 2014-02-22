@@ -37,10 +37,10 @@ package
 			STAGE_WIDTH 		= stage.stageWidth;
 			STAGE_HEIGHT 		= stage.stageHeight;
 			TARGET_FRAME_TIME 	= stage.frameRate / 1000;
-
+			
 			// touch or gesture?
 			//Multitouch.inputMode = MultitouchInputMode.TOUCH_POINT;
-
+			
 			Global.stage2d = stage;
 		}
 		

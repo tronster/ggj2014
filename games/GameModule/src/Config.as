@@ -49,11 +49,11 @@
 		public static const DAMAGE_3_TO_2	:Number = 3;
 		public static const DAMAGE_1_TO_3	:Number = 3;
 
-		public static const DAMAGE_SAME		:Number = 5;
+		public static const DAMAGE_SAME		:Number = 50;
 		
-		public static const DAMAGE_HIGH		:Number = .3;
-		public static const DAMAGE_MED		:Number = .2;
-		public static const DAMAGE_LOW		:Number = .1;
+		public static const DAMAGE_HIGH		:Number = 60;
+		public static const DAMAGE_MED		:Number = 40;
+		public static const DAMAGE_LOW		:Number = 20;
 
 		
 		// ----- LEVELS --------------------

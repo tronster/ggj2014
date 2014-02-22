@@ -78,15 +78,15 @@ package
 			//determine damage
 			if (cat.type > dog.type)
 			{
-				dog.hp -= Config.DAMAGE_HIGH;
-				cat.hp -= Config.DAMAGE_LOW;
+				dog.hp -= (Config.DAMAGE_HIGH * timeDelta);
+				cat.hp -= (Config.DAMAGE_LOW * timeDelta);
 			}else if (cat.type == dog.type)
 			{
-				dog.hp -= Config.DAMAGE_MED;
-				cat.hp -= Config.DAMAGE_MED;
+				dog.hp -= (Config.DAMAGE_MED * timeDelta);
+				cat.hp -= (Config.DAMAGE_MED * timeDelta);
 			}else {
-				dog.hp -= Config.DAMAGE_LOW;
-				cat.hp -= Config.DAMAGE_HIGH;
+				dog.hp -= (Config.DAMAGE_LOW * timeDelta);
+				cat.hp -= (Config.DAMAGE_HIGH * timeDelta);
 			}
 			
 			//set both healthbars to a frame number that coresponds to a percentage of health
