@@ -34,15 +34,9 @@ package
 			add( title );
 			eaze(title).to( 1.1, {y:200 });
 			
-			var startBtn:Button =  new Button(
-				Resources.getAtlas().getTexture("button"),
-				"",
-				Resources.getAtlas().getTexture("button hover"));
-
+			var startBtn:ButtonGame = new ButtonGame("Start", onButtonTriggered );
 			startBtn.x = 750;
 			startBtn.y = 550;
-			startBtn.text = "Start";
-			startBtn.addEventListener(starling.events.Event.TRIGGERED, onButtonTriggered);
 			addChild( startBtn );	
 		}
 		
@@ -57,7 +51,9 @@ package
 		public function resetGame():void
 		{
 			_ce.gameData[Config.CURRENT_LEVEL_NUM] 	= Config.START_ON_LEVEL;
-			_ce.gameData[Config.CURRENT_LEVEL] 		= null;
+			
+			// Citrus doesn't like NULL once key/value is set once; just trust code to
+			// write over this with first level.  _ce.gameData[Config.CURRENT_LEVEL] 		= null;
 		}
 	}
 

@@ -25,7 +25,7 @@ package
 		public var bgGrass		:CitrusSprite;
 		public var sidescroll	:CitrusSprite;
 		public var commander	:Box2DPhysicsObject;
-		public var goButton		:Button;
+		public var goButton		:ButtonGame;
 		public var levelData	:LevelData;
 		public var cats			:Vector.<Cat>;
 		public var draggedCat	:Cat;
@@ -79,14 +79,9 @@ package
 			add( sidescroll );
 		
 			
-			goButton = new Button(
-				Resources.getAtlas().getTexture("button"),
-				"Go",
-				Resources.getAtlas().getTexture("button hover"));
+			goButton = new ButtonGame("Go", onGoButtonTriggered);
 			goButton.x = 0;
 			goButton.y = stage.stageHeight - 100;
-			goButton.useHandCursor = true;
-			goButton.addEventListener( starling.events.Event.TRIGGERED, onGoButtonTriggered);
 			addChild( goButton );
 			
 			var commander:Box2DPhysicsObject = new Box2DPhysicsObject("CommanderCatCute", { x:170, y:490, view:Resources.getView("CommanderCatCute") } );

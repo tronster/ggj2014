@@ -25,7 +25,8 @@ package
 		private var gameover:Boolean = false;
 		private var win:Boolean = false;
 		
-		private var retryBtn:Button;
+		private var retryBtn:ButtonGame;
+		private var quitBtn:ButtonGame;
 		private var defeatImage:Image;
 		private var victoryImage:Image;
 		private var box2D:Box2D;
@@ -61,10 +62,14 @@ package
 			sushi.y = levelData.path[0].y - AnimationSequence(sushi.view).height * .5;
 			add(sushi);
 			
-			retryBtn = new Button(Texture.fromBitmap(new Resources.retryButton()));
-			retryBtn.x = (Main.STAGE_WIDTH - retryBtn.width) * .5;
+			retryBtn = new ButtonGame( "", onRetryClicked );
+			retryBtn.x = (Main.STAGE_WIDTH / 2) - (retryBtn.width + 50);
 			retryBtn.y = Main.STAGE_HEIGHT * .65;
-			addEventListener(Event.TRIGGERED, onRetryClicked);
+
+			quitBtn = new ButtonGame( "Quit", onQuitClicked );
+			quitBtn.x = (Main.STAGE_WIDTH / 2) + 50;
+			quitBtn.y = Main.STAGE_HEIGHT * .65;
+			
 			
 			//defeatImage = new CitrusSprite("title", { view:Image.fromBitmap(new Resources.defeat()) } );
 			defeatImage = Image.fromBitmap(new Resources.defeat());
@@ -191,18 +196,24 @@ package
 		{
 			victoryImage.y += 10;
 			
-			if (victoryImage.y > 100) victoryImage.y = 100;
+			if (victoryImage.y > 100) 
+				victoryImage.y = 100;
 			
+			retryBtn.text = "Next Yard";
 			addChild(retryBtn);
+			addChild(quitBtn);
 		}
 		
 		private function handleGameover():void 
 		{
 			defeatImage.y += 10;
 			
-			if (defeatImage.y > 100) defeatImage.y = 100;
+			if (defeatImage.y > 100)
+				defeatImage.y = 100;
 			
+			retryBtn.text = "Try again";
 			addChild(retryBtn);
+			addChild(quitBtn);
 		}
 		
 		private function onRetryClicked(e:Event):void 
@@ -215,6 +226,12 @@ package
 			}
 			
 			_ce.state = new EditState();
+		}
+		
+		private function onQuitClicked(e:starling.events.Event):void
+		{
+			// TODO: Game over text or animation state.
+			_ce.state = new ShellState();
 		}
 		
 		public function addBattleObject(battle:BattleObject):void 
