@@ -93,7 +93,7 @@ package
 			{
 				cat.initForEdit();
 				add( cat.editArt );
-				add( cat.sensor  );
+				add( cat.sensor );
 			}
 			
 			
@@ -142,14 +142,19 @@ package
 					for (var i:int = 0; i < cats.length; ++i )
 					{	
 						cat = cats[i];
-						var hw:int = (cat.editArt.width / 2); //half width
-						var hh:int = (cat.editArt.height / 2); //half height						
+						var hw:int = (cat.editArt.width / 2); 	//half width
+						var hh:int = (cat.editArt.height / 2); 	//half height						
 						if (touch.globalX > cat.x - hw && touch.globalX < cat.x + hw)
 						{
 							if (touch.globalY > cat.y - hh && touch.globalY < cat.y + hh )
 							{
-								targetCat = cat;
-								_ce.sound.playSound("catPickupSfx");
+								// Only grab it if not in collision.
+								if ( !cat.isColliding )
+								{
+									targetCat = cat;
+									_ce.sound.playSound("catPickupSfx");
+								}
+								
 								break;
 							}
 						}
@@ -157,39 +162,49 @@ package
 					draggedCat = targetCat;
 					if ( Config.SHOW_LOG_DRAGDROP )
 					{
-						if ( draggedCat != null )	// ??TRON debug
-							trace("Picking up  : " + draggedCat.editArt.ID );
+						if ( draggedCat != null )
+							trace("Picking up  : " + draggedCat );
 						else
-							trace("No cat to picjk up!");
+							trace("No cat to pick up!");
 					}
 					break;
 					
 				case TouchPhase.ENDED:
 					_ce.sound.playSound("catDropSfx");
-					if ( Config.SHOW_LOG_DRAGDROP )
+					if ( draggedCat != null )
 					{
-						if ( draggedCat != null )	// ??TRON debug
+						if ( Config.SHOW_LOG_DRAGDROP )
 						{
 							trace("Putting down: " + draggedCat.editArt.ID + "  coord: " +
 								draggedCat.x, draggedCat.y, draggedCat.editArt.x, draggedCat.editArt.y);
 						}
+						
+						draggedCat.x = draggedCat.lastGoodX;
+						draggedCat.y = draggedCat.lastGoodY;
 					}
+					
 					draggedCat = null;
 					break;
 				
 				case TouchPhase.MOVED:
 					if ( Config.SHOW_LOG_DRAGDROP )
 					{
-						if ( draggedCat != null )	// ??TRON debug
-							trace("dragging    : " + draggedCat.editArt.ID );
+						if ( draggedCat != null )
+							trace("dragging: " + draggedCat );
 					}
 						
 					if ( draggedCat != null )
 					{
-						draggedCat.x = touch.globalX;
-						draggedCat.y = touch.globalY;
+						draggedCat.x 		= touch.globalX;
+						draggedCat.y 		= touch.globalY;
+						draggedCat.alpha 	= ( draggedCat.isColliding ? 0.5 : 1 );
 					}
 					break;
+					
+					
+				case TouchPhase.HOVER:
+					break;
+					
 					
 				default:
 					if ( Config.SHOW_LOG_DRAGDROP )

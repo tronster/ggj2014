@@ -26,12 +26,14 @@ package
 			fontColor = 0x0;
 			
 			//??TRON debug
+			/*
 			trace("----- FONTs ------");
 			var embeddedFonts:Vector.<Font> = Vector.<Font>(Font.enumerateFonts());		   
 			for (var i:int = embeddedFonts.length - 1; i > -1; i-- )
 			{
 			   trace("EMBEDDED FONT #" + i + ": " + embeddedFonts[i].fontName );
 			}
+			*/
 		}
 		
 		override public function dispose():void

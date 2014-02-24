@@ -12,7 +12,7 @@ package
 		{
 		}
 				
-		static public function create( rawLevelData:Array, cats:Array, path2:Vector.<Node>, spawns:Array, txt:String = "" ):LevelData
+		static public function create( rawLevelData:Array, cats:Array, spawns:Array, txt:String = "" ):LevelData
 		{			
 			const HEADER_LENGTH:int = 5;
 			

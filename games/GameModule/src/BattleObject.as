@@ -89,9 +89,13 @@ package
 				cat.hp -= (Config.DAMAGE_HIGH * timeDelta);
 			}
 			
+			
+			var newCatHP:int = Math.max( 0, Math.ceil((cat.hp / cat.maxHp) * (numHealthBarFrames - 1)) );
+			var newDogHP:int = Math.max( 0, Math.ceil((dog.hp / dog.maxHp) * (numHealthBarFrames - 1)) );
+			
 			//set both healthbars to a frame number that coresponds to a percentage of health
-			AnimationSequence(catHealth.view).mcSequences["hpbar"].currentFrame = Math.ceil((cat.hp / cat.maxHp) * (numHealthBarFrames - 1));
-			AnimationSequence(dogHealth.view).mcSequences["hpbar"].currentFrame = Math.ceil((dog.hp / dog.maxHp) * (numHealthBarFrames - 1));
+			AnimationSequence(catHealth.view).mcSequences["hpbar"].currentFrame = newCatHP;
+			AnimationSequence(dogHealth.view).mcSequences["hpbar"].currentFrame = newDogHP;
 			checkBattleEnded();
 			
 			//trace("There is a battle going on, Cat: Hp ", cat.hp + " Type ", cat.type + " Dog: Hp ", dog.hp + " Type ", dog.type);

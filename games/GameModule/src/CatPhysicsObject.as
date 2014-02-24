@@ -10,12 +10,15 @@ package
 	 */
 	public class CatPhysicsObject extends ExtendedBox2DPhysicsObject
 	{
-		public var parent:Cat;
+		private var parent:Cat;
 		
 		public function CatPhysicsObject(parent:Cat, name:String, params:Object = null) 
 		{
 			this.parent = parent;
 			super(name, params);
+			
+			beginContactCallEnabled = true;
+			endContactCallEnabled = true;
 		}
 		
 /*
@@ -29,9 +32,15 @@ package
 */		
 		override public function handleBeginContact(contact:b2Contact):void 
 		{
-			trace("contact: " + contact );
+			super.handleBeginContact( contact);			
+			parent.handleBeginContact( contact );
 		}
 		
+		override public function handleEndContact(contact:b2Contact):void
+		{
+			super.handleEndContact( contact );
+			parent.handleEndContact( contact );
+		}
 		
 	}
 

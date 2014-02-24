@@ -63,11 +63,11 @@ package
 			add(sushi);
 			
 			retryBtn = new ButtonGame( "", onRetryClicked );
-			retryBtn.x = (Main.STAGE_WIDTH / 2) - (retryBtn.width + 50);
+			retryBtn.x = (Main.STAGE_WIDTH / 2) + 50;
 			retryBtn.y = Main.STAGE_HEIGHT * .65;
 
 			quitBtn = new ButtonGame( "Quit", onQuitClicked );
-			quitBtn.x = (Main.STAGE_WIDTH / 2) + 50;
+			quitBtn.x = (Main.STAGE_WIDTH / 2) - (retryBtn.width + 50);
 			quitBtn.y = Main.STAGE_HEIGHT * .65;
 			
 			

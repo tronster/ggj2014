@@ -9,6 +9,7 @@ package
 	import citrus.physics.box2d.IBox2DPhysicsObject;
 	import citrus.view.starlingview.AnimationSequence;
 	import citrus.view.starlingview.StarlingArt;
+	import starling.display.Image;
 	
 	
 	
@@ -17,6 +18,10 @@ package
 		public var type		:uint;		
 		public var x		:Number;
 		public var y		:Number;
+		public var prevX:Number;
+		public var prevY:Number;
+		public var lastGoodX:Number;
+		public var lastGoodY:Number;
 		public var hp		:Number;
 		public var maxHp	:Number;
 		public var state	:String;
@@ -29,20 +34,24 @@ package
 		public var isActive:Boolean = true;
 		public var isPlaced:Boolean = false;
 		
-		private var _id			:uint = 0;
 		private var strType		:String;
+		private var contacts	:int;
 		private var sequence	:AnimationSequence;
+
 		
-		public function get id():uint { return _id; }
+		static private var _nextId	:uint = 0;
+		private var _id				:uint = 0;
+		public function get id()	:uint { return _id; }
 		
 		
 		
 		/// CTOR
 		public function Cat(type:uint) 
 		{
-			_id++;
+			_id = ++_nextId;
 			
 			this.type = type;
+			contacts = 0;
 			x = 0;
 			y = 0;
 			maxHp = Config.MAX_HP_DOG_1;
@@ -58,10 +67,12 @@ package
 			editArt.view = Resources.getView("Cat" + type + "Idle");
 			
 			playArt = new CatPhysicsObject(this, "cat" + id, { x:x, y:y, width:50, height:50, view:sequence } );
-			StarlingArt.setLoopAnimations([strType + Config.READY, strType + Config.LOSE]);
-			
-			sensor = new ExtendedBox2dSensor("cat_sensor" + id, {x:x, y:y, width:sequence.width * .75, height:sequence.height});
-			//playArt.view = new Image(Resources.getAtlas(strType + state).getTexture(strType + state + "01"));		//easier to just put the '0' here
+			StarlingArt.setLoopAnimations([strType + Config.READY, strType + Config.LOSE]);			
+		}
+		
+		public function toString():String
+		{
+			return "cat{id:" + _id + ", type:" + type + ", hp:"  + hp + ", contacts: " + contacts + "}";
 		}
 		
 		public function stopAnimations():void
@@ -69,19 +80,67 @@ package
 			sequence.pauseAnimation( false );
 		}
 		
-		public function onCollideEdit( a:CitrusSprite, b:CitrusSprite, mv:MathVector, n:Number  ):void
-		{
-			trace("onCollideEdit: ", a.name, b.name, mv, n );
-		}
 		
-		public function initForEdit():void
+		public function initForEdit():void	
 		{
 			editArt.x = this.x;
 			editArt.y = this.y;
 			
+			if ( sensor )
+			{
+				sensor.destroy();
+				sensor = null;
+			}
+			sensor = new ExtendedBox2dSensor(
+				"cat_sensor" + id, 
+				{
+					x:x, 
+					y:y, 
+					width:sequence.width * .75, 
+					height:sequence.height * 0.5
+				}
+			);
 			sensor.changeBox2d();
 			sensor.onBeginContact.removeAll();
 			sensor.onBeginContact.add( onSensorCollideEdit );
+
+			editArt.beginContactCallEnabled = true;
+			editArt.endContactCallEnabled	= true;
+		}
+		
+		
+		public function handleBeginContact( contact:b2Contact ):void
+		{
+			if ( isEditing )
+			{				
+				trace("BeginContact contact: " + contact );
+				++contacts;
+				
+				if (contacts == 2)
+				{
+					lastGoodX = prevX;
+					lastGoodY = prevY;
+				}
+			}
+		}
+		
+		public function handleEndContact( contact:b2Contact ):void
+		{
+			if ( isEditing )
+			{
+				trace("  EndContact contact: " + contact );
+				--contacts;
+				
+				assert(contacts >= 0, "More end contacts than begin contacts for cat: " + this );
+				if (contacts < 0 ) 
+					contacts = 0;
+			}
+		}
+		
+		public function get isColliding():Boolean
+		{
+			// Kluge: Set to one, as each cat has a sensor which will kick off an initial begin contact.
+			return contacts > 1;
 		}
 		
 		public function initForBattle():void
@@ -90,31 +149,58 @@ package
 			this.y = editArt.y;
 			
 			playArt.changeBox2d();
+		
+			if ( sensor )
+			{
+				sensor.destroy();
+				sensor = null;
+			}
+			sensor = new ExtendedBox2dSensor("cat_sensor" + id, { x:x, y:y, width:sequence.width * .75, height:sequence.height } );
 			sensor.changeBox2d();
 			sensor.onBeginContact.removeAll();
-			sensor.onBeginContact.add( onSensorCollideBattle );
+			sensor.onBeginContact.add( onSensorCollideBattle );			
 			
-			//playArt = new Box2DPhysicsObject("cat" + id, { x:x, y:y } );
-			//playArt.view = new Image(Resources.getAtlas(strType + state).getTexture(strType + state + "01"));		//easier to just put the '0' here
-			
-			//sensor = new Sensor("cat_sensor", {x:x, y:y, width:75, height:90});
-			//sensor.onBeginContact.add(onSensorCollide);
+			editArt.beginContactCallEnabled = false;
+			editArt.endContactCallEnabled	= false;
 		}
+		
+		
+		private function onSensorCollideEdit( contact:b2Contact ):void 
+		{
+			var other:IBox2DPhysicsObject = Box2DUtils.CollisionGetOther(sensor, contact);
+			trace("onSensorCollideEdit: " + other );
+		}
+				
 		
 		public function update(timeDelta:Number):void
 		{
-			var state:IState = CitrusEngine.getInstance().state;
-			if ( state is BattleState ) 
-				updatePlay();
-			else
+			if ( isEditing ) 
 				updateEdit();
+			else
+				updatePlay();
+		}
+		
+		
+		private function get isEditing():Boolean
+		{
+			var state:IState = CitrusEngine.getInstance().state;
+			return !( state is BattleState );
 		}
 		
 		
 		private function updateEdit() :void 
 		{	
-			editArt.x = sensor.x	= this.x;
-			editArt.y = sensor.y	= this.y;
+			if ( !isColliding )
+			{
+				lastGoodX = prevX;
+				lastGoodY = prevY;
+				
+				prevX = editArt.x;
+				prevY = editArt.y;
+			}
+			
+			editArt.x = sensor.x = this.x;
+			editArt.y = sensor.y = this.y;
 		}
 		
 		private function updatePlay() :void
@@ -137,13 +223,6 @@ package
 			// keep the sequence centered on the physics object since the size of the animation may change at any given time
 			sequence.x = -sequence.width * .5;
 			sequence.y = -sequence.height * .5;
-		}
-		
-		
-		private function onSensorCollideEdit( contact:b2Contact ):void 
-		{
-			var other:IBox2DPhysicsObject = Box2DUtils.CollisionGetOther(sensor, contact);
-			trace("onSensorCollideEdit: " + other );
 		}
 		
 		
@@ -174,6 +253,14 @@ package
 		private function playArtAnimationComplete(name:String):void 
 		{
 			
+		}
+		
+		public function set alpha( amount:Number ):void 
+		{
+			var img:AnimationSequence 	= (editArt.view as AnimationSequence);
+			img.alpha 					= amount;
+			img				= (playArt.view as AnimationSequence);
+			img.alpha 		= amount;
 		}
 	}
 
